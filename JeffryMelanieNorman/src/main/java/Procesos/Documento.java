@@ -5,16 +5,32 @@
 package Procesos;
 
 /**
+ * Documento
  *
- * @author XPC
+ * @author JeffryACh
+ * 
+ * Clase que representa un proceso de tipo Documento
  */
 public class Documento extends Proceso {
     // Atributos
     private boolean formato; // true = cifrado, false = descifrado
+    private boolean esCifrado;
 
-    public Documento(int id, String nombre, String fechaDeEjecucion, String horaDeEjecucion, String horaDefinalizacion, boolean formato) {
+    // Constructor
+    /**
+     * Constructor de la clase Documento
+     * @param id - Identificador del proceso
+     * @param nombre - Nombre del proceso
+     * @param fechaDeEjecucion - Fecha de ejecucion del proceso
+     * @param horaDeEjecucion - Hora de ejecucion del proceso
+     * @param horaDefinalizacion - Hora de finalizacion del proceso
+     * @param formato - Formato del documento (true = cifrado, false = descifrado)
+     * @param esCifrado - True si es cifrado, false si no
+     */
+    public Documento(int id, String nombre, String fechaDeEjecucion, String horaDeEjecucion, String horaDefinalizacion, boolean formato, boolean esCifrado) {
         super(id, nombre, fechaDeEjecucion, horaDeEjecucion, horaDefinalizacion);
         this.formato = formato;
+        this.esCifrado = esCifrado;
     }
 
     /**
@@ -33,6 +49,19 @@ public class Documento extends Proceso {
         this.formato = formato;
     }
 
-    
-    
+    /**
+     * Metodo que retorna si el documento es cifrado o no
+     * @return boolean esCifrado - True si es cifrado, false si no
+     */
+    public boolean isEsCifrado() {
+        return esCifrado;
+    }
+
+    /**
+     * Metodo que establece si el documento es cifrado o no
+     * @param esCifrado - True si es cifrado, false si no
+     */
+    public void setEsCifrado(boolean esCifrado) {
+        this.esCifrado = esCifrado;
+    }  
 }

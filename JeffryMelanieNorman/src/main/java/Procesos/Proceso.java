@@ -6,8 +6,11 @@ package Procesos;
  */
 
 /**
+ * Proceso
  *
- * @author XPC
+ * @author JeffryACh
+ * 
+ * Clase que representa un proceso en general
  */
 public class Proceso {
     // Atributos

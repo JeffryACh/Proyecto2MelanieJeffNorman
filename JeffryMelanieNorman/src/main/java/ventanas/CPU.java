@@ -5,8 +5,11 @@
 package ventanas;
 
 /**
+ * CPU
  *
  * @author Melanie
+ * 
+ * Esta clase es la encargada de mostrar los procesos en el CPU
  */
 public class CPU extends javax.swing.JFrame {
 
@@ -129,9 +132,21 @@ public class CPU extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    /**
+     * Label que muestra el titulo de la ventana
+     */
     private javax.swing.JLabel jLabel1;
+    /**
+     * Panel principal de la ventana
+     */
     private javax.swing.JPanel jPanel1;
+    /**
+     * Tabla que muestra los procesos en ejecucion
+     */
     private javax.swing.JScrollPane jScrollPane1;
+    /**
+     * Tabla que muestra los procesos en ejecucion
+     */
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

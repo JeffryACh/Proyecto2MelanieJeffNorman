@@ -5,8 +5,11 @@
 package ventanas;
 
 /**
+ * ListaProcesos
  *
  * @author Melanie
+ * 
+ * Ventana que muestra la lista de procesos
  */
 public class ListaProcesos extends javax.swing.JFrame {
 
@@ -99,6 +102,7 @@ public class ListaProcesos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
+     * Metodo que se encarga de asignar un proceso a un CPU
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -134,9 +138,21 @@ public class ListaProcesos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    /**
+     * Label que muestra el titulo de la ventana
+     */
     private javax.swing.JLabel jLabel1;
+    /**
+     * Panel principal de la ventana
+     */
     private javax.swing.JPanel jPanel1;
+    /**
+     * Tabla que muestra los procesos
+     */
     private javax.swing.JScrollPane jScrollPane2;
+    /**
+     * Tabla que muestra los procesos en ejecucion
+     */
     private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
 }

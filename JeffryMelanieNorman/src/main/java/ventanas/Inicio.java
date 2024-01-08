@@ -5,8 +5,11 @@
 package ventanas;
 
 /**
+ * Inicio
  *
  * @author Melanie
+ * 
+ * Ventana que muestra los procesos en ejecucion y permite asignarlos a un CPU
  */
 public class Inicio extends javax.swing.JFrame {
 
@@ -121,11 +124,16 @@ public class Inicio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Metodo que se encarga de asignar un proceso a un CPU
+     * @param evt - Evento de accion
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
+     * Metodo que se encarga de asignar un proceso a un CPU
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -161,12 +169,33 @@ public class Inicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    /**
+     * Boton que se encarga de asignar un proceso a un CPU
+     */
     private javax.swing.JButton jButton1;
+    /**
+     * ComboBox que se encarga de mostrar la cantidad de CPUs
+     */
     private javax.swing.JComboBox<String> jComboBox1;
+    /**
+     * Label que muestra el titulo de la ventana
+     */
     private javax.swing.JLabel jLabel1;
+    /**
+     * Label que muestra la cantidad de CPUs
+     */
     private javax.swing.JLabel jLabel2;
+    /**
+     * Lista que muestra los procesos en ejecucion
+     */
     private javax.swing.JList<String> jList1;
+    /**
+     * Panel principal de la ventana
+     */
     private javax.swing.JPanel jPanel1;
+    /**
+     * ScrollPane que contiene la lista de procesos en ejecucion
+     */
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

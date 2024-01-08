@@ -43,11 +43,4 @@ public class LeerPRS {
 
         return archivosPRS;
     }
-
-    /**
-     * Metodo que lee un archivo .prs
-     * @param pNombreArchivo - Nombre del archivo .prs
-     * @return String[] - Arraylist de Strings con los datos del archivo .prs
-     */
-    
 }
