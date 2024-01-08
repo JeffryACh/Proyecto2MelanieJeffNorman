@@ -49,7 +49,5 @@ public class LeerPRS {
      * @param pNombreArchivo - Nombre del archivo .prs
      * @return String[] - Arraylist de Strings con los datos del archivo .prs
      */
-    public ArrayList<String> leerArchivoPRS(String pNombreArchivo) {
-        // Atributos
-    }
+    
 }

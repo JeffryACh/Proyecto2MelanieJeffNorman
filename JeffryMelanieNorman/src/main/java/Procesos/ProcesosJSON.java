@@ -12,6 +12,7 @@ import java.io.IOException;
 
 public class ProcesosJSON {
 
+    // Atributos
     private static final String[] TIPOS_PROGRAMA = {"ejecutable", "multimedia", "documento"};
     private static final String[] NOMBRES_PROGRAMA = {"Editor", "Player", "Viewer", "Manager", "Explorer"};
     private static final int ID_MIN = 256;
@@ -19,6 +20,11 @@ public class ProcesosJSON {
     private int ultimoId = ID_MIN - 1;
     private Random random = new Random();
 
+    /**
+     * Método que genera un proceso aleatorio
+     * @param usuario - Nombre del usuario
+     * @return JSONObject - Proceso generado
+     */
     public JSONObject generarProceso(String usuario) {
         JSONObject proceso = new JSONObject();
         proceso.put("ID", obtenerSiguienteId());
@@ -29,6 +35,10 @@ public class ProcesosJSON {
         return proceso;
     }
 
+    /**
+     * Método que obtiene el siguiente ID
+     * @return int - Siguiente ID
+     */
     private int obtenerSiguienteId() {
         if (ultimoId < ID_MAX) {
             ultimoId++;
@@ -38,12 +48,22 @@ public class ProcesosJSON {
         return ultimoId;
     }
 
+    /**
+     * Método que genera un nombre aleatorio
+     * @return String - Nombre aleatorio
+     */
     private String generarNombreAleatorio() {
         String base = NOMBRES_PROGRAMA[random.nextInt(NOMBRES_PROGRAMA.length)];
         int numero = random.nextInt(100);
         return base + numero + ".exe";
     }
 
+    /**
+     * Método que genera una lista de procesos por usuario
+     * @param usuario - Nombre del usuario
+     * @param cantidad - Cantidad de procesos a generar
+     * @return JSONObject - Lista de procesos generados
+     */
     public JSONObject generarProcesosPorUsuario(String usuario, int cantidad) {
         JSONArray procesos = new JSONArray();
         for (int i = 0; i < cantidad; i++) {
@@ -55,6 +75,11 @@ public class ProcesosJSON {
         return root;
     }
 
+    /**
+     * Método que guarda un JSONObject en un archivo
+     * @param json - JSONObject a guardar
+     * @param nombreArchivo - Nombre del archivo
+     */
     public void guardarEnArchivo(JSONObject json, String nombreArchivo) {
         try (FileWriter file = new FileWriter(nombreArchivo)) {
             file.write(json.toString(4)); // Imprime con indentación para mejor visualización
