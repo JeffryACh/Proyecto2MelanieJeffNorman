@@ -13,6 +13,9 @@ import java.util.ArrayList;
 public class LeerPRS {
     // Atributos
     private final String rutaDirectorio = "JeffryMelanieNorman/src/main/java/PRS";
+    /**
+     * Lista de archivos .prs
+     */
     private ArrayList<File> archivosPRS;
 
     // Constructor
@@ -26,7 +29,7 @@ public class LeerPRS {
     /**
      * Método que busca los archivos .prs en el directorio
      * @param rutaDirectorio - Ruta del directorio donde se encuentran los archivos .prs
-     * @return ArrayList<File> archivosPRS - Lista de archivos .prs
+     * @return archivosPRS - Lista de archivos .prs
      */
     public ArrayList<File> buscarArchivosPRS(String rutaDirectorio) {
         File directorio = new File(rutaDirectorio);

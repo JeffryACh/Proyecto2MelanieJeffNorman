@@ -97,6 +97,7 @@ public class CPU extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
+     * Metodo main de la clase CPU
      * @param args the command line arguments
      */
     public static void main(String args[]) {
