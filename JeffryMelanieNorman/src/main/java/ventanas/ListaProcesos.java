@@ -83,7 +83,7 @@ public class ListaProcesos extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -138,21 +138,9 @@ public class ListaProcesos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    /**
-     * Label que muestra el titulo de la ventana
-     */
     private javax.swing.JLabel jLabel1;
-    /**
-     * Panel principal de la ventana
-     */
     private javax.swing.JPanel jPanel1;
-    /**
-     * Tabla que muestra los procesos
-     */
     private javax.swing.JScrollPane jScrollPane2;
-    /**
-     * Tabla que muestra los procesos en ejecucion
-     */
     private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
 }
