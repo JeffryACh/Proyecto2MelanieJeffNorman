@@ -5,8 +5,11 @@
 package ManejoPRS;
 
 /**
+ * PRSReader
  *
- * @author nesa1
+ * @author Norman
+ * 
+ * Clase que se encarga de leer los archivos .prs
  */
 import java.io.BufferedReader;
 import java.io.File;
@@ -16,6 +19,10 @@ import java.io.IOException;
 
 public class PRSReader {
 
+    /**
+     * Método principal
+     * @param args  - Argumentos de la línea de comandos
+     */
     public static void main(String[] args) {
         String directoryPath = "."; // Ruta del directorio (puede ser relativa o absoluta)
 
@@ -33,6 +40,10 @@ public class PRSReader {
         }
     }
 
+    /**
+     * Método que imprime el contenido de un archivo
+     * @param file - Archivo a imprimir
+     */
     private static void printFileContent(File file) {
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String currentLine;

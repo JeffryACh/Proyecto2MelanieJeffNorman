@@ -235,9 +235,21 @@ public class RAM extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    /**
+     * ScrollPanel para la tabla de la RAM 
+     */
     private javax.swing.JScrollPane jScrollPane1;
+    /**
+     * ScrollPanel para la tabla de la RAM 
+     */
     private javax.swing.JScrollPane jScrollPane2;
+    /**
+     * Tabla de la RAM 
+     */
     private javax.swing.JTable jTable1;
+    /**
+     * Tabla de la RAM 
+     */
     private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
 }
