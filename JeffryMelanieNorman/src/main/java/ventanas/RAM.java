@@ -5,8 +5,11 @@
 package ventanas;
 
 /**
+ * RAM
  *
  * @author Melanie
+ * 
+ * Clase que representa la memoria RAM
  */
 public class RAM extends javax.swing.JFrame {
 
