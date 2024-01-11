@@ -24,7 +24,7 @@ public class PRSReader {
      * @param args  - Argumentos de la línea de comandos
      */
     public static void main(String[] args) {
-        String directoryPath = "."; // Ruta del directorio (puede ser relativa o absoluta)
+        String directoryPath = "JeffryMelanieNorman/src/main/java/PRS"; // Ruta del directorio (puede ser relativa o absoluta)
 
         File dir = new File(directoryPath);
         FilenameFilter filter = (dir1, name) -> name.endsWith(".prs");
