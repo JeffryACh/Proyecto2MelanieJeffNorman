@@ -138,9 +138,21 @@ public class ListaProcesos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    /**
+     * Label que muestra el titulo de la ventana
+     */
     private javax.swing.JLabel jLabel1;
+    /**
+     * Panel principal de la ventana
+     */
     private javax.swing.JPanel jPanel1;
+    /**
+     * Tabla que muestra la lista de procesos
+     */
     private javax.swing.JScrollPane jScrollPane2;
+    /**
+     * Tabla que muestra los procesos en ejecucion
+     */
     private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
 }

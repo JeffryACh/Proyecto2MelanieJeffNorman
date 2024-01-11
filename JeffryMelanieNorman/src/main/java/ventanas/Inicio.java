@@ -188,11 +188,29 @@ public class Inicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    /**
+     * Boton que permite asignar un proceso a un CPU
+     */
     private javax.swing.JButton jButton1;
+    /**
+     * Boton que permite subir archivos
+     */
     private javax.swing.JButton jButton2;
+    /**
+     * ComboBox que permite seleccionar la cantidad de CPUs
+     */
     private javax.swing.JComboBox<String> jComboBox1;
+    /**
+     * Label que muestra el titulo de la ventana
+     */
     private javax.swing.JLabel jLabel1;
+    /**
+     * Label que muestra la cantidad de CPUs
+     */
     private javax.swing.JLabel jLabel2;
+    /**
+     * Panel principal de la ventana
+     */
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
