@@ -19,6 +19,12 @@ import java.io.IOException;
 public class PRSReader {
 
     /**
+     * Constructor de la clase PRSReader
+     */
+    public PRSReader() {
+    }
+
+    /**
      * Método principal
      * @param args  - Argumentos de la línea de comandos
      */
