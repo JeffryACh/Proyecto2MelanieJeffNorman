@@ -13,7 +13,7 @@ package Procesos;
  */
 public class Multimedia extends Proceso {
     // Atributos
-    private final String[] RERURSOS = {"Audio", "Video", "Ambos"};
+    private final String[] RECURSOS = {"Audio", "Video", "Ambos"};
     private String recurso;
 
     // Constructor
@@ -22,12 +22,14 @@ public class Multimedia extends Proceso {
      * @param recurso - Recurso del proceso
      * @param id - Identificador del proceso
      * @param nombre - Nombre del proceso
+     * @param tiempo
+     * @param tamano
      * @param fechaDeEjecucion - Fecha de ejecucion del proceso
      * @param horaDeEjecucion - Hora de ejecucion del proceso
      * @param horaDefinalizacion - Hora de finalizacion del proceso
      */
-    public Multimedia(String recurso, int id, String nombre, String fechaDeEjecucion, String horaDeEjecucion, String horaDefinalizacion) {
-        super(id, nombre, fechaDeEjecucion, horaDeEjecucion, horaDefinalizacion);
+    public Multimedia(String recurso, int id, String nombre, int tiempo, int tamano, String fechaDeEjecucion, String horaDeEjecucion, String horaDefinalizacion) {
+        super(id, nombre, tiempo, tamano, fechaDeEjecucion, horaDeEjecucion, horaDefinalizacion);
         this.recurso = recurso;
     }
 

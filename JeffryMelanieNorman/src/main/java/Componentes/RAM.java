@@ -4,6 +4,7 @@
  */
 package Componentes;
 
+import Procesos.Estado;
 import Procesos.Proceso;
 import java.util.ArrayList;
 import java.util.Random;
@@ -36,6 +37,7 @@ public class RAM {
         for(Proceso proceso:procesos){
             int n=random.nextInt();
             cpus[n%cont].agregarProceso(proceso);
+            proceso.cambiarEstado(Estado.ESPERA);
         }
     }
     

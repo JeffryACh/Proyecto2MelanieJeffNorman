@@ -31,8 +31,8 @@ public class Ejecutable extends Proceso{
      * @param horaDeEjecucion - Hora de ejecucion del proceso
      * @param horaDefinalizacion - Hora de finalizacion del proceso
      */
-    public Ejecutable(boolean esCooperativo, String extencion, int id, String nombre, String fechaDeEjecucion, String horaDeEjecucion, String horaDefinalizacion) {
-        super(id, nombre, fechaDeEjecucion, horaDeEjecucion, horaDefinalizacion);
+    public Ejecutable(boolean esCooperativo, String extencion, String recurso, int id, String nombre, int tiempo, int tamano, String fechaDeEjecucion, String horaDeEjecucion, String horaDefinalizacion) {
+        super(id, nombre, tiempo, tamano, fechaDeEjecucion, horaDeEjecucion, horaDefinalizacion);
         this.esCooperativo = esCooperativo;
         this.extencion = extencion;
     }

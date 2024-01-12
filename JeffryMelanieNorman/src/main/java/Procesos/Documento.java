@@ -25,8 +25,8 @@ public class Documento extends Proceso {
      * @param horaDefinalizacion - Hora de finalizacion del proceso
      * @param esCifrado - True si es cifrado, false si no
      */
-    public Documento(int id, String nombre, String fechaDeEjecucion, String horaDeEjecucion, String horaDefinalizacion, boolean esCifrado) {
-        super(id, nombre, fechaDeEjecucion, horaDeEjecucion, horaDefinalizacion);
+    public Documento(boolean esCifrado, String recurso, int id, String nombre, int tiempo, int tamano, String fechaDeEjecucion, String horaDeEjecucion, String horaDefinalizacion) {
+        super(id, nombre, tiempo, tamano, fechaDeEjecucion, horaDeEjecucion, horaDefinalizacion);
         this.esCifrado = esCifrado;
     }
 

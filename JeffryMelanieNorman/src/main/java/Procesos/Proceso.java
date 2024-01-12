@@ -19,17 +19,20 @@ public class Proceso {
     private String fechaDeEjecucion;
     private String horaDeEjecucion;
     private String horaDefinalizacion;
+    private Estado estado;
 
     // Constructor
     /**
      * Constructor de la clase Proceso
      * @param id - Identificador unico del proceso 
      * @param nombre - Nombre del proceso
+     * @param tiempo
+     * @param tamano
      * @param fechaDeEjecucion - Fecha de ejecucion del proceso
      * @param horaDeEjecucion - Hora de ejecucion del proceso
      * @param horaDefinalizacion - Hora de finalizacion del proceso
      */
-    public Proceso(int id, String nombre, String fechaDeEjecucion, String horaDeEjecucion, String horaDefinalizacion) {
+    public Proceso(int id, String nombre, int tiempo, int tamano, String fechaDeEjecucion, String horaDeEjecucion, String horaDefinalizacion) {
         this.id = id;
         this.nombre = nombre;
         this.fechaDeEjecucion = fechaDeEjecucion;
@@ -46,7 +49,9 @@ public class Proceso {
         public String getNombre() {
         return nombre;
     }
-
+        public void cambiarEstado(Estado estado){
+            this.estado=estado;
+        }
     /**
      * Metodo que modifica el nombre del proceso
      * @param nombre - Nombre del proceso
