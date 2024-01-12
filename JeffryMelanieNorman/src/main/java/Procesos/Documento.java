@@ -13,28 +13,22 @@ package Procesos;
  */
 public class Documento extends Proceso {
     // Atributos
-    private boolean esCifrado;
+    private final String[] MODOS = {"cifrado", "descifrado"};
+    private String esCifrado;
 
     // Constructor
     /**
      * Constructor de la clase Documento
-     * @param id - Identificador del proceso
-     * @param nombre - Nombre del proceso
-     * @param fechaDeEjecucion - Fecha de ejecucion del proceso
-     * @param horaDeEjecucion - Hora de ejecucion del proceso
-     * @param horaDefinalizacion - Hora de finalizacion del proceso
-     * @param esCifrado - True si es cifrado, false si no
      */
-    public Documento(boolean esCifrado, String recurso, int id, String nombre, int tiempo, int tamano, String fechaDeEjecucion, String horaDeEjecucion, String horaDefinalizacion) {
-        super(id, nombre, tiempo, tamano, fechaDeEjecucion, horaDeEjecucion, horaDefinalizacion);
-        this.esCifrado = esCifrado;
+    public Documento() {
+        super();
     }
 
     /**
      * Metodo que retorna si el documento es cifrado o no
      * @return boolean esCifrado - True si es cifrado, false si no
      */
-    public boolean isEsCifrado() {
+    public String isEsCifrado() {
         return esCifrado;
     }
 
@@ -42,7 +36,62 @@ public class Documento extends Proceso {
      * Metodo que establece si el documento es cifrado o no
      * @param esCifrado - True si es cifrado, false si no
      */
-    public void setEsCifrado(boolean esCifrado) {
+    public void setEsCifrado(String esCifrado) {
         this.esCifrado = esCifrado;
     }  
+
+    @Override
+    public String getNombre() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void cambiarEstado(Estado estado) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void setNombre(String nombre) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public String getFechaDeEjecucion() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void setFechaDeEjecucion(String fechaDeEjecucion) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public String getHoraDeEjecucion() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void setHoraDeEjecucion(String horaDeEjecucion) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public String getHoraDefinalizacion() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void setHoraDefinalizacion(String horaDefinalizacion) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public int getId() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void setId(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

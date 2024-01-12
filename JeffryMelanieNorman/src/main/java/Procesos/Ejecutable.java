@@ -16,7 +16,8 @@ import java.util.List;
  */
 public class Ejecutable extends Proceso{
     // Atributos
-    private boolean esCooperativo;
+    private final String[] MODOS = {"Si", "No"};
+    private String esCooperativo;
     private String extencion;
     private final String[] EXTENCIONES = {"exe", "bat"};
 
@@ -31,10 +32,8 @@ public class Ejecutable extends Proceso{
      * @param horaDeEjecucion - Hora de ejecucion del proceso
      * @param horaDefinalizacion - Hora de finalizacion del proceso
      */
-    public Ejecutable(boolean esCooperativo, String extencion, String recurso, int id, String nombre, int tiempo, int tamano, String fechaDeEjecucion, String horaDeEjecucion, String horaDefinalizacion) {
-        super(id, nombre, tiempo, tamano, fechaDeEjecucion, horaDeEjecucion, horaDefinalizacion);
-        this.esCooperativo = esCooperativo;
-        this.extencion = extencion;
+    public Ejecutable() {
+        super();
     }
 
     // Metodos
@@ -43,7 +42,7 @@ public class Ejecutable extends Proceso{
      * Metodo que retorna si el proceso es cooperativo o no
      * @return boolean - True si es cooperativo, false si no
      */
-    public boolean isEsCooperativo() {
+    public String isEsCooperativo() {
         return esCooperativo;
     }
 
@@ -51,7 +50,7 @@ public class Ejecutable extends Proceso{
      * Metodo que establece si el proceso es cooperativo o no
      * @param esCooperativo - True si es cooperativo, false si no
      */
-    public void setEsCooperativo(boolean esCooperativo) {
+    public void setEsCooperativo(String esCooperativo) {
         this.esCooperativo = esCooperativo;
     }
 
@@ -69,5 +68,60 @@ public class Ejecutable extends Proceso{
      */
     public void setExtencion(String extencion) {
         this.extencion = extencion;
+    }
+
+    @Override
+    public String getNombre() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void cambiarEstado(Estado estado) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void setNombre(String nombre) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public String getFechaDeEjecucion() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void setFechaDeEjecucion(String fechaDeEjecucion) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public String getHoraDeEjecucion() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void setHoraDeEjecucion(String horaDeEjecucion) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public String getHoraDefinalizacion() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void setHoraDefinalizacion(String horaDefinalizacion) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public int getId() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void setId(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

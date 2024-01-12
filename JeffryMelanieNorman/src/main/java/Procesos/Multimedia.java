@@ -13,28 +13,18 @@ package Procesos;
  */
 public class Multimedia extends Proceso {
     // Atributos
-    private final String[] RECURSOS = {"Audio", "Video", "Ambos"};
+    private final String[] RECURSOS = {"audio", "video", "ambos"};
     private String recurso;
 
     // Constructor
     /**
      * Constructor de la clase Multimedia
-     * @param recurso - Recurso del proceso
-     * @param id - Identificador del proceso
-     * @param nombre - Nombre del proceso
-     * @param tiempo
-     * @param tamano
-     * @param fechaDeEjecucion - Fecha de ejecucion del proceso
-     * @param horaDeEjecucion - Hora de ejecucion del proceso
-     * @param horaDefinalizacion - Hora de finalizacion del proceso
      */
-    public Multimedia(String recurso, int id, String nombre, int tiempo, int tamano, String fechaDeEjecucion, String horaDeEjecucion, String horaDefinalizacion) {
-        super(id, nombre, tiempo, tamano, fechaDeEjecucion, horaDeEjecucion, horaDefinalizacion);
-        this.recurso = recurso;
+    public Multimedia() {
+        super();
     }
 
     // Metodos
-    // Getters y Setters
     /**
      * Metodo que retorna el recurso del proceso
      * @return String recurso - Recurso del proceso
@@ -49,5 +39,60 @@ public class Multimedia extends Proceso {
      */
     public void setRecurso(String recurso) {
         this.recurso = recurso;
+    }
+
+    @Override
+    public String getNombre() {
+        
+    }
+
+    @Override
+    public void cambiarEstado(Estado estado) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void setNombre(String nombre) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public String getFechaDeEjecucion() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void setFechaDeEjecucion(String fechaDeEjecucion) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public String getHoraDeEjecucion() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void setHoraDeEjecucion(String horaDeEjecucion) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public String getHoraDefinalizacion() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void setHoraDefinalizacion(String horaDefinalizacion) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public int getId() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void setId(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
