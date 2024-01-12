@@ -161,7 +161,7 @@ public class VentanaInicio extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         JFileChooser fileChooser = new JFileChooser();
 
-        fileChooser.setCurrentDirectory(new java.io.File("."));
+        fileChooser.setCurrentDirectory(new java.io.File("./src/main/java/PRS"));
 
         fileChooser.setMultiSelectionEnabled(true);
 
