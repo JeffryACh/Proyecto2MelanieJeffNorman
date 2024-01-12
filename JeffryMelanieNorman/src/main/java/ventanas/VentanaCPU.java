@@ -15,6 +15,7 @@ public class VentanaCPU extends javax.swing.JFrame {
 
     /**
      * Creates new form CPU
+     * @param n - Numero de la ventana
      */
     public VentanaCPU(int n) {
         initComponents();
@@ -115,12 +116,6 @@ public class VentanaCPU extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    /**
-     * Metodo main de la clase VentanaCPU
-     * @param args the command line arguments
-     */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     /**
