@@ -161,7 +161,7 @@ public class VentanaInicio extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         JFileChooser fileChooser = new JFileChooser();
 
-        fileChooser.setCurrentDirectory(new java.io.File("."));
+        fileChooser.setCurrentDirectory(new java.io.File("./src/main/java/PRS"));
 
         fileChooser.setMultiSelectionEnabled(true);
 
@@ -229,8 +229,17 @@ public class VentanaInicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    /**
+     * Boton que permite ejecutar los procesos
+     */
     private javax.swing.JButton jButton3;
+    /**
+     * Boton que permite cancelar la asignacion de un proceso a un CPU
+     */
     private javax.swing.JButton jButton4;
+    /**
+     * ComboBox que permite seleccionar la cantidad de CPUs
+     */
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
