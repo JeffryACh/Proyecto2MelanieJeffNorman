@@ -5,11 +5,11 @@
 package ventanas;
 
 /**
- * VentanaCPU
+ * Esta clase es la encargada de mostrar los procesos en el VentanaCPU
  *
  * @author Melanie
  * 
- * Esta clase es la encargada de mostrar los procesos en el VentanaCPU
+ * VentanaCPU
  */
 public class VentanaCPU extends javax.swing.JFrame {
 

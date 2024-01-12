@@ -5,11 +5,11 @@
 package Procesos;
 
 /**
- * Estado
+ * Enumeracion de los estados de los procesos
  *
  * @author Melanie
  * 
- * Enumeracion de los estados de los procesos
+ * Estado
  */
 public enum Estado {
     /**

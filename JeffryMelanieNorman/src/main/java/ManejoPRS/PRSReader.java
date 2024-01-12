@@ -10,11 +10,11 @@ import java.io.FileReader;
 import java.io.FilenameFilter;
 import java.io.IOException;
 /**
- * PRSReader
+ * Clase que se encarga de leer los archivos .prs
  *
  * @author Norman
  * 
- * Clase que se encarga de leer los archivos .prs
+ * PRSReader
  */
 public class PRSReader {
 

@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Ejecutable
+ * Clase que representa un proceso de tipo Ejecutable
  *
  * @author JeffryACh
  * 
- * Clase que representa un proceso de tipo Ejecutable
+ * Ejecutable
  */
 public class Ejecutable extends Proceso{
     // Atributos

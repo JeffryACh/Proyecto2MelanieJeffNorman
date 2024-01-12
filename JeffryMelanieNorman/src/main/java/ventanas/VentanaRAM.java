@@ -5,8 +5,11 @@
 package ventanas;
 
 /**
+ * Esta clase es la encargada de mostrar los procesos en el CPU desde la RAM
  *
  * @author Melanie
+ * 
+ * VentanaRAM
  */
 public class VentanaRAM extends javax.swing.JFrame {
 

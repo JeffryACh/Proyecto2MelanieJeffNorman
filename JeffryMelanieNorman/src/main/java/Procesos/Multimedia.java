@@ -5,11 +5,11 @@
 package Procesos;
 
 /**
- * Multimedia
+ * Clase que representa un proceso de tipo Multimedia
  *
  * @author JeffryACh
  * 
- * Clase que representa un proceso de tipo Multimedia
+ * Multimedia
  */
 public class Multimedia extends Proceso {
     // Atributos

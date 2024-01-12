@@ -9,23 +9,45 @@ import java.util.ArrayList;
 import ventanas.VentanaCPU;
 
 /**
+ * Esta clase es la encargada de mostrar los procesos en el CPU
  *
  * @author Melanie
+ * 
+ * CPU
  */
 public class CPU implements Runnable{
+    // Atributos
     private ArrayList<Proceso> procesos;
     private final int maxProcesos = 5;
     private int indiceActual = 0;
+    // Constructor
+    /**
+     * Constructor de la clase CPU
+     * @param i - int del numero de nucleos a usar
+     */
     public CPU(int i){
         //this.procesos=procesos;
         VentanaCPU ventana=new VentanaCPU(i);
     }
+
+    // Metodos
+
+
     public void ejecutarProcesos(){
         
     }
+    /**
+     * Metodo que agregar un proceso a la lista de procesos
+     * @param proceso - Proceso a agregar
+     */
     public void agregarProceso(Proceso proceso){
         procesos.add(proceso);
     }
+
+    /**
+     * Metodo que añaade un proceso a la lista de procesos
+     * @param proceso - Proceso a agregar
+     */
     public synchronized void añadirProceso(Proceso proceso) {
         if (procesos.size() < maxProcesos) {
             procesos.add(proceso);
@@ -36,6 +58,9 @@ public class CPU implements Runnable{
         }
     }
 
+    /**
+     * Metodo que ejecuta los procesos
+     */
     @Override
     public void run() {
         try {

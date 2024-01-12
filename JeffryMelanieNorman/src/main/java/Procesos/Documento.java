@@ -5,11 +5,11 @@
 package Procesos;
 
 /**
- * Documento
+ * Clase que representa un proceso de tipo Documento
  *
  * @author JeffryACh
  * 
- * Clase que representa un proceso de tipo Documento
+ * Documento
  */
 public class Documento extends Proceso {
     // Atributos

@@ -11,13 +11,23 @@ import java.util.Random;
 import ventanas.VentanaRAM;
 
 /**
+ * Esta clase es la encargada de mostrar los procesos en el CPU
  *
  * @author Melanie
+ * 
+ * RAM
  */
 public class RAM {
-    private final int size=128;
+    // Atributos
+    private final int SIZE=128;
     private CPU[] cpus;
     private ArrayList<Proceso> procesos;
+
+    // Constructor
+    /**
+     * Constructor de la clase RAM
+     * @param n - int del numero de nucleos a usar
+     */
     public RAM(int n){
         VentanaRAM ventana=new VentanaRAM();
         generarCPUs(n);
@@ -25,12 +35,21 @@ public class RAM {
         
     }
 
+    // Metodos
+    /**
+     * Metodo que genera los CPUs
+     * @param n - int del numero de nucleos a crear
+     */
     private void generarCPUs(int n){
         cpus=new CPU[n];
         for(int i=1; i<=n; i++){
             cpus[i-1]=new CPU(i);
         }
     }
+
+    /**
+     * Metodo que asigna los procesos a los CPUs de manera aleatoria
+     */
     private void asignarCPUs(){
         int cont=cpus.length;
         Random random=new Random();

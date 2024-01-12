@@ -7,11 +7,11 @@ package ventanas;
 import javax.swing.JFileChooser;
 
 /**
- * VentanaInicio
+ * Ventana que muestra los procesos en ejecucion y permite asignarlos a un CPU
  *
  * @author Melanie
  * 
- * Ventana que muestra los procesos en ejecucion y permite asignarlos a un CPU
+ * VentanaInicio
  */
 public class VentanaInicio extends javax.swing.JFrame {
 

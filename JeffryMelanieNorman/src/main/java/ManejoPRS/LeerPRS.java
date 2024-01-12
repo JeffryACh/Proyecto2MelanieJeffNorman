@@ -4,11 +4,11 @@ import java.io.File;
 import java.util.ArrayList;
 
 /**
- * LeerPRS
+ * Clase que se encarga de leer los archivos .prs
  * 
  * @author JeffryACh
  * 
- * Clase que se encarga de leer los archivos .prs
+ * LeerPRS
  */
 public class LeerPRS {
     // Atributos

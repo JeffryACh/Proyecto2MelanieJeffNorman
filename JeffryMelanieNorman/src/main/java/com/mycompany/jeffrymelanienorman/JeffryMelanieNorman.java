@@ -7,11 +7,11 @@ package com.mycompany.jeffrymelanienorman;
 import ventanas.VentanaCPU;
 import ventanas.VentanaInicio;
 /**
- * JeffryMelanieNorman
+ * Esta clase es la encargada de mostrar los procesos en el CPU
  *
  * @author JeffryACh
  * 
- * Esta clase es la encargada de mostrar los procesos en el CPU
+ * JeffryMelanieNorman
  */
 public class JeffryMelanieNorman {
     /**

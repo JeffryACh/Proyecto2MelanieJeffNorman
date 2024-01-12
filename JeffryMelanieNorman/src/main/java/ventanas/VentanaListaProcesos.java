@@ -5,11 +5,11 @@
 package ventanas;
 
 /**
- * VentanaListaProcesos
+ * Ventana que muestra la lista de procesos
  *
  * @author Melanie
  * 
- * Ventana que muestra la lista de procesos
+ * VentanaListaProcesos
  */
 public class VentanaListaProcesos extends javax.swing.JFrame {
 
