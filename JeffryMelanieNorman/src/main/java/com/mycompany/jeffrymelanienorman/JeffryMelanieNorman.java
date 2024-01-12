@@ -4,7 +4,8 @@
 
 package com.mycompany.jeffrymelanienorman;
 
-import ventanas.Inicio;
+import ventanas.VentanaCPU;
+import ventanas.VentanaInicio;
 /**
  * JeffryMelanieNorman
  *
@@ -24,7 +25,9 @@ public class JeffryMelanieNorman {
      */
     public static void main(String[] args) {
         System.out.println("Hello World!");
-        Inicio inicio=new Inicio();
+        VentanaInicio inicio=new VentanaInicio();
         inicio.setVisible(true);
+        VentanaCPU cpu=new VentanaCPU(1);
+        cpu.setVisible(true);
     }
 }
