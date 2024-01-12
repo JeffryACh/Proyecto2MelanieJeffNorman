@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class LeerPRS {
     // Atributos
-    private final String rutaDirectorio = "JeffryMelanieNorman/src/main/java/PRS";
+    private final String rutaDirectorio = "./src/main/java/PRS";
     /**
      * Lista de archivos .prs
      */

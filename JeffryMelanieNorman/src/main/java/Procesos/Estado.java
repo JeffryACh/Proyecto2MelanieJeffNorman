@@ -5,10 +5,16 @@
 package Procesos;
 
 /**
+ * Estado
  *
  * @author Melanie
+ * 
+ * Enumeracion de los estados de los procesos
  */
 public enum Estado {
+    /**
+     * Estado asignado
+     */
     ASIGNADO, ESPERA, FINALIZADO;
     
 }
