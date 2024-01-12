@@ -4,20 +4,32 @@
  */
 package ManejoPRS;
 
-/**
- *
- * @author nesa1
- */
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FilenameFilter;
 import java.io.IOException;
-
+/**
+ * PRSReader
+ *
+ * @author Norman
+ * 
+ * Clase que se encarga de leer los archivos .prs
+ */
 public class PRSReader {
 
+    /**
+     * Constructor de la clase PRSReader
+     */
+    public PRSReader() {
+    }
+
+    /**
+     * Método principal
+     * @param args  - Argumentos de la línea de comandos
+     */
     public static void main(String[] args) {
-        String directoryPath = "."; // Ruta del directorio (puede ser relativa o absoluta)
+        String directoryPath = "JeffryMelanieNorman/src/main/java/PRS"; // Ruta del directorio (puede ser relativa o absoluta)
 
         File dir = new File(directoryPath);
         FilenameFilter filter = (dir1, name) -> name.endsWith(".prs");
@@ -33,6 +45,10 @@ public class PRSReader {
         }
     }
 
+    /**
+     * Método que imprime el contenido de un archivo
+     * @param file - Archivo a imprimir
+     */
     private static void printFileContent(File file) {
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String currentLine;
