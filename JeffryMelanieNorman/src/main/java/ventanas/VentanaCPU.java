@@ -8,8 +8,8 @@ package ventanas;
  * VentanaCPU
  *
  * @author Melanie
- 
- Esta clase es la encargada de mostrar los procesos en el VentanaCPU
+ * 
+ * Esta clase es la encargada de mostrar los procesos en el VentanaCPU
  */
 public class VentanaCPU extends javax.swing.JFrame {
 
@@ -123,10 +123,25 @@ public class VentanaCPU extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    /**
+     * Variable que contiene el texto de la etiqueta jLabel1
+     */
     private javax.swing.JLabel jLabel1;
+    /**
+     * Variable que contiene el texto de la etiqueta jLabel2
+     */
     private javax.swing.JLabel jLabel2;
+    /**
+     * Variable que contiene el panel jPanel1
+     */
     private javax.swing.JPanel jPanel1;
+    /**
+     * Variable que contiene la tabla jTable1
+     */
     private javax.swing.JScrollPane jScrollPane1;
+    /**
+     * Variable que contiene la tabla jTable2
+     */
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

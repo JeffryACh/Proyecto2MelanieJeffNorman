@@ -235,8 +235,17 @@ public class VentanaInicio extends javax.swing.JFrame {
      * Boton que permite subir archivos
      */
     private javax.swing.JButton jButton2;
+    /**
+     * Boton que permite ejecutar los procesos
+     */
     private javax.swing.JButton jButton3;
+    /**
+     * Boton que permite cancelar la asignacion de un proceso a un CPU
+     */
     private javax.swing.JButton jButton4;
+    /**
+     * ComboBox que permite seleccionar la cantidad de CPUs
+     */
     private javax.swing.JComboBox<String> jComboBox1;
     /**
      * Label que muestra el titulo de la ventana
