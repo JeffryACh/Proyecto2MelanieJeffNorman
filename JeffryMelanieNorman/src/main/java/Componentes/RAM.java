@@ -65,6 +65,9 @@ public class RAM {
         }
     }
    
+    /**
+     * Metodo que ejecuta los procesos
+     */
     private void ejecutar(){
         if(threads != null){
             for(int i = 0; i < threads.length; i++){

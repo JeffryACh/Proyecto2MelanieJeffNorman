@@ -158,6 +158,10 @@ public class VentanaInicio extends javax.swing.JFrame {
         jButton4.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * Metodo que se encarga de subir archivos
+     * @param evt - Evento de accion
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         JFileChooser fileChooser = new JFileChooser();
 
@@ -179,10 +183,18 @@ public class VentanaInicio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    /**
+     * Metodo que se encarga de ejecutar los procesos
+     * @param evt - Evento de accion
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    /**
+     * Metodo que se encarga de cancelar la asignacion de un proceso a un CPU
+     * @param evt - Evento de accion
+     */
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         jButton3.setVisible(false);
         jButton1.setVisible(true);

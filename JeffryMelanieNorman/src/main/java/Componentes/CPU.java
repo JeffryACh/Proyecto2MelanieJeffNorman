@@ -109,6 +109,10 @@ public class CPU implements Runnable{
     
     }
     
+    /**
+     * Metodo que asigna un proceso
+     * @return Proceso actual - Proceso asignado
+     */
     public Proceso asignarProceso(){
         Proceso actual= procesos.get(0);
         procesos.remove(0);

@@ -34,9 +34,6 @@ public abstract class Proceso {
      * Constructor de la clase Proceso
      * @param id - Id del proceso
      * @param nombre - Nombre del proceso
-     * @param fechaDeEjecucion - Fecha de ejecucion del proceso
-     * @param horaDeEjecucion - Hora de ejecucion del proceso
-     * @param estado - Estado del proceso
      * @param tipo - Tipo de proceso
      */
     public Proceso(int id, String nombre, String tipo) {
@@ -160,6 +157,9 @@ public abstract class Proceso {
         this.tipo = tipo;
     }
     
+    /**
+     * Metodo que retorna el tiempo de ejecucion del proceso
+     */
     public void aumentarSegundo(){
         this.contador++;
         if(contador==tiempo){
@@ -167,6 +167,10 @@ public abstract class Proceso {
         }
     }
     
+    /**
+     * Metodo que retorna el tiempo de ejecucion del proceso
+     * @return int tiempo - Tiempo de ejecucion del proceso
+     */
     public boolean getTerminado(){
         return terminado;
     }

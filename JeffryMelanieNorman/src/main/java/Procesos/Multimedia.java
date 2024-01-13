@@ -24,9 +24,6 @@ public class Multimedia extends Proceso {
      * Constructor de la clase Multimedia
      * @param id - Id del proceso
      * @param nombre - Nombre del proceso
-     * @param fechaDeEjecucion - Fecha de ejecucion del proceso
-     * @param horaDeEjecucion - Hora de ejecucion del proceso
-     * @param estado - Estado del proceso
      * @param recurso - Recurso del proceso
      * @param tipo - Tipo de proceso
      */

@@ -24,9 +24,6 @@ public class Documento extends Proceso {
      * Constructor de la clase Documento
      * @param id - Id del proceso
      * @param nombre - Nombre del proceso
-     * @param fechaDeEjecucion - Fecha de ejecucion del proceso
-     * @param horaDeEjecucion - Hora de ejecucion del proceso
-     * @param estado - Estado del proceso
      * @param esCifrado - cifrado o descifrado
      * @param tipo - Tipo de proceso
      */

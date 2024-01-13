@@ -28,9 +28,6 @@ public class Ejecutable extends Proceso{
      * Constructor de la clase Ejecutable
      * @param id - Id del proceso
      * @param nombre - Nombre del proceso
-     * @param fechaDeEjecucion - Fecha de ejecucion del proceso
-     * @param horaDeEjecucion - Hora de ejecucion del proceso
-     * @param estado - Estado del proceso
      * @param esCooperativo - Cooperativo o no
      * @param extencion - Extencion del archivo
      * @param tipo - Tipo de proceso
