@@ -5,6 +5,7 @@
 package Componentes;
 
 import Procesos.Documento;
+import Procesos.Estado;
 import Procesos.Proceso;
 import java.util.ArrayList;
 
@@ -424,7 +425,7 @@ public class ListaProcesos {
             System.out.println("Del Usario: " + lector.getUsuario());
             if (lector.getDocumentos().size() != 0) {
                 lector.getDocumentos().forEach((documento) -> {
-                    if (documento.getEstado().equals("ASIGNADO")) {
+                    if (documento.getEstado() == Estado.ASIGNADO) {
                         System.out.println("Nombre: " + documento.getNombre());
                         System.out.println("Tamaño: " + documento.getTamano());
                         System.out.println("Duracion: " + documento.getDuracion());
@@ -449,7 +450,7 @@ public class ListaProcesos {
             System.out.println("Del Usario: " + lector.getUsuario());
             if (lector.getMultimedia().size() != 0) {
                 lector.getMultimedia().forEach((multimedia) -> {
-                    if (multimedia.getEstado().equals("ASIGNADO")) {
+                    if (multimedia.getEstado() == Estado.ASIGNADO) {
                         System.out.println("Nombre: " + multimedia.getNombre());
                         System.out.println("Tamaño: " + multimedia.getTamano());
                         System.out.println("Duracion: " + multimedia.getDuracion());
@@ -474,7 +475,7 @@ public class ListaProcesos {
             System.out.println("Del Usario: " + lector.getUsuario());
             if (lector.getEjecutables().size() != 0) {
                 lector.getEjecutables().forEach((ejecutable) -> {
-                    if (ejecutable.getEstado().equals("ASIGNADO")) {
+                    if (ejecutable.getEstado() == Estado.ASIGNADO) {
                         System.out.println("Nombre: " + ejecutable.getNombre());
                         System.out.println("Tamaño: " + ejecutable.getTamano());
                         System.out.println("Duracion: " + ejecutable.getDuracion());
@@ -517,7 +518,7 @@ public class ListaProcesos {
             System.out.println("Del Usario: " + lector.getUsuario());
             if (lector.getDocumentos().size() != 0) {
                 lector.getDocumentos().forEach((documento) -> {
-                    if (documento.getEstado().equals("FINALIZADO")) {
+                    if (documento.getEstado() == Estado.FINALIZADO) {
                         System.out.println("Nombre: " + documento.getNombre());
                         System.out.println("Tamaño: " + documento.getTamano());
                         System.out.println("Duracion: " + documento.getDuracion());
@@ -542,7 +543,7 @@ public class ListaProcesos {
             System.out.println("Del Usario: " + lector.getUsuario());
             if (lector.getMultimedia().size() != 0) {
                 lector.getMultimedia().forEach((multimedia) -> {
-                    if (multimedia.getEstado().equals("FINALIZADO")) {
+                    if (multimedia.getEstado() == Estado.FINALIZADO) {
                         System.out.println("Nombre: " + multimedia.getNombre());
                         System.out.println("Tamaño: " + multimedia.getTamano());
                         System.out.println("Duracion: " + multimedia.getDuracion());
@@ -567,7 +568,7 @@ public class ListaProcesos {
             System.out.println("Del Usario: " + lector.getUsuario());
             if (lector.getEjecutables().size() != 0) {
                 lector.getEjecutables().forEach((ejecutable) -> {
-                    if (ejecutable.getEstado().equals("FINALIZADO")) {
+                    if (ejecutable.getEstado() == Estado.FINALIZADO) {
                         System.out.println("Nombre: " + ejecutable.getNombre());
                         System.out.println("Tamaño: " + ejecutable.getTamano());
                         System.out.println("Duracion: " + ejecutable.getDuracion());
@@ -610,7 +611,7 @@ public class ListaProcesos {
             System.out.println("Del Usario: " + lector.getUsuario());
             if (lector.getDocumentos().size() != 0) {
                 lector.getDocumentos().forEach((documento) -> {
-                    if (documento.getEstado().equals("ESPERA")) {
+                    if (documento.getEstado() == Estado.ESPERA) {
                         System.out.println("Nombre: " + documento.getNombre());
                         System.out.println("Tamaño: " + documento.getTamano());
                         System.out.println("Duracion: " + documento.getDuracion());
@@ -635,7 +636,7 @@ public class ListaProcesos {
             System.out.println("Del Usario: " + lector.getUsuario());
             if (lector.getMultimedia().size() != 0) {
                 lector.getMultimedia().forEach((multimedia) -> {
-                    if (multimedia.getEstado().equals("ESPERA")) {
+                    if (multimedia.getEstado() == Estado.ESPERA) {
                         System.out.println("Nombre: " + multimedia.getNombre());
                         System.out.println("Tamaño: " + multimedia.getTamano());
                         System.out.println("Duracion: " + multimedia.getDuracion());
@@ -660,7 +661,7 @@ public class ListaProcesos {
             System.out.println("Del Usario: " + lector.getUsuario());
             if (lector.getEjecutables().size() != 0) {
                 lector.getEjecutables().forEach((ejecutable) -> {
-                    if (ejecutable.getEstado().equals("ESPERA")) {
+                    if (ejecutable.getEstado() == Estado.ESPERA) {
                         System.out.println("Nombre: " + ejecutable.getNombre());
                         System.out.println("Tamaño: " + ejecutable.getTamano());
                         System.out.println("Duracion: " + ejecutable.getDuracion());
@@ -698,14 +699,14 @@ public class ListaProcesos {
      * Metodo que se encarga de imprimir los procesos con el estado que se le pase por parametro
      * @param estado - Estado de los procesos
      */
-    public void imprimirProcesosPorEstado(String estado){
-        if (estado.equals("ESPERA")) {
+    public void imprimirProcesosPorEstado(Estado estado){
+        if (estado == Estado.ESPERA) {
             imprimirProcesosEnEspera();
         }
-        else if (estado.equals("FINALIZADO")) {
+        else if (estado == Estado.FINALIZADO) {
             imprimirProcesosFinalizados();
         }
-        else if (estado.equals("ASIGNADO")) {
+        else if (estado == Estado.ASIGNADO) {
             imprimirProcesosAsignados();
         }
         else{

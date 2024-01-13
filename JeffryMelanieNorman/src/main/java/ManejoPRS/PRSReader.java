@@ -11,6 +11,7 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 
 import Componentes.ListaProcesos;
+import Procesos.Estado;
 /**
  * Clase que se encarga de leer los archivos .prs
  *
@@ -57,17 +58,17 @@ public class PRSReader {
                 System.out.println("====================================");
                 System.out.println("Procesos en espera:\n");
                 System.out.println("====================================");
-                lista.imprimirProcesosPorEstado("ESPERA");
+                lista.imprimirProcesosPorEstado(Estado.ESPERA);
             } else if (opcion == 2) {
                 System.out.println("====================================");
                 System.out.println("Procesos asignados:\n");
                 System.out.println("====================================");
-                lista.imprimirProcesosPorEstado("ASIGNADO");
+                lista.imprimirProcesosPorEstado(Estado.ASIGNADO);
             } else if (opcion == 3) {
                 System.out.println("====================================");
                 System.out.println("Procesos finalizados:\n");
                 System.out.println("====================================");
-                lista.imprimirProcesosPorEstado("FINALIZADO");
+                lista.imprimirProcesosPorEstado(Estado.FINALIZADO);
             } else if (opcion == 4) {
                 System.out.println("====================================");
                 System.out.println("Procesos:\n");
@@ -80,11 +81,14 @@ public class PRSReader {
                 break;
             }
             System.out.println("====================================");
-            System.out.println("Elija el tipo de estado que desea ver (1, 2 o 3)");
+            System.out.println("Procesos leidos:\n");
+            System.out.println("====================================");
+            System.out.println("Elija el tipo de estado que desea ver (1, 2, 3, 4 o 0)");
             System.out.println("1. Espera");
             System.out.println("2. Asignado");
             System.out.println("3. Finalizado");
             System.out.println("4. Todos");
+            System.out.println("0. Salir");
             System.out.println("====================================");
             System.out.println("Ingrese el numero de la opcion que desea ver");
             System.out.println("====================================");
