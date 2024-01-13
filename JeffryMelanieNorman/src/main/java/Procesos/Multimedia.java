@@ -19,9 +19,18 @@ public class Multimedia extends Proceso {
     // Constructor
     /**
      * Constructor de la clase Multimedia
+     * @param id - Id del proceso
+     * @param nombre - Nombre del proceso
+     * @param fechaDeEjecucion - Fecha de ejecucion del proceso
+     * @param horaDeEjecucion - Hora de ejecucion del proceso
+     * @param horaDefinalizacion - Hora de finalizacion del proceso
+     * @param estado - Estado del proceso
+     * @param recurso - Recurso del proceso
+     * @param tipo - Tipo de proceso
      */
-    public Multimedia() {
-        super();
+    public Multimedia(int id, String nombre, String fechaDeEjecucion, String horaDeEjecucion, Estado estado, String recurso, String tipo) {
+        super(id, nombre, fechaDeEjecucion, horaDeEjecucion, estado, tipo);
+        this.recurso = recurso;
     }
 
     // Metodos
@@ -42,57 +51,128 @@ public class Multimedia extends Proceso {
     }
 
     @Override
+    /**
+     * Metodo que retorna el nombre del proceso
+     * @return String nombre - Nombre del proceso
+     */
     public String getNombre() {
-        
+        return this.getNombre();
     }
 
     @Override
+    /**
+     * Metodo que cambia el estado del proceso
+     * @param estado - Estado del proceso
+     */
     public void cambiarEstado(Estado estado) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.cambiarEstado(estado);
     }
 
     @Override
+    /**
+     * Metodo que modifica el nombre del proceso
+     * @param nombre - Nombre del proceso
+     */
     public void setNombre(String nombre) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.setNombre(nombre);
     }
 
     @Override
+    /**
+     * Metodo que retorna la fecha de ejecucion del proceso
+     * @return String fechaDeEjecucion - Fecha de ejecucion del proceso
+     */
     public String getFechaDeEjecucion() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.getFechaDeEjecucion();
     }
 
     @Override
+    /**
+     * Metodo que modifica la fecha de ejecucion del proceso
+     * @param fechaDeEjecucion - Fecha de ejecucion del proceso
+     */
     public void setFechaDeEjecucion(String fechaDeEjecucion) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.setFechaDeEjecucion(fechaDeEjecucion);
     }
 
     @Override
+    /**
+     * Metodo que retorna la hora de ejecucion del proceso
+     * @return String horaDeEjecucion - Hora de ejecucion del proceso
+     */
     public String getHoraDeEjecucion() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.getHoraDeEjecucion();
     }
 
     @Override
+    /**
+     * Metodo que modifica la hora de ejecucion del proceso
+     * @param horaDeEjecucion - Hora de ejecucion del proceso
+     */
     public void setHoraDeEjecucion(String horaDeEjecucion) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.setHoraDeEjecucion(horaDeEjecucion);
     }
 
     @Override
+    /**
+     * Metodo que retorna la hora de finalizacion del proceso
+     * @return String horaDefinalizacion - Hora de finalizacion del proceso
+     */
     public String getHoraDefinalizacion() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.getHoraDefinalizacion();
     }
 
     @Override
+    /**
+     * Metodo que modifica la hora de finalizacion del proceso
+     * @param horaDefinalizacion - Hora de finalizacion del proceso
+     */
     public void setHoraDefinalizacion(String horaDefinalizacion) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.setHoraDefinalizacion(horaDefinalizacion);
     }
 
     @Override
+    /**
+     * Metodo que retorna el id del proceso
+     * @return int id - Id del proceso
+     */
     public int getId() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.getId();
     }
 
     @Override
+    /**
+     * Metodo que modifica el id del proceso
+     * @param id - Id del proceso
+     */
     public void setId(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.setId(id);
+    }
+
+    @Override
+    /**
+     * Metodo que retorna el estado del proceso
+     * @return Estado estado - Estado del proceso
+     */
+    public Estado getEstado() {
+        return this.getEstado();
+    }
+
+    @Override
+    /**
+     * Metodo que retorna el tipo de proceso
+     * @return String tipo - Tipo de proceso
+     */
+    public String getTipo() {
+        return this.getTipo();
+    }
+
+    @Override
+    /**
+     * Metodo que modifica el tipo de proceso
+     * @param tipo - Tipo de proceso
+     */
+    public void setTipo(String tipo) {
+        this.setTipo(tipo);
     }
 }
