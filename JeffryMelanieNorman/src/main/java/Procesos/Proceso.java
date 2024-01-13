@@ -10,11 +10,11 @@ import Componentes.RAM;
  */
 
 /**
- * Proceso
+ * Clase que representa un proceso en general
  *
  * @author JeffryACh
  * 
- * Clase que representa un proceso en general
+ * Proceso
  */
 public abstract class Proceso {
     // Atributos
