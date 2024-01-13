@@ -33,6 +33,9 @@ public class CPU implements Runnable{
     // Metodos
 
 
+    /**
+     * Metodo que ejecuta los procesos
+     */
     public void ejecutarProcesos(){
         
     }

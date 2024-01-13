@@ -57,7 +57,7 @@ public abstract class Proceso {
 
     /**
      * Metodo que cambia el estado del proceso
-     * @param estado
+     * @param estado - Estado del proceso
      */
     public void cambiarEstado(Estado estado) {
         this.estado = estado;

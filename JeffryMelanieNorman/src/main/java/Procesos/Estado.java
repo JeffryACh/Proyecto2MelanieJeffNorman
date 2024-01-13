@@ -13,8 +13,16 @@ package Procesos;
  */
 public enum Estado {
     /**
-     * Estado asignado
+     * Estado Asignado
      */
-    ASIGNADO, ESPERA, FINALIZADO;
+    ASIGNADO, 
+    /**
+     * Estado en Espera
+     */
+    ESPERA, 
+    /**
+     * Estado en Finalizado
+     */
+    FINALIZADO;
     
 }

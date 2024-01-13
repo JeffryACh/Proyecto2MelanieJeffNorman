@@ -38,7 +38,7 @@ public class ManejoPRS {
     // Metodos
     /**
      * Metodo que se encarga de retornar los nombres de los archivos .prs
-     * @return ArrayList<String> nombresArchivosPRS - Nombres de los archivos .prs
+     * @return nombresArchivosPRS - Nombres de los archivos .prs
      */
     public ArrayList<String> getNombresArchivosPRS() {
         return nombresArchivosPRS;
@@ -54,7 +54,7 @@ public class ManejoPRS {
 
     /**
      * Metodo que se encarga de retornar las rutas de los archivos .prs
-     * @return ArrayList<String> rutasArchivosPRS - Rutas de los archivos .prs
+     * @return rutasArchivosPRS - Rutas de los archivos .prs
      */
     public ArrayList<String> getRutasArchivosPRS() {
         return rutasArchivosPRS;
@@ -106,7 +106,7 @@ public class ManejoPRS {
 
     /**
      * Metodo que se encarga de buscar los archivos .prs en rutaDirectorio para retornar sus nombres
-     * @return ArrayList<String> nombresArchivosPRS - Nombres de los archivos .prs
+     * @return nombresArchivosPRS - Nombres de los archivos .prs
      */
     public ArrayList<String> buscarArchivosPRS() {
         if (existenArchivosPRS()) {
@@ -133,7 +133,7 @@ public class ManejoPRS {
 
     /**
      * Metodo que se encarga de buscar los archivos .prs en rutaDirectorio para retornar sus rutas
-     * @return ArrayList<String> rutasArchivosPRS - Rutas de los archivos .prs
+     * @return rutasArchivosPRS - Rutas de los archivos .prs
      */
     public ArrayList<String> buscarRutasArchivosPRS() {
         if (existenArchivosPRS()) {

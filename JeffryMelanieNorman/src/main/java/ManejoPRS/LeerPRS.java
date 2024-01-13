@@ -31,9 +31,7 @@ public class LeerPRS {
     // Constructor
     /**
      * Constructor de la clase LeerPRS
-     * @param documentos - Documentos de los archivos .prs
-     * @param ejecutables - Ejecutables de los archivos .prs
-     * @param multimedia - Multimedia de los archivos .prs
+     * @param rutaDelPRS - Ruta del archivo .prs
      */
     public LeerPRS(String rutaDelPRS) {
         this.rutaDelPRS = rutaDelPRS;
@@ -42,7 +40,7 @@ public class LeerPRS {
     // Metodos
     /**
      * Metodo que se encarga de retornar los documentos de los archivos .prs
-     * @return ArrayList<String> nombresArchivosPRS - Nombres de los archivos .prs
+     * @return nombresArchivosPRS - Nombres de los archivos .prs
      */
     public ArrayList<Documento> getDocumentos() {
         return documentos;
@@ -58,7 +56,7 @@ public class LeerPRS {
 
     /**
      * Metodo que se encarga de retornar los ejecutables de los archivos .prs
-     * @return ArrayList<Ejecutable> ejecutables - Ejecutables de los archivos .prs
+     * @return ejecutables - Ejecutables de los archivos .prs
      */
     public ArrayList<Ejecutable> getEjecutables() {
         return ejecutables;
@@ -74,7 +72,7 @@ public class LeerPRS {
 
     /**
      * Metodo que se encarga de retornar los multimedia de los archivos .prs
-     * @return ArrayList<Multimedia> multimedia - Multimedia de los archivos .prs
+     * @return multimedia - Multimedia de los archivos .prs
      */
     public ArrayList<Multimedia> getMultimedia() {
         return multimedia;
@@ -106,7 +104,7 @@ public class LeerPRS {
 
     /**
      * Metodo que se encarga de leer el archivo .prs y guardar los procesos de tipo Documento
-     * @return ArrayList<Documento> documentos - Documentos de los archivos .prs
+     * @return documentos - Documentos de los archivos .prs
      */
     private ArrayList<Documento> leerPRSDocumentos() {
         ArrayList<Documento> documentos = new ArrayList<Documento>();
@@ -145,7 +143,7 @@ public class LeerPRS {
 
     /**
      * Metodo que se encarga de leer el archivo .prs y guardar los procesos de tipo Ejecutable
-     * @return ArrayList<Ejecutable> ejecutables - Ejecutables de los archivos .prs
+     * @return ejecutables - Ejecutables de los archivos .prs
      */
     private ArrayList<Ejecutable> leerPRSEjecutable(){
         ArrayList<Ejecutable> ejecutables = new ArrayList<Ejecutable>();
@@ -184,7 +182,7 @@ public class LeerPRS {
 
     /**
      * Metodo que se encarga de leer el archivo .prs y guardar los procesos de tipo Multimedia
-     * @return ArrayList<Multimedia> multimedia - Multimedia de los archivos .prs
+     * @return multimedia - Multimedia de los archivos .prs
      */
     private ArrayList<Multimedia> leerPRSMultimedia(){
         ArrayList<Multimedia> multimedia = new ArrayList<Multimedia>();

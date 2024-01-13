@@ -62,6 +62,7 @@ public class VentanaRAM extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
+     * Metodo que se encarga de mostrar los procesos en la RAM
      * @param args the command line arguments
      */
     public static void main(String args[]) {
