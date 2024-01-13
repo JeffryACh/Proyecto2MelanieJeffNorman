@@ -56,7 +56,7 @@ public class Multimedia extends Proceso {
      * @return String nombre - Nombre del proceso
      */
     public String getNombre() {
-        return this.getNombre();
+        return super.getNombre();
     }
 
     @Override
@@ -83,7 +83,7 @@ public class Multimedia extends Proceso {
      * @return String fechaDeEjecucion - Fecha de ejecucion del proceso
      */
     public String getFechaDeEjecucion() {
-        return this.getFechaDeEjecucion();
+        return super.getFechaDeEjecucion();
     }
 
     @Override
@@ -101,7 +101,7 @@ public class Multimedia extends Proceso {
      * @return String horaDeEjecucion - Hora de ejecucion del proceso
      */
     public String getHoraDeEjecucion() {
-        return this.getHoraDeEjecucion();
+        return super.getHoraDeEjecucion();
     }
 
     @Override
@@ -119,7 +119,7 @@ public class Multimedia extends Proceso {
      * @return String horaDefinalizacion - Hora de finalizacion del proceso
      */
     public String getHoraDefinalizacion() {
-        return this.getHoraDefinalizacion();
+        return super.getHoraDefinalizacion();
     }
 
     @Override
@@ -137,7 +137,7 @@ public class Multimedia extends Proceso {
      * @return int id - Id del proceso
      */
     public int getId() {
-        return this.getId();
+        return super.getId();
     }
 
     @Override
@@ -155,7 +155,7 @@ public class Multimedia extends Proceso {
      * @return Estado estado - Estado del proceso
      */
     public Estado getEstado() {
-        return this.getEstado();
+        return super.getEstado();
     }
 
     @Override
@@ -164,7 +164,7 @@ public class Multimedia extends Proceso {
      * @return String tipo - Tipo de proceso
      */
     public String getTipo() {
-        return this.getTipo();
+        return super.getTipo();
     }
 
     @Override

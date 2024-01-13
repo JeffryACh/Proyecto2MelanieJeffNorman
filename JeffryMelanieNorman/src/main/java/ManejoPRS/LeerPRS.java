@@ -25,6 +25,7 @@ public class LeerPRS {
     private ArrayList<Documento> documentos;
     private ArrayList<Ejecutable> ejecutables;
     private ArrayList<Multimedia> multimedia;
+    private int cantidadProcesos;
     private String rutaDelPRS;
 
     // Constructor
@@ -133,6 +134,7 @@ public class LeerPRS {
                     }
                     doc = new Documento(id, nombre, fechaComoCadena, horaComoCadena, Estado.ESPERA, partes[4], partes[3]);
                     documentos.add(doc);
+                    this.cantidadProcesos++;
                 }
             }
         } catch (IOException e) {
@@ -171,6 +173,7 @@ public class LeerPRS {
                     }
                     ejec = new Ejecutable(id, nombre, fechaComoCadena, horaComoCadena, Estado.ESPERA, partes[5], partes[4], partes[3]);
                     ejecutables.add(ejec);
+                    this.cantidadProcesos++;
                 }
             }
         }catch(IOException e){
@@ -209,6 +212,7 @@ public class LeerPRS {
                     }
                     multi = new Multimedia(id, nombre, fechaComoCadena, horaComoCadena, Estado.ESPERA, partes[4], partes[3]);
                     multimedia.add(multi);
+                    this.cantidadProcesos++;
                 }
             }
         }catch(IOException e){
@@ -284,6 +288,14 @@ public class LeerPRS {
     }
 
     /**
+     * Metodo que se encarga de retornar la cantidad de procesos que hay en el archivo .prs
+     * @return int cantidadProcesos - Cantidad de procesos que hay en el archivo .prs
+     */
+    public int getCantidadProcesos() {
+        return cantidadProcesos;
+    }
+
+    /**
      * Metodo que se encarga de leer el archivo .prs y guardar los procesos de tipo Documento, Ejecutable y Multimedia
      */
     public void leerPRS(){
@@ -298,6 +310,52 @@ public class LeerPRS {
         
         if(existenMultimedia()){
             this.multimedia = leerPRSMultimedia();
+        }
+    }
+
+    /**
+     * Metodo que se encarga de mostrar los procesos de tipo Documento de forma ordenada
+    */
+    public void mostrarDocumentos(){
+        for (int i = 0; i < documentos.size(); i++) {
+            System.out.println("Nombre: " + documentos.get(i).getNombre());
+            System.out.println("Fecha de ejecucion: " + documentos.get(i).getFechaDeEjecucion());
+            System.out.println("Hora de ejecucion: " + documentos.get(i).getHoraDeEjecucion());
+            System.out.println("Estado: " + documentos.get(i).getEstado());
+            System.out.println("Es cifrado: " + documentos.get(i).isEsCifrado());
+            System.out.println("Tipo: " + documentos.get(i).getTipo());
+            System.out.println();
+        }
+    }
+
+    /**
+     * Metodo que se encarga de mostrar los procesos de tipo Ejecutable de forma ordenada
+    */
+    public void mostrarEjecutables(){
+        for (int i = 0; i < ejecutables.size(); i++) {
+            System.out.println("Nombre: " + ejecutables.get(i).getNombre());
+            System.out.println("Fecha de ejecucion: " + ejecutables.get(i).getFechaDeEjecucion());
+            System.out.println("Hora de ejecucion: " + ejecutables.get(i).getHoraDeEjecucion());
+            System.out.println("Estado: " + ejecutables.get(i).getEstado());
+            System.out.println("Es cooperativo: " + ejecutables.get(i).isEsCooperativo());
+            System.out.println("Extencion: " + ejecutables.get(i).getExtencion());
+            System.out.println("Tipo: " + ejecutables.get(i).getTipo());
+            System.out.println();
+        }
+    }
+
+    /**
+     * Metodo que se encarga de mostrar los procesos de tipo Multimedia de forma ordenada
+    */
+    public void mostrarMultimedia(){
+        for (int i = 0; i < multimedia.size(); i++) {
+            System.out.println("Nombre: " + multimedia.get(i).getNombre());
+            System.out.println("Fecha de ejecucion: " + multimedia.get(i).getFechaDeEjecucion());
+            System.out.println("Hora de ejecucion: " + multimedia.get(i).getHoraDeEjecucion());
+            System.out.println("Estado: " + multimedia.get(i).getEstado());
+            System.out.println("Recurso: " + multimedia.get(i).getRecurso());
+            System.out.println("Tipo: " + multimedia.get(i).getTipo());
+            System.out.println();
         }
     }
 }

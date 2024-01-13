@@ -51,19 +51,25 @@ public abstract class Proceso {
      * Metodo que retorna el nombre del proceso
      * @return String nombre - Nombre del proceso
      */
-    public abstract String getNombre();
+    public String getNombre(){
+        return this.nombre;
+    }
 
     /**
      * Metodo que cambia el estado del proceso
      * @param estado
      */
-    public abstract void cambiarEstado(Estado estado);
+    public void cambiarEstado(Estado estado) {
+        this.estado = estado;
+    }
 
     /**
      * Metodo que retorna el estado del proceso
      * @return Estado estado - Estado del proceso
      */
-    public abstract Estado getEstado();
+    public Estado getEstado() {
+        return estado;
+    }
 
     /**
      * Metodo que modifica el nombre del proceso
@@ -77,7 +83,9 @@ public abstract class Proceso {
      * Metodo que retorna la fecha de ejecucion del proceso
      * @return String fechaDeEjecucion - Fecha de ejecucion del proceso
      */
-    public abstract String getFechaDeEjecucion();
+    public String getFechaDeEjecucion(){
+        return this.fechaDeEjecucion;
+    }
 
     /**
      * Metodo que modifica la fecha de ejecucion del proceso
@@ -91,7 +99,9 @@ public abstract class Proceso {
      * Metodo que retorna la hora de ejecucion del proceso
      * @return String horaDeEjecucion - Hora de ejecucion del proceso
      */
-    public abstract String getHoraDeEjecucion();
+    public String getHoraDeEjecucion(){
+        return this.horaDeEjecucion;
+    }
 
     /**
      * Metodo que modifica la hora de ejecucion del proceso
@@ -105,7 +115,9 @@ public abstract class Proceso {
      * Metodo que retorna la hora de finalizacion del proceso
      * @return String horaDefinalizacion - Hora de finalizacion del proceso
      */
-    public abstract String getHoraDefinalizacion();
+    public String getHoraDefinalizacion(){
+        return this.horaDefinalizacion;
+    }
 
     /**
      * Metodo que modifica la hora de finalizacion del proceso
@@ -119,7 +131,9 @@ public abstract class Proceso {
      * Metodo que retorna el identificador unico del proceso
      * @return int id - Identificador unico del proceso
      */
-    public abstract int getId();
+    public int getId(){
+        return this.id;
+    }
 
     /**
      * Metodo que modifica el identificador unico del proceso de forma aleatoria
@@ -133,7 +147,9 @@ public abstract class Proceso {
      * Metodo que retorna el tipo de proceso
      * @return String tipo - Tipo de proceso
      */
-    public abstract String getTipo();
+    public String getTipo(){
+        return this.tipo;
+    }
 
     /**
      * Metodo que modifica el tipo de proceso

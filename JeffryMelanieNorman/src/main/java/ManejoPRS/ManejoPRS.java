@@ -5,6 +5,7 @@
 package ManejoPRS;
 
 import java.io.File;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -19,19 +20,19 @@ public class ManejoPRS {
     private final String RUTA_DIRECTORIO = "./src/main/java/PRS";
     private ArrayList<String> nombresArchivosPRS;
     private ArrayList<String> rutasArchivosPRS;
-    private LeerPRS lector;
+    private ArrayList<LeerPRS> lector;
 
     // Constructor
     /**
      * Constructor de la clase ManejoPRS
-     * @param nombresArchivosPRS - Nombres de los archivos .prs
-     * @param rutasArchivosPRS - Rutas de los archivos .prs
-     * @param lector - Lector de los archivos .prs
      */
-    public ManejoPRS(ArrayList<String> nombresArchivosPRS, ArrayList<String> rutasArchivosPRS, LeerPRS lector) {
-        this.nombresArchivosPRS = nombresArchivosPRS;
-        this.rutasArchivosPRS = rutasArchivosPRS;
-        this.lector = lector;
+    public ManejoPRS() {
+        this.nombresArchivosPRS = new ArrayList<>();
+        this.rutasArchivosPRS = new ArrayList<>();
+        this.lector = new ArrayList<>();
+        buscarArchivosPRS();
+        buscarRutasArchivosPRS();
+        leerArchivosPRS();
     }
 
     // Metodos
@@ -71,7 +72,7 @@ public class ManejoPRS {
      * Metodo que se encarga de retornar el lector de los archivos .prs
      * @return LeerPRS lector - Lector de los archivos .prs
      */
-    public LeerPRS getLector() {
+    public ArrayList<LeerPRS> getLector() {
         return lector;
     }
 
@@ -79,7 +80,7 @@ public class ManejoPRS {
      * Metodo que se encarga de establecer el lector de los archivos .prs
      * @param lector - Lector de los archivos .prs
      */
-    public void setLector(LeerPRS lector) {
+    public void setLector(ArrayList<LeerPRS> lector) {
         this.lector = lector;
     }
 
@@ -111,16 +112,23 @@ public class ManejoPRS {
         if (existenArchivosPRS()) {
             File directorio = new File(RUTA_DIRECTORIO);
             File[] archivos = directorio.listFiles();
-
+            
             for (File archivo : archivos) {
                 if (archivo.isFile() && archivo.getName().endsWith(".prs")) {
-                    nombresArchivosPRS.add(archivo.getName());
-                    rutasArchivosPRS.add(archivo.getAbsolutePath());
+                    String nombre = archivo.getName();
+                    for (int i = 0; i < nombre.length(); i++){
+                        if (nombre.charAt(i) == '.'){
+                            nombre = nombre.substring(0, i);
+                            break;
+                        }
+                    }
+                    this.nombresArchivosPRS.add(nombre);
                 }
             }
+            return nombresArchivosPRS;
         }
-        
-        return nombresArchivosPRS;
+        System.out.println("No se encontraron archivos .prs");
+        return null;
     }
 
     /**
@@ -134,7 +142,7 @@ public class ManejoPRS {
 
             for (File archivo : archivos) {
                 if (archivo.isFile() && archivo.getName().endsWith(".prs")) {
-                    rutasArchivosPRS.add(RUTA_DIRECTORIO + "/" + archivo.getName());
+                    this.rutasArchivosPRS.add(RUTA_DIRECTORIO + "/" + archivo.getName());
                 }
             }
         }
@@ -146,5 +154,14 @@ public class ManejoPRS {
      * Metodo que se encarga de leer los archivos .prs
      * @return LeerPRS lector - Lector de los archivos .prs
      */
-    
+    public ArrayList<LeerPRS> leerArchivosPRS() {
+        if (existenArchivosPRS()) {
+            for (String rutaArchivo : rutasArchivosPRS) {
+                LeerPRS lector = new LeerPRS(rutaArchivo);
+                lector.leerPRS();
+                this.lector.add(lector);
+            }
+        }
+        return lector;
+    }
 }
