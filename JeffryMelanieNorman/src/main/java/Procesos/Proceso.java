@@ -1,5 +1,8 @@
 package Procesos;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -16,10 +19,14 @@ public class Proceso {
     // Atributos
     private int id;
     private String nombre;
-    private String fechaDeEjecucion;
-    private String horaDeEjecucion;
-    private String horaDefinalizacion;
+    private LocalDate fechaDeEjecucion;
+    private LocalTime horaDeEjecucion;
+    private LocalTime horaDefinalizacion;
     private Estado estado;
+    private int tiempo=0;
+    private int tamano;
+    private int contador=0;
+    private boolean terminado=false;
 
     // Constructor
     /**
@@ -32,12 +39,11 @@ public class Proceso {
      * @param horaDeEjecucion - Hora de ejecucion del proceso
      * @param horaDefinalizacion - Hora de finalizacion del proceso
      */
-    public Proceso(int id, String nombre, int tiempo, int tamano, String fechaDeEjecucion, String horaDeEjecucion, String horaDefinalizacion) {
+    public Proceso(int id, String nombre, int tiempo, int tamano) {
         this.id = id;
         this.nombre = nombre;
-        this.fechaDeEjecucion = fechaDeEjecucion;
-        this.horaDeEjecucion = horaDeEjecucion;
-        this.horaDefinalizacion = horaDefinalizacion;
+        this.tiempo=tiempo;
+        this.tamano=tamano;
     }
 
     // Metodos
@@ -64,7 +70,7 @@ public class Proceso {
      * Metodo que retorna la fecha de ejecucion del proceso
      * @return String fechaDeEjecucion - Fecha de ejecucion del proceso
      */
-        public String getFechaDeEjecucion() {
+        public LocalDate getFechaDeEjecucion() {
         return fechaDeEjecucion;
     }
 
@@ -72,7 +78,7 @@ public class Proceso {
      * Metodo que modifica la fecha de ejecucion del proceso
      * @param fechaDeEjecucion - Fecha de ejecucion del proceso
      */
-    public void setFechaDeEjecucion(String fechaDeEjecucion) {
+    public void setFechaDeEjecucion(LocalDate fechaDeEjecucion) {
         this.fechaDeEjecucion = fechaDeEjecucion;
     }
 
@@ -80,7 +86,7 @@ public class Proceso {
      * Metodo que retorna la hora de ejecucion del proceso
      * @return String horaDeEjecucion - Hora de ejecucion del proceso
      */
-    public String getHoraDeEjecucion() {
+    public LocalTime getHoraDeEjecucion() {
         return horaDeEjecucion;
     }
 
@@ -88,7 +94,7 @@ public class Proceso {
      * Metodo que modifica la hora de ejecucion del proceso
      * @param horaDeEjecucion - Hora de ejecucion del proceso
      */
-    public void setHoraDeEjecucion(String horaDeEjecucion) {
+    public void setHoraDeEjecucion(LocalTime horaDeEjecucion) {
         this.horaDeEjecucion = horaDeEjecucion;
     }
 
@@ -96,7 +102,7 @@ public class Proceso {
      * Metodo que retorna la hora de finalizacion del proceso
      * @return String horaDefinalizacion - Hora de finalizacion del proceso
      */
-    public String getHoraDefinalizacion() {
+    public LocalTime getHoraDefinalizacion() {
         return horaDefinalizacion;
     }
 
@@ -104,7 +110,7 @@ public class Proceso {
      * Metodo que modifica la hora de finalizacion del proceso
      * @param horaDefinalizacion - Hora de finalizacion del proceso
      */
-    public void setHoraDefinalizacion(String horaDefinalizacion) {
+    public void setHoraDefinalizacion(LocalTime horaDefinalizacion) {
         this.horaDefinalizacion = horaDefinalizacion;
     }
 
@@ -114,5 +120,16 @@ public class Proceso {
      */
     public int getId() {
         return id;
+    }
+    
+    public void aumentarSegundo(){
+        this.contador++;
+        if(contador==tiempo){
+            terminado=true;
+        }
+    }
+    
+    public boolean getTerminado(){
+        return terminado;
     }
 }

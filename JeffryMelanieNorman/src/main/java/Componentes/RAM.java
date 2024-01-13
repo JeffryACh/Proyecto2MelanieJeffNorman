@@ -16,7 +16,8 @@ import ventanas.VentanaRAM;
  */
 public class RAM {
     private final int size=128;
-    private CPU[] cpus;
+    private CPU[] cpus; 
+    private Thread[] threads;
     private ArrayList<Proceso> procesos;
     public RAM(int n){
         VentanaRAM ventana=new VentanaRAM();
@@ -26,19 +27,30 @@ public class RAM {
     }
 
     private void generarCPUs(int n){
-        cpus=new CPU[n];
-        for(int i=1; i<=n; i++){
-            cpus[i-1]=new CPU(i);
+        cpus = new CPU[n];
+        threads = new Thread[n];
+        for(int i = 0; i < n; i++){
+            CPU cpu = new CPU(i);
+            Thread threadcpu = new Thread(cpu);
+            cpus[i] = cpu;
+            threads[i] = threadcpu;
         }
     }
     private void asignarCPUs(){
-        int cont=cpus.length;
-        Random random=new Random();
-        for(Proceso proceso:procesos){
-            int n=random.nextInt();
-            cpus[n%cont].agregarProceso(proceso);
-            proceso.cambiarEstado(Estado.ESPERA);
+        int cont = cpus.length;
+        Random random = new Random();
+        for(Proceso proceso : procesos){
+            int n = random.nextInt(cont); 
+            cpus[n].agregarProceso(proceso); 
+            proceso.cambiarEstado(Estado.ASIGNADO);
         }
     }
-    
+   
+    private void ejecutar(){
+        if(threads != null){
+            for(int i = 0; i < threads.length; i++){
+                threads[i].start();
+            }
+        }
+    }
 }

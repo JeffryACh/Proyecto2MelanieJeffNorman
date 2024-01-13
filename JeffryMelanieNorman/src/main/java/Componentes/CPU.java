@@ -4,7 +4,10 @@
  */
 package Componentes;
 
+import Procesos.Estado;
 import Procesos.Proceso;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import ventanas.VentanaCPU;
 
@@ -14,26 +17,20 @@ import ventanas.VentanaCPU;
  */
 public class CPU implements Runnable{
     private ArrayList<Proceso> procesos;
-    private final int maxProcesos = 5;
+    private Proceso[] ejecutando;
     private int indiceActual = 0;
+    private VentanaCPU ventana;
     public CPU(int i){
-        //this.procesos=procesos;
-        VentanaCPU ventana=new VentanaCPU(i);
+        ejecutando=new Proceso[5];
+        procesos=new ArrayList<>();
+        ventana=new VentanaCPU(i);
+        ventana.setVisible(true);
     }
-    public void ejecutarProcesos(){
-        
-    }
-    public void agregarProceso(Proceso proceso){
+    
+    public synchronized void agregarProceso(Proceso proceso) {
         procesos.add(proceso);
-    }
-    public synchronized void añadirProceso(Proceso proceso) {
-        if (procesos.size() < maxProcesos) {
-            procesos.add(proceso);
-            notify(); // Notifica si el hilo estaba esperando por procesos
-        } else {
-            // Manejar la situación cuando la CPU ya tiene 5 procesos
-            // Por ejemplo, encolar el proceso en una lista de espera o algo similar
-        }
+        notify(); 
+        
     }
 
     @Override
@@ -41,23 +38,43 @@ public class CPU implements Runnable{
         try {
             while (true) {
                 synchronized (this) {
-                    while (procesos.isEmpty()) {
-                        wait(); // Espera si no hay procesos
+                    while (ejecutando.length==0 && procesos.isEmpty()) {
+                        wait(); 
+                    }
+                    for(int j=0; j<ejecutando.length; j++){
+                        if(ejecutando[j]==null && !procesos.isEmpty()){
+                            ejecutando[j]=asignarProceso();
+                        }
+                    }
+                    if (indiceActual >= ejecutando.length) {
+                        indiceActual = 0; 
                     }
 
-                    if (indiceActual >= procesos.size()) {
-                        indiceActual = 0; // Volver al inicio en Round Robin
-                    }
+                    Proceso actual = ejecutando[indiceActual];
+                    Thread.sleep(1000); 
+                    actual.aumentarSegundo();
 
-                    Proceso actual = procesos.get(indiceActual);
-                    Thread.sleep(1000); // Simula 1 segundo de ejecución
-                    //actual.ejecutarTick();
-
-                    /*if (actual.terminado()) {
-                        procesos.remove(indiceActual);
+                    if (actual.getTerminado()) {
+                        actual.cambiarEstado(Estado.FINALIZADO);
+                        actual.setHoraDefinalizacion(LocalTime.now());
+                        int i=indiceActual;
+                        while(i<ejecutando.length-1 && ejecutando[i+1]!=null){
+                            ejecutando[i]=ejecutando[i+1];
+                            ejecutando[i+1]=null;
+                            i++;
+                        }
+                        if(!procesos.isEmpty() && ejecutando[i]==null){
+                            ejecutando[i]=asignarProceso();
+                        }
                     } else {
-                        indiceActual = (indiceActual + 1) % procesos.size();
-                    }*/
+                        int cont=0;
+                        for(int i=0; i<ejecutando.length; i++){
+                            if(ejecutando[i]!=null){
+                                cont++;
+                            }
+                        }
+                        indiceActual = (indiceActual + 1) % cont;
+                    }
                 }
             }
         } catch (InterruptedException e) {
@@ -65,5 +82,13 @@ public class CPU implements Runnable{
             System.out.println("Hilo interrumpido");
         }
     
+    }
+    
+    public Proceso asignarProceso(){
+        Proceso actual= procesos.get(0);
+        procesos.remove(0);
+        actual.setFechaDeEjecucion(LocalDate.now());
+        actual.setHoraDeEjecucion(LocalTime.now());
+        return actual;
     }
 }
