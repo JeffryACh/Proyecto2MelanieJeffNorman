@@ -7,11 +7,11 @@ package ventanas;
 import javax.swing.JFileChooser;
 
 /**
- * VentanaInicio
+ * Ventana que muestra los procesos en ejecucion y permite asignarlos a un CPU
  *
  * @author Melanie
  * 
- * Ventana que muestra los procesos en ejecucion y permite asignarlos a un CPU
+ * VentanaInicio
  */
 public class VentanaInicio extends javax.swing.JFrame {
 
@@ -227,7 +227,13 @@ public class VentanaInicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    /**
+     * Boton que permite asignar un proceso a un CPU
+     */
     private javax.swing.JButton jButton1;
+    /**
+     * Boton que permite subir archivos
+     */
     private javax.swing.JButton jButton2;
     /**
      * Boton que permite ejecutar los procesos
@@ -241,8 +247,17 @@ public class VentanaInicio extends javax.swing.JFrame {
      * ComboBox que permite seleccionar la cantidad de CPUs
      */
     private javax.swing.JComboBox<String> jComboBox1;
+    /**
+     * Panel principal
+     */
     private javax.swing.JLabel jLabel1;
+    /**
+     * Label que muestra el titulo de la ventana
+     */
     private javax.swing.JLabel jLabel2;
+    /**
+     * Panel principal
+     */
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

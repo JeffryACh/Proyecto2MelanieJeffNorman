@@ -1,0 +1,8 @@
+Python.exe, 12, 20, ejecutable, exe, Si 
+MiDocumento.doc, 10, 8, documento, cifrado 
+Seguridad.bat, 12, 15, ejecutable, bat, No 
+JohnWick.mov, 20, 20, multimedia, ambos 
+Golang.exe, 15, 10, ejecutable, exe, No
+TuDocumento.doc, 11, 18, documento, descifrado
+ManOnFire.mov, 20, 20, multimedia, ambos
+Cockies.bat, 15, 12, ejecutable, bat, Si

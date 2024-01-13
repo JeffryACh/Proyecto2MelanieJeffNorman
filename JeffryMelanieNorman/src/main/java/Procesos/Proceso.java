@@ -9,15 +9,16 @@ import java.time.LocalTime;
  */
 
 /**
- * Proceso
+ * Clase que representa un proceso en general
  *
  * @author JeffryACh
  * 
- * Clase que representa un proceso en general
+ * Proceso
  */
-public class Proceso {
+public abstract class Proceso {
     // Atributos
     private int id;
+    private String tipo;
     private String nombre;
     private LocalDate fechaDeEjecucion;
     private LocalTime horaDeEjecucion;
@@ -31,19 +32,18 @@ public class Proceso {
     // Constructor
     /**
      * Constructor de la clase Proceso
-     * @param id - Identificador unico del proceso 
+     * @param id - Id del proceso
      * @param nombre - Nombre del proceso
-     * @param tiempo
-     * @param tamano
      * @param fechaDeEjecucion - Fecha de ejecucion del proceso
      * @param horaDeEjecucion - Hora de ejecucion del proceso
-     * @param horaDefinalizacion - Hora de finalizacion del proceso
+     * @param estado - Estado del proceso
+     * @param tipo - Tipo de proceso
      */
-    public Proceso(int id, String nombre, int tiempo, int tamano) {
+    public Proceso(int id, String nombre, String tipo) {
         this.id = id;
         this.nombre = nombre;
-        this.tiempo=tiempo;
-        this.tamano=tamano;
+        this.estado = Estado.ESPERA;
+        this.tipo = tipo;
     }
 
     // Metodos
@@ -52,17 +52,31 @@ public class Proceso {
      * Metodo que retorna el nombre del proceso
      * @return String nombre - Nombre del proceso
      */
-        public String getNombre() {
-        return nombre;
+    public String getNombre(){
+        return this.nombre;
     }
-        public void cambiarEstado(Estado estado){
-            this.estado=estado;
-        }
+
+    /**
+     * Metodo que cambia el estado del proceso
+     * @param estado - Estado del proceso
+     */
+    public void cambiarEstado(Estado estado) {
+        this.estado = estado;
+    }
+
+    /**
+     * Metodo que retorna el estado del proceso
+     * @return Estado estado - Estado del proceso
+     */
+    public Estado getEstado() {
+        return estado;
+    }
+
     /**
      * Metodo que modifica el nombre del proceso
      * @param nombre - Nombre del proceso
      */
-        public void setNombre(String nombre) {
+    public void setNombre(String nombre){
         this.nombre = nombre;
     }
 
@@ -118,8 +132,32 @@ public class Proceso {
      * Metodo que retorna el identificador unico del proceso
      * @return int id - Identificador unico del proceso
      */
-    public int getId() {
-        return id;
+    public int getId(){
+        return this.id;
+    }
+
+    /**
+     * Metodo que modifica el identificador unico del proceso de forma aleatoria
+     * @param id - Identificador unico del proceso
+     */
+    public void setId(int id){
+        this.id = id;
+    }
+
+    /**
+     * Metodo que retorna el tipo de proceso
+     * @return String tipo - Tipo de proceso
+     */
+    public String getTipo(){
+        return this.tipo;
+    }
+
+    /**
+     * Metodo que modifica el tipo de proceso
+     * @param tipo - Tipo de proceso
+     */
+    public void setTipo(String tipo){
+        this.tipo = tipo;
     }
     
     public void aumentarSegundo(){
