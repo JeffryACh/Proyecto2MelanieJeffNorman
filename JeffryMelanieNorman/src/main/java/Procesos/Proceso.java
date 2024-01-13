@@ -25,6 +25,7 @@ public abstract class Proceso {
     private String horaDefinalizacion;
     private Estado estado;
     private int tiempo=0;
+    private int duracion;
     private int tamano;
     private int contador=0;
     private boolean terminado=false;
@@ -35,12 +36,16 @@ public abstract class Proceso {
      * @param id - Id del proceso
      * @param nombre - Nombre del proceso
      * @param tipo - Tipo de proceso
+     * @param tamano - Tamaño del proceso
+     * @param duracion - Duracion del proceso
      */
-    public Proceso(int id, String nombre, String tipo) {
+    public Proceso(int id, String nombre, String tipo, int tamano, int duracion) {
         this.id = id;
         this.nombre = nombre;
         this.estado = Estado.ESPERA;
         this.tipo = tipo;
+        this.tamano = tamano;
+        this.duracion = duracion;
     }
 
     // Metodos
@@ -168,10 +173,91 @@ public abstract class Proceso {
     }
     
     /**
-     * Metodo que retorna el tiempo de ejecucion del proceso
-     * @return int tiempo - Tiempo de ejecucion del proceso
+     * Metodo que retorna el estado del proceso
+     * @return boolean terminado - Estado del proceso
      */
     public boolean getTerminado(){
         return terminado;
     }
+
+    /**
+     * Metodo que retorna el tiempo de ejecucion del proceso
+     * @return tiempo - Tiempo de ejecucion del proceso
+     */
+    public int getTiempo() {
+        return tiempo;
+    }
+
+    /**
+     * Metodo que modifica el tiempo de ejecucion del proceso
+     * @param tiempo - Tiempo de ejecucion del proceso
+     */
+    public void setTiempo(int tiempo) {
+        this.tiempo = tiempo;
+    }
+
+    /**
+     * Metodo que retorna la duracion del proceso
+     * @return duracion - Duracion del proceso
+     */
+    public int getDuracion() {
+        return duracion;
+    }
+
+    /**
+     * Metodo que modifica la duracion del proceso
+     * @param duracion - Duracion del proceso
+     */
+    public void setDuracion(int duracion) {
+        this.duracion = duracion;
+    }
+
+    /**
+     * Metodo que retorna el tamano del proceso
+     * @return tamano - Tamano del proceso
+     */
+    public int getTamano() {
+        return tamano;
+    }
+
+    /**
+     * Metodo que modifica el tamano del proceso
+     * @param tamano - Tamano del proceso
+     */
+    public void setTamano(int tamano) {
+        this.tamano = tamano;
+    }
+
+    /**
+     * Metodo que retorna el contador del proceso
+     * @return contador - Contador del proceso
+     */
+    public int getContador() {
+        return contador;
+    }
+
+    /**
+     * Metodo que modifica el contador del proceso
+     * @param contador - Contador del proceso
+     */
+    public void setContador(int contador) {
+        this.contador = contador;
+    }
+
+    /**
+     * Metodo que retorna el estado del proceso
+     * @return terminado - Estado del proceso
+     */
+    public boolean isTerminado() {
+        return terminado;
+    }
+
+    /**
+     * Metodo que modifica el estado del proceso
+     * @param terminado - Estado del proceso
+     */
+    public void setTerminado(boolean terminado) {
+        this.terminado = terminado;
+    }
+    
 }

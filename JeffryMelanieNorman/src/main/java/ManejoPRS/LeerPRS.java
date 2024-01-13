@@ -1,10 +1,8 @@
 package ManejoPRS;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -26,6 +24,7 @@ public class LeerPRS {
     private ArrayList<Ejecutable> ejecutables;
     private ArrayList<Multimedia> multimedia;
     private int cantidadProcesos;
+    private String usuario; // se saca de la ruta del archivo, es el nombre del archivo sin la extencion
     private String rutaDelPRS;
 
     // Constructor
@@ -35,12 +34,38 @@ public class LeerPRS {
      */
     public LeerPRS(String rutaDelPRS) {
         this.rutaDelPRS = rutaDelPRS;
+        this.usuario = sacarUsuario();
     }
 
     // Metodos
     /**
-     * Metodo que se encarga de retornar los documentos de los archivos .prs
+     * Metodo que se encarga de retornar el nombre de usuario del archivo .prs
+     * @return usuario - Nombre del archivo .prs
+     */
+    public String getUsuario() {
+        return usuario;
+    }
+
+    /**
+     * Metodo que se encarga de establecer el nombre de usuario del archivo .prs
+     * @param usuario - Nombre del archivo .prs
+     */
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    /**
+     * Metodo que se encarga de retornar los nombres de los archivos .prs
      * @return nombresArchivosPRS - Nombres de los archivos .prs
+     */
+    private String sacarUsuario(){
+        String rutaSinPath = rutaDelPRS.substring(20, rutaDelPRS.length() - 4);
+        return rutaSinPath;
+    }
+
+    /**
+     * Metodo que se encarga de retornar los documentos de los archivos .prs
+     * @return documentos - Documentos de los archivos .prs
      */
     public ArrayList<Documento> getDocumentos() {
         return documentos;
@@ -130,7 +155,9 @@ public class LeerPRS {
                             nombre = nombre.substring(0, i);
                         }
                     }
-                    doc = new Documento(id, nombre, partes[4], partes[3]);
+                    int tamano = Integer.parseInt(partes[1]);
+                    int duracion = Integer.parseInt(partes[2]);
+                    doc = new Documento(id, nombre, partes[4], partes[3], tamano, duracion);
                     doc.setHoraDeEjecucion(hora);
                     doc.setFechaDeEjecucion(fechaString);
                     documentos.add(doc);
@@ -171,7 +198,9 @@ public class LeerPRS {
                             nombre = nombre.substring(0, i);
                         }
                     }
-                    ejec = new Ejecutable(id, nombre, partes[5], partes[4], partes[3]);
+                    int tamano = Integer.parseInt(partes[1]);
+                    int duracion = Integer.parseInt(partes[2]);
+                    ejec = new Ejecutable(id, nombre, partes[5], partes[4], partes[3], tamano, duracion);
                     ejec.setHoraDeEjecucion(horaString);
                     ejec.setFechaDeEjecucion(fechaString);
                     ejecutables.add(ejec);
@@ -212,7 +241,9 @@ public class LeerPRS {
                             nombre = nombre.substring(0, i);
                         }
                     }
-                    multi = new Multimedia(id, nombre, partes[4], partes[3]);
+                    int tamano = Integer.parseInt(partes[1]);
+                    int duracion = Integer.parseInt(partes[2]);
+                    multi = new Multimedia(id, nombre, partes[4], partes[3], tamano, duracion);
                     multi.setHoraDeEjecucion(hora);
                     multi.setFechaDeEjecucion(fecha);
                     multimedia.add(multi);
@@ -320,11 +351,13 @@ public class LeerPRS {
     /**
      * Metodo que se encarga de mostrar los procesos de tipo Documento de forma ordenada
     */
-    public void mostrarDocumentos(){
+    private void mostrarDocumentos(){
         for (int i = 0; i < documentos.size(); i++) {
             System.out.println("Nombre: " + documentos.get(i).getNombre());
             System.out.println("Fecha de ejecucion: " + documentos.get(i).getFechaDeEjecucion());
             System.out.println("Hora de ejecucion: " + documentos.get(i).getHoraDeEjecucion());
+            System.out.println("Tamaño: " + documentos.get(i).getTamano());
+            System.out.println("Duracion del proceso: " + documentos.get(i).getDuracion());
             System.out.println("Estado: " + documentos.get(i).getEstado());
             System.out.println("Es cifrado: " + documentos.get(i).isEsCifrado());
             System.out.println("Tipo: " + documentos.get(i).getTipo());
@@ -335,11 +368,13 @@ public class LeerPRS {
     /**
      * Metodo que se encarga de mostrar los procesos de tipo Ejecutable de forma ordenada
     */
-    public void mostrarEjecutables(){
+    private void mostrarEjecutables(){
         for (int i = 0; i < ejecutables.size(); i++) {
             System.out.println("Nombre: " + ejecutables.get(i).getNombre());
             System.out.println("Fecha de ejecucion: " + ejecutables.get(i).getFechaDeEjecucion());
             System.out.println("Hora de ejecucion: " + ejecutables.get(i).getHoraDeEjecucion());
+            System.out.println("Tamaño: " + ejecutables.get(i).getTamano());
+            System.out.println("Duracion del proceso: " + ejecutables.get(i).getDuracion());
             System.out.println("Estado: " + ejecutables.get(i).getEstado());
             System.out.println("Es cooperativo: " + ejecutables.get(i).isEsCooperativo());
             System.out.println("Extencion: " + ejecutables.get(i).getExtencion());
@@ -351,15 +386,44 @@ public class LeerPRS {
     /**
      * Metodo que se encarga de mostrar los procesos de tipo Multimedia de forma ordenada
     */
-    public void mostrarMultimedia(){
+    private void mostrarMultimedia(){
         for (int i = 0; i < multimedia.size(); i++) {
             System.out.println("Nombre: " + multimedia.get(i).getNombre());
             System.out.println("Fecha de ejecucion: " + multimedia.get(i).getFechaDeEjecucion());
             System.out.println("Hora de ejecucion: " + multimedia.get(i).getHoraDeEjecucion());
+            System.out.println("Tamaño: " + multimedia.get(i).getTamano());
+            System.out.println("Duracion del proceso: " + multimedia.get(i).getDuracion());
             System.out.println("Estado: " + multimedia.get(i).getEstado());
             System.out.println("Recurso: " + multimedia.get(i).getRecurso());
             System.out.println("Tipo: " + multimedia.get(i).getTipo());
             System.out.println();
+        }
+    }
+
+    /**
+     * Metodo que se encarga de mostrar los procesos de tipo Documento, Ejecutable y Multimedia de forma ordenada
+     */
+    public void mostrarProcesos(){
+        System.out.println("Cantidad de procesos: " + cantidadProcesos);
+        System.out.println("--------------------------------------------------");
+        System.out.println("Archivo: " + usuario + ".prs");
+        System.out.println("--------------------------------------------------");
+        if(existenDocumentos()){
+            System.out.println("Documentos: ");
+            mostrarDocumentos();
+            System.out.println("--------------------------------------------------");
+        }
+        
+        if(existenEjecutables()){
+            System.out.println("Ejecutables: ");
+            mostrarEjecutables();
+            System.out.println("--------------------------------------------------");
+        }
+        
+        if(existenMultimedia()){
+            System.out.println("Multimedia: ");
+            mostrarMultimedia();
+            System.out.println("--------------------------------------------------");
         }
     }
 }

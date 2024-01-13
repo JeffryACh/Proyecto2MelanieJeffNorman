@@ -26,9 +26,11 @@ public class Documento extends Proceso {
      * @param nombre - Nombre del proceso
      * @param esCifrado - cifrado o descifrado
      * @param tipo - Tipo de proceso
+     * @param tamano - Tamaño del proceso
+     * @param duracion - Duracion del proceso
      */
-    public Documento(int id, String nombre, String esCifrado, String tipo) {
-        super(id, nombre, tipo);
+    public Documento(int id, String nombre, String esCifrado, String tipo, int tamano, int duracion) {
+        super(id, nombre, tipo, tamano, duracion);
         this.esCifrado = esCifrado;
     }
 
@@ -172,5 +174,77 @@ public class Documento extends Proceso {
      */
     public void setTipo(String tipo) {
         super.setTipo(tipo);
+    }
+
+    @Override
+    /**
+     * Metodo que retorna el tamaño del proceso
+     * @return int tamano - Tamaño del proceso
+     */
+    public int getTamano() {
+        return super.getTamano();
+    }
+
+    @Override
+    /**
+     * Metodo que modifica el tamaño del proceso
+     * @param tamano - Tamaño del proceso
+     */
+    public void setTamano(int tamano) {
+        super.setTamano(tamano);
+    }
+
+    @Override
+    /**
+     * Metodo que retorna la duracion del proceso
+     * @return int duracion - Duracion del proceso
+     */
+    public int getDuracion() {
+        return super.getDuracion();
+    }
+
+    @Override
+    /**
+     * Metodo que modifica la duracion del proceso
+     * @param duracion - Duracion del proceso
+     */
+    public void setDuracion(int duracion) {
+        super.setDuracion(duracion);
+    }
+
+    @Override
+    /**
+     * Metodo que retorna el tiempo de ejecucion del proceso
+     * @return int tiempo - Tiempo de ejecucion del proceso
+     */
+    public int getTiempo() {
+        return super.getTiempo();
+    }
+
+    @Override
+    /**
+     * Metodo que modifica el tiempo de ejecucion del proceso
+     * @param tiempo - Tiempo de ejecucion del proceso
+     */
+    public void setTiempo(int tiempo) {
+        super.setTiempo(tiempo);
+    }
+
+    @Override
+    /**
+     * Metodo que retorna el estado del proceso
+     * @return boolean terminado - Estado del proceso
+     */
+    public boolean getTerminado() {
+        return super.getTerminado();
+    }
+
+    @Override
+    /**
+     * Metodo que modifica el estado del proceso
+     * @param terminado - Estado del proceso
+     */
+    public void setTerminado(boolean terminado) {
+        super.setTerminado(terminado);
     }
 }

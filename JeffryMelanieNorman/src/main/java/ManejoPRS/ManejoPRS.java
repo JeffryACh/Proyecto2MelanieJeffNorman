@@ -88,7 +88,7 @@ public class ManejoPRS {
      * Metodo que se encarga de verificar si existen archivos .prs en RUTA_DIRECTORIO
      * @return boolean - True si existen archivos .prs, false si no existen
      */
-    public boolean existenArchivosPRS() {
+    private boolean existenArchivosPRS() {
         File directorio = new File(RUTA_DIRECTORIO);
 
         if (directorio.exists() && directorio.isDirectory()) {
@@ -108,7 +108,7 @@ public class ManejoPRS {
      * Metodo que se encarga de buscar los archivos .prs en rutaDirectorio para retornar sus nombres
      * @return nombresArchivosPRS - Nombres de los archivos .prs
      */
-    public ArrayList<String> buscarArchivosPRS() {
+    private ArrayList<String> buscarArchivosPRS() {
         if (existenArchivosPRS()) {
             File directorio = new File(RUTA_DIRECTORIO);
             File[] archivos = directorio.listFiles();
@@ -135,7 +135,7 @@ public class ManejoPRS {
      * Metodo que se encarga de buscar los archivos .prs en rutaDirectorio para retornar sus rutas
      * @return rutasArchivosPRS - Rutas de los archivos .prs
      */
-    public ArrayList<String> buscarRutasArchivosPRS() {
+    private ArrayList<String> buscarRutasArchivosPRS() {
         if (existenArchivosPRS()) {
             File directorio = new File(RUTA_DIRECTORIO);
             File[] archivos = directorio.listFiles();
@@ -154,7 +154,7 @@ public class ManejoPRS {
      * Metodo que se encarga de leer los archivos .prs
      * @return LeerPRS lector - Lector de los archivos .prs
      */
-    public ArrayList<LeerPRS> leerArchivosPRS() {
+    private ArrayList<LeerPRS> leerArchivosPRS() {
         if (existenArchivosPRS()) {
             for (String rutaArchivo : rutasArchivosPRS) {
                 LeerPRS lector = new LeerPRS(rutaArchivo);

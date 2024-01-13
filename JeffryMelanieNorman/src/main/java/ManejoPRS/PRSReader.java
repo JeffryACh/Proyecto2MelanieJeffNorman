@@ -32,9 +32,9 @@ public class PRSReader {
         ManejoPRS manejo = new ManejoPRS();
 
         manejo.getLector().forEach((lector) -> {
-            lector.mostrarDocumentos();
-            lector.mostrarMultimedia();
-            lector.mostrarEjecutables();
+            lector.mostrarProcesos();
+            System.out.println("--------------------------------------------------");
+            System.out.println("--------------------------------------------------");
         });
     }
 }
