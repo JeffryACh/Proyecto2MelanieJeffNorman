@@ -120,10 +120,10 @@ public class LeerPRS {
                     Documento doc;
                     DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd-MM-yyyy");
                     LocalDate fechaActual = LocalDate.now();
-                    String fechaComoCadena = fechaActual.format(formato);
-                    DateTimeFormatter formatoHora = DateTimeFormatter.ofPattern("HH:mm:ss");
+                    String fechaString = fechaActual.format(formato);
                     LocalTime horaActual = LocalTime.now();
-                    String horaComoCadena = horaActual.format(formatoHora);
+                    DateTimeFormatter formatoHora = DateTimeFormatter.ofPattern("HH:mm:ss");
+                    String hora = horaActual.format(formatoHora);
                     String nombre = partes[0];
                     for (int i = 0; i < nombre.length(); i++) {
                         if (nombre.charAt(i) == '.') {
@@ -131,6 +131,8 @@ public class LeerPRS {
                         }
                     }
                     doc = new Documento(id, nombre, partes[4], partes[3]);
+                    doc.setHoraDeEjecucion(hora);
+                    doc.setFechaDeEjecucion(fechaString);
                     documentos.add(doc);
                     this.cantidadProcesos++;
                 }
@@ -159,10 +161,10 @@ public class LeerPRS {
                     Ejecutable ejec;
                     DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd-MM-yyyy");
                     LocalDate fechaActual = LocalDate.now();
-                    String fechaComoCadena = fechaActual.format(formato);
+                    String fechaString = fechaActual.format(formato);
                     DateTimeFormatter formatoHora = DateTimeFormatter.ofPattern("HH:mm:ss");
                     LocalTime horaActual = LocalTime.now();
-                    String horaComoCadena = horaActual.format(formatoHora);
+                    String horaString = horaActual.format(formatoHora);
                     String nombre = partes[0];
                     for (int i = 0; i < nombre.length(); i++) {
                         if (nombre.charAt(i) == '.') {
@@ -170,6 +172,8 @@ public class LeerPRS {
                         }
                     }
                     ejec = new Ejecutable(id, nombre, partes[5], partes[4], partes[3]);
+                    ejec.setHoraDeEjecucion(horaString);
+                    ejec.setFechaDeEjecucion(fechaString);
                     ejecutables.add(ejec);
                     this.cantidadProcesos++;
                 }
@@ -198,10 +202,10 @@ public class LeerPRS {
                     Multimedia multi;
                     DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd-MM-yyyy");
                     LocalDate fechaActual = LocalDate.now();
-                    String fechaComoCadena = fechaActual.format(formato);
+                    String fecha = fechaActual.format(formato);
                     DateTimeFormatter formatoHora = DateTimeFormatter.ofPattern("HH:mm:ss");
                     LocalTime horaActual = LocalTime.now();
-                    String horaComoCadena = horaActual.format(formatoHora);
+                    String hora = horaActual.format(formatoHora);
                     String nombre = partes[0];
                     for (int i = 0; i < nombre.length(); i++) {
                         if (nombre.charAt(i) == '.') {
@@ -209,6 +213,8 @@ public class LeerPRS {
                         }
                     }
                     multi = new Multimedia(id, nombre, partes[4], partes[3]);
+                    multi.setHoraDeEjecucion(hora);
+                    multi.setFechaDeEjecucion(fecha);
                     multimedia.add(multi);
                     this.cantidadProcesos++;
                 }

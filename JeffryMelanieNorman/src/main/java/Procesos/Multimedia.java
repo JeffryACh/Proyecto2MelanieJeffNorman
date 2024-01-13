@@ -64,7 +64,7 @@ public class Multimedia extends Proceso {
      * @param estado - Estado del proceso
      */
     public void cambiarEstado(Estado estado) {
-        this.cambiarEstado(estado);
+        super.cambiarEstado(estado);
     }
 
     @Override
@@ -73,7 +73,7 @@ public class Multimedia extends Proceso {
      * @param nombre - Nombre del proceso
      */
     public void setNombre(String nombre) {
-        this.setNombre(nombre);
+        super.setNombre(nombre);
     }
 
     @Override
@@ -81,7 +81,7 @@ public class Multimedia extends Proceso {
      * Metodo que retorna la fecha de ejecucion del proceso
      * @return String fechaDeEjecucion - Fecha de ejecucion del proceso
      */
-    public LocalDate getFechaDeEjecucion() {
+    public String getFechaDeEjecucion() {
         return super.getFechaDeEjecucion();
     }
 
@@ -90,8 +90,8 @@ public class Multimedia extends Proceso {
      * Metodo que modifica la fecha de ejecucion del proceso
      * @param fechaDeEjecucion - Fecha de ejecucion del proceso
      */
-    public void setFechaDeEjecucion(LocalDate fechaDeEjecucion) {
-        this.setFechaDeEjecucion(fechaDeEjecucion);
+    public void setFechaDeEjecucion(String fechaDeEjecucion) {
+        super.setFechaDeEjecucion(fechaDeEjecucion);
     }
 
     @Override
@@ -99,7 +99,7 @@ public class Multimedia extends Proceso {
      * Metodo que retorna la hora de ejecucion del proceso
      * @return String horaDeEjecucion - Hora de ejecucion del proceso
      */
-    public LocalTime getHoraDeEjecucion() {
+    public String getHoraDeEjecucion() {
         return super.getHoraDeEjecucion();
     }
 
@@ -108,8 +108,8 @@ public class Multimedia extends Proceso {
      * Metodo que modifica la hora de ejecucion del proceso
      * @param horaDeEjecucion - Hora de ejecucion del proceso
      */
-    public void setHoraDeEjecucion(LocalTime horaDeEjecucion) {
-        this.setHoraDeEjecucion(horaDeEjecucion);
+    public void setHoraDeEjecucion(String horaDeEjecucion) {
+        super.setHoraDeEjecucion(horaDeEjecucion);
     }
 
     @Override
@@ -117,7 +117,7 @@ public class Multimedia extends Proceso {
      * Metodo que retorna la hora de finalizacion del proceso
      * @return String horaDefinalizacion - Hora de finalizacion del proceso
      */
-    public LocalTime getHoraDefinalizacion() {
+    public String getHoraDefinalizacion() {
         return super.getHoraDefinalizacion();
     }
 
@@ -126,8 +126,8 @@ public class Multimedia extends Proceso {
      * Metodo que modifica la hora de finalizacion del proceso
      * @param horaDefinalizacion - Hora de finalizacion del proceso
      */
-    public void setHoraDefinalizacion(LocalTime horaDefinalizacion) {
-        this.setHoraDefinalizacion(horaDefinalizacion);
+    public void setHoraDefinalizacion(String horaDefinalizacion) {
+        super.setHoraDefinalizacion(horaDefinalizacion);
     }
 
     @Override
@@ -145,7 +145,7 @@ public class Multimedia extends Proceso {
      * @param id - Id del proceso
      */
     public void setId(int id) {
-        this.setId(id);
+        super.setId(id);
     }
 
     @Override
@@ -172,6 +172,6 @@ public class Multimedia extends Proceso {
      * @param tipo - Tipo de proceso
      */
     public void setTipo(String tipo) {
-        this.setTipo(tipo);
+        super.setTipo(tipo);
     }
 }

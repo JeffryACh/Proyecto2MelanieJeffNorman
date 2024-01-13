@@ -20,9 +20,9 @@ public abstract class Proceso {
     private int id;
     private String tipo;
     private String nombre;
-    private LocalDate fechaDeEjecucion;
-    private LocalTime horaDeEjecucion;
-    private LocalTime horaDefinalizacion;
+    private String fechaDeEjecucion;
+    private String horaDeEjecucion;
+    private String horaDefinalizacion;
     private Estado estado;
     private int tiempo=0;
     private int tamano;
@@ -81,7 +81,7 @@ public abstract class Proceso {
      * Metodo que retorna la fecha de ejecucion del proceso
      * @return String fechaDeEjecucion - Fecha de ejecucion del proceso
      */
-        public LocalDate getFechaDeEjecucion() {
+        public String getFechaDeEjecucion() {
         return fechaDeEjecucion;
     }
 
@@ -89,7 +89,7 @@ public abstract class Proceso {
      * Metodo que modifica la fecha de ejecucion del proceso
      * @param fechaDeEjecucion - Fecha de ejecucion del proceso
      */
-    public void setFechaDeEjecucion(LocalDate fechaDeEjecucion) {
+    public void setFechaDeEjecucion(String fechaDeEjecucion) {
         this.fechaDeEjecucion = fechaDeEjecucion;
     }
 
@@ -97,7 +97,7 @@ public abstract class Proceso {
      * Metodo que retorna la hora de ejecucion del proceso
      * @return String horaDeEjecucion - Hora de ejecucion del proceso
      */
-    public LocalTime getHoraDeEjecucion() {
+    public String getHoraDeEjecucion() {
         return horaDeEjecucion;
     }
 
@@ -105,7 +105,7 @@ public abstract class Proceso {
      * Metodo que modifica la hora de ejecucion del proceso
      * @param horaDeEjecucion - Hora de ejecucion del proceso
      */
-    public void setHoraDeEjecucion(LocalTime horaDeEjecucion) {
+    public void setHoraDeEjecucion(String horaDeEjecucion) {
         this.horaDeEjecucion = horaDeEjecucion;
     }
 
@@ -113,7 +113,7 @@ public abstract class Proceso {
      * Metodo que retorna la hora de finalizacion del proceso
      * @return String horaDefinalizacion - Hora de finalizacion del proceso
      */
-    public LocalTime getHoraDefinalizacion() {
+    public String getHoraDefinalizacion() {
         return horaDefinalizacion;
     }
 
@@ -121,7 +121,7 @@ public abstract class Proceso {
      * Metodo que modifica la hora de finalizacion del proceso
      * @param horaDefinalizacion - Hora de finalizacion del proceso
      */
-    public void setHoraDefinalizacion(LocalTime horaDefinalizacion) {
+    public void setHoraDefinalizacion(String horaDefinalizacion) {
         this.horaDefinalizacion = horaDefinalizacion;
     }
 

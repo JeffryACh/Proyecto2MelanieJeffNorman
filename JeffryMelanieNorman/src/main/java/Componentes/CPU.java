@@ -8,6 +8,7 @@ import Procesos.Estado;
 import Procesos.Proceso;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import ventanas.VentanaCPU;
 
@@ -81,7 +82,10 @@ public class CPU implements Runnable{
 
                     if (actual.getTerminado()) {
                         actual.cambiarEstado(Estado.FINALIZADO);
-                        actual.setHoraDefinalizacion(LocalTime.now());
+                        DateTimeFormatter formatoHora = DateTimeFormatter.ofPattern("HH:mm:ss");
+                        LocalTime hora=LocalTime.now();
+                        String horaDefinalizacion=hora.format(formatoHora);
+                        actual.setHoraDefinalizacion(horaDefinalizacion);
                         int i=indiceActual;
                         while(i<ejecutando.length-1 && ejecutando[i+1]!=null){
                             ejecutando[i]=ejecutando[i+1];
@@ -116,8 +120,14 @@ public class CPU implements Runnable{
     public Proceso asignarProceso(){
         Proceso actual= procesos.get(0);
         procesos.remove(0);
-        actual.setFechaDeEjecucion(LocalDate.now());
-        actual.setHoraDeEjecucion(LocalTime.now());
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate fecha=LocalDate.now();
+        DateTimeFormatter formato2 = DateTimeFormatter.ofPattern("HH:mm:ss");
+        LocalTime hora=LocalTime.now();
+        String fechaEjecucion=fecha.format(formato);
+        String horaEjecucion=hora.format(formato2);
+        actual.setFechaDeEjecucion(fechaEjecucion);
+        actual.setHoraDeEjecucion(horaEjecucion);
         return actual;
     }
 }

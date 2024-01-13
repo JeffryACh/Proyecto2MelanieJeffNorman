@@ -1,0 +1,8 @@
+Java.exe, 12, 20, ejecutable, exe, Si 
+ElDocumento.doc, 10, 8, documento, cifrado 
+Seguridad.bat, 12, 15, ejecutable, bat, No 
+Transformer.mov, 20, 20, multimedia, ambos 
+C#.exe, 15, 10, ejecutable, exe, No
+SuDocumento.doc, 11, 18, documento, descifrado
+2Guns.mov, 20, 20, multimedia, ambos
+Cockies.bat, 15, 12, ejecutable, bat, Si
