@@ -53,32 +53,40 @@ public class PRSReader {
         } catch (IOException e) {
             System.out.println("Error al leer la opcion");
         }
+        OUTER:
         while (true) {
-            if (opcion == 1) {
-                System.out.println("====================================");
-                System.out.println("Procesos en espera:\n");
-                System.out.println("====================================");
-                lista.imprimirProcesosPorEstado(Estado.ESPERA);
-            } else if (opcion == 2) {
-                System.out.println("====================================");
-                System.out.println("Procesos asignados:\n");
-                System.out.println("====================================");
-                lista.imprimirProcesosPorEstado(Estado.ASIGNADO);
-            } else if (opcion == 3) {
-                System.out.println("====================================");
-                System.out.println("Procesos finalizados:\n");
-                System.out.println("====================================");
-                lista.imprimirProcesosPorEstado(Estado.FINALIZADO);
-            } else if (opcion == 4) {
-                System.out.println("====================================");
-                System.out.println("Procesos:\n");
-                System.out.println("====================================");
-                lista.imprimirProcesos();
-            } else if (opcion == 0) {
-                System.out.println("====================================");
-                System.out.println("Saliendo...");
-                System.out.println("====================================");
-                break;
+            switch (opcion) {
+                case 1:
+                    System.out.println("====================================");
+                    System.out.println("Procesos en espera:\n");
+                    System.out.println("====================================");
+                    lista.imprimirProcesosPorEstado(Estado.ESPERA);
+                    break;
+                case 2:
+                    System.out.println("====================================");
+                    System.out.println("Procesos asignados:\n");
+                    System.out.println("====================================");
+                    lista.imprimirProcesosPorEstado(Estado.ASIGNADO);
+                    break;
+                case 3:
+                    System.out.println("====================================");
+                    System.out.println("Procesos finalizados:\n");
+                    System.out.println("====================================");
+                    lista.imprimirProcesosPorEstado(Estado.FINALIZADO);
+                    break;
+                case 4:
+                    System.out.println("====================================");
+                    System.out.println("Procesos:\n");
+                    System.out.println("====================================");
+                    lista.imprimirProcesos();
+                    break;
+                case 0:
+                    System.out.println("====================================");
+                    System.out.println("Saliendo...");
+                    System.out.println("====================================");
+                    break OUTER;
+                default:
+                    continue;
             }
             System.out.println("====================================");
             System.out.println("Procesos leidos:\n");
