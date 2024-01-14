@@ -10,12 +10,10 @@ import Procesos.Estado;
 import Procesos.Proceso;
 import java.util.ArrayList;
 
-import javax.swing.text.Document;
 
 import ManejoPRS.ManejoPRS;
 import Procesos.Ejecutable;
 import Procesos.Multimedia;
-import java.util.function.Consumer;
 
 /**
  * Esta clase es la encargada de mostrar los procesos en el CPU

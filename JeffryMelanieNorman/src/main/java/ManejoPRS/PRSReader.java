@@ -5,9 +5,6 @@
 package ManejoPRS;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FilenameFilter;
 import java.io.IOException;
 
 import Componentes.ListaProcesos;
@@ -56,37 +53,39 @@ public class PRSReader {
         OUTER:
         while (true) {
             switch (opcion) {
-                case 1:
+                case 1 -> {
                     System.out.println("====================================");
                     System.out.println("Procesos en espera:\n");
                     System.out.println("====================================");
                     lista.imprimirProcesosPorEstado(Estado.ESPERA);
-                    break;
-                case 2:
+                }
+                case 2 -> {
                     System.out.println("====================================");
                     System.out.println("Procesos asignados:\n");
                     System.out.println("====================================");
                     lista.imprimirProcesosPorEstado(Estado.ASIGNADO);
-                    break;
-                case 3:
+                }
+                case 3 -> {
                     System.out.println("====================================");
                     System.out.println("Procesos finalizados:\n");
                     System.out.println("====================================");
                     lista.imprimirProcesosPorEstado(Estado.FINALIZADO);
-                    break;
-                case 4:
+                }
+                case 4 -> {
                     System.out.println("====================================");
                     System.out.println("Procesos:\n");
                     System.out.println("====================================");
                     lista.imprimirProcesos();
-                    break;
-                case 0:
+                }
+                case 0 -> {
                     System.out.println("====================================");
                     System.out.println("Saliendo...");
                     System.out.println("====================================");
                     break OUTER;
-                default:
+                }
+                default -> {
                     continue;
+                }
             }
             System.out.println("====================================");
             System.out.println("Procesos leidos:\n");

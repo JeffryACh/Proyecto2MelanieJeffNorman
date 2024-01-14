@@ -4,9 +4,6 @@
  */
 package Procesos;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-
 /**
  * Clase que representa un proceso de tipo Documento
  *

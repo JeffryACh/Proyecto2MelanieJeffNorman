@@ -4,11 +4,6 @@
  */
 package Procesos;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Clase que representa un proceso de tipo Ejecutable
  *
