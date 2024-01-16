@@ -42,10 +42,32 @@ public class VentanaListaProcesos extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 51));
 
-        jTable1.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.disabledSelectedBackground"));
+        jScrollPane2.setBackground(new java.awt.Color(0, 51, 51));
+
+        jTable1.setBackground(new java.awt.Color(0, 51, 51));
         jTable1.setFont(new java.awt.Font("Sitka Text", 0, 12)); // NOI18N
+        jTable1.setForeground(new java.awt.Color(255, 255, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null, null},
@@ -62,6 +84,12 @@ public class VentanaListaProcesos extends javax.swing.JFrame {
                 "ID", "Nombre", "Tipo de programa", "Fecha", "Hora de ejecucion", "Hora de finalizacion", "Tamaño", "Duracion", "Usuario", "Estado", "CPU"
             }
         ));
+        jTable1.setFillsViewportHeight(true);
+        jTable1.setRowSelectionAllowed(false);
+        jTable1.setSelectionBackground(new java.awt.Color(0, 51, 51));
+        jTable1.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        jTable1.setShowGrid(false);
+        jTable1.setShowHorizontalLines(false);
         jScrollPane2.setViewportView(jTable1);
 
         jLabel1.setFont(new java.awt.Font("Stencil", 0, 12)); // NOI18N
@@ -169,4 +197,6 @@ public class VentanaListaProcesos extends javax.swing.JFrame {
             }
         }
     }
+    
+    
 }

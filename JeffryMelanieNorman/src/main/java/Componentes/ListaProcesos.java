@@ -34,6 +34,7 @@ public class ListaProcesos {
      * Constructor de la clase ListaProcesos
      */
     public ListaProcesos(){
+        procesos=new ArrayList<>();
         manejo = new ManejoPRS();
         ventana=new VentanaListaProcesos();
         ventana.setVisible(true);
