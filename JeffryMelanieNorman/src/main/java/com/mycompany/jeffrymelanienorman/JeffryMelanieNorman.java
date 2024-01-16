@@ -27,7 +27,6 @@ public class JeffryMelanieNorman {
         System.out.println("Hello World!");
         VentanaInicio inicio=new VentanaInicio();
         inicio.setVisible(true);
-        VentanaCPU cpu=new VentanaCPU(1);
-        cpu.setVisible(true);
+        
     }
 }

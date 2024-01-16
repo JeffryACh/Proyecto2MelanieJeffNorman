@@ -4,6 +4,10 @@
  */
 package ventanas;
 
+import Procesos.Proceso;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  * Esta clase es la encargada de mostrar los procesos en el VentanaCPU
  *
@@ -118,25 +122,24 @@ public class VentanaCPU extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    /**
-     * Variable que contiene el texto de la etiqueta jLabel1
-     */
     private javax.swing.JLabel jLabel1;
-    /**
-     * Variable que contiene el texto de la etiqueta jLabel2
-     */
     private javax.swing.JLabel jLabel2;
-    /**
-     * Variable que contiene el panel jPanel1
-     */
     private javax.swing.JPanel jPanel1;
-    /**
-     * Variable que contiene la tabla jTable1
-     */
     private javax.swing.JScrollPane jScrollPane1;
-    /**
-     * Variable que contiene la tabla jTable2
-     */
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+    public void cargarDatos(Proceso[] procesos){
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        for(int i=0; i<procesos.length; i++){
+            if(procesos[i]!=null){
+                modelo.setValueAt(String.valueOf(procesos[i].getId()),i,0);
+                modelo.setValueAt(procesos[i].getNombre(),i,1);
+                modelo.setValueAt(procesos[i].getTipo(),i,2);
+                modelo.setValueAt(procesos[i].getFechaDeEjecucion(),i,3);
+                modelo.setValueAt(procesos[i].getHoraDeEjecucion(),i,4);
+                modelo.setValueAt(String.valueOf(procesos[i].getTiempo()), i, 5);
+                modelo.setValueAt(String.valueOf(procesos[i].getTamano()),i,6);
+            }
+        }
+    }
 }

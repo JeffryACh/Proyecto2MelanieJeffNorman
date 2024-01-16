@@ -4,7 +4,9 @@
  */
 package ventanas;
 
+import Componentes.RAM;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /**
  * Ventana que muestra los procesos en ejecucion y permite asignarlos a un CPU
@@ -14,7 +16,7 @@ import javax.swing.JFileChooser;
  * VentanaInicio
  */
 public class VentanaInicio extends javax.swing.JFrame {
-
+    RAM ram;
     /**
      * Creates new form Inicio
      */
@@ -156,6 +158,8 @@ public class VentanaInicio extends javax.swing.JFrame {
         jButton1.setVisible(false);
         jButton3.setVisible(true);
         jButton4.setVisible(true);
+        int n=(int) jComboBox1.getSelectedIndex()+1;
+        ram=new RAM(n);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -188,7 +192,12 @@ public class VentanaInicio extends javax.swing.JFrame {
      * @param evt - Evento de accion
      */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        if(ram!=null){
+            ram.ejecutar();
+            this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "Error al ejecutar procesos.", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

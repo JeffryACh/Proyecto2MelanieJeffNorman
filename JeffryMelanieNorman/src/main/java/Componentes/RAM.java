@@ -45,7 +45,7 @@ public class RAM {
         cpus = new CPU[n];
         threads = new Thread[n];
         for(int i = 0; i < n; i++){
-            CPU cpu = new CPU(i);
+            CPU cpu = new CPU(i+1);
             Thread threadcpu = new Thread(cpu);
             cpus[i] = cpu;
             threads[i] = threadcpu;
@@ -56,19 +56,21 @@ public class RAM {
      * Metodo que asigna los procesos a los CPUs de manera aleatoria
      */
     private void asignarCPUs(){
-        int cont = cpus.length;
-        Random random = new Random();
-        for(Proceso proceso : procesos){
-            int n = random.nextInt(cont); 
-            cpus[n].agregarProceso(proceso); 
-            proceso.cambiarEstado(Estado.ASIGNADO);
+        if(procesos!=null){
+            int cont = cpus.length;
+            Random random = new Random();
+            for(Proceso proceso : procesos){
+                int n = random.nextInt(cont); 
+                cpus[n].agregarProceso(proceso); 
+                proceso.cambiarEstado(Estado.ASIGNADO);
+            }
         }
     }
    
     /**
      * Metodo que ejecuta los procesos
      */
-    private void ejecutar(){
+    public void ejecutar(){
         if(threads != null){
             for(int i = 0; i < threads.length; i++){
                 threads[i].start();
