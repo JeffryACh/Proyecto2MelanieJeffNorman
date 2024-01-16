@@ -21,6 +21,7 @@ public abstract class Proceso {
     private String horaDeEjecucion;
     private String horaDefinalizacion;
     private Estado estado;
+    private String usuario;
     private int tiempo=0;
     private int duracion;
     private int tamano;
@@ -55,7 +56,14 @@ public abstract class Proceso {
     public String getNombre(){
         return this.nombre;
     }
-
+    
+    public String getUsuario(){
+        return usuario;
+    }
+    
+    public void setUsuario(String usuario){
+        this.usuario=usuario;
+    }
     /**
      * Metodo que cambia el estado del proceso
      * @param estado - Estado del proceso

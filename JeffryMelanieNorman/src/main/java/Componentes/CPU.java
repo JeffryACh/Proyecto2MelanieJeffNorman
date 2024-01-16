@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import javax.swing.JFrame;
 import ventanas.VentanaCPU;
 
 /**
@@ -25,6 +26,7 @@ public class CPU implements Runnable{
     private Proceso[] ejecutando;
     private int indiceActual = 0;
     private VentanaCPU ventana;
+    
     // Constructor
     /**
      * Constructor de la clase CPU
@@ -38,9 +40,9 @@ public class CPU implements Runnable{
     }
 
     // Metodos
-
-    
-
+    public JFrame getVentana(){
+        return ventana;
+    }
     /**
      * Metodo que añaade un proceso a la lista de procesos
      * @param proceso - Proceso a agregar

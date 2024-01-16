@@ -4,6 +4,10 @@
  */
 package ventanas;
 
+import Procesos.Proceso;
+import java.util.ArrayList;
+import javax.swing.JLabel;
+
 /**
  * Esta clase es la encargada de mostrar los procesos en el CPU desde la RAM
  *
@@ -112,4 +116,23 @@ public class VentanaRAM extends javax.swing.JFrame {
      */
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+    public void cargarDatos(ArrayList<Proceso> procesos){
+        jPanel1.removeAll();
+        jPanel1.revalidate();
+        jPanel1.repaint();
+        jLabel1.setText("Memoria Principal");
+        jPanel1.add(jLabel1);
+        int cont=0;
+        if(procesos!=null && !procesos.isEmpty()){
+            for(Proceso proceso:procesos){
+                jPanel1.add(new JLabel(String.valueOf(cont)+proceso.getNombre()));
+                cont++;
+                for(int i=0; i<proceso.getTamano()-1; i++){
+                    jPanel1.add(new JLabel(String.valueOf(cont)));
+                    cont++;
+                }
+
+            }
+        }
+    }
 }

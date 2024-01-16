@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import ManejoPRS.ManejoPRS;
 import Procesos.Ejecutable;
 import Procesos.Multimedia;
+import javax.swing.JFrame;
 import ventanas.VentanaListaProcesos;
 
 /**
@@ -58,7 +59,17 @@ public class ListaProcesos {
     public void setManejo(ManejoPRS manejo) {
         this.manejo = manejo;
     }
-
+    
+    public JFrame getVentana(){
+        return ventana;
+    }
+    public ArrayList<Proceso> getProcesos(){
+        return procesos;
+    }
+    
+    public void setProcesos(ArrayList<Proceso> procesos){
+        this.procesos=procesos;
+    }
     /**
      * Metodo que se encarga de retornar los procesos de tipo Documento
      * @return procesosDocumento - ArrayList de procesos de tipo Documento

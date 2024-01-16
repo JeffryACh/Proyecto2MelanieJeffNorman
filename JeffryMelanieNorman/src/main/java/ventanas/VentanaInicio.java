@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
  */
 public class VentanaInicio extends javax.swing.JFrame {
     RAM ram;
+    Thread threadram;
     ListaProcesos lista;
     /**
      * Creates new form Inicio
@@ -48,6 +49,7 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(0, 51, 51));
+        setLocation(new java.awt.Point(500, 0));
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 51));
         jPanel1.setFont(new java.awt.Font("Sitka Text", 0, 12)); // NOI18N
@@ -113,9 +115,9 @@ public class VentanaInicio extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(185, 185, 185))
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jButton2)
                         .addGap(18, 18, 18)
                         .addComponent(jButton1)
@@ -124,7 +126,6 @@ public class VentanaInicio extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jButton4))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -176,7 +177,9 @@ public class VentanaInicio extends javax.swing.JFrame {
         jButton4.setVisible(true);
         int n=(int) jComboBox1.getSelectedIndex()+1;
         lista=new ListaProcesos();
-        ram=new RAM(n);
+        ram=new RAM(n,lista);
+        threadram=new Thread(ram);
+        threadram.start();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -225,6 +228,9 @@ public class VentanaInicio extends javax.swing.JFrame {
         jButton3.setVisible(false);
         jButton1.setVisible(true);
         jButton4.setVisible(false);
+        lista.getVentana().setVisible(false);
+        ram.cerrarVentana();
+        
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
@@ -265,45 +271,15 @@ public class VentanaInicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    /**
-     * Boton para asignar un proceso a un CPU
-     */
     private javax.swing.JButton jButton1;
-    /**
-     * Boton para ejecutar los procesos
-     */
     private javax.swing.JButton jButton2;
-    /**
-     * Boton para cancelar la asignacion de un proceso a un CPU
-     */
     private javax.swing.JButton jButton3;
-    /**
-     * Boton para subir archivos
-     */
     private javax.swing.JButton jButton4;
-    /**
-     * ComboBox para seleccionar la cantidad de CPUs
-     */
     private javax.swing.JComboBox<String> jComboBox1;
-    /**
-     * Etiqueta para mostrar el numero de la ventana
-     */
     private javax.swing.JLabel jLabel1;
-    /**
-     * Etiqueta para mostrar el numero de la ventana
-     */
     private javax.swing.JLabel jLabel2;
-    /**
-     * Etiqueta para mostrar el numero de la ventana
-     */
     private javax.swing.JLabel jLabel3;
-    /**
-     * Etiqueta para mostrar el numero de la ventana
-     */
     private javax.swing.JLabel jLabel4;
-    /**
-     * Panel principal
-     */
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

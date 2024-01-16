@@ -42,6 +42,7 @@ public class VentanaCPU extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setLocation(new java.awt.Point(800, 0));
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 51));
 
@@ -122,25 +123,10 @@ public class VentanaCPU extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    /**
-     * Label para mostrar el numero de la ventana
-     */
     private javax.swing.JLabel jLabel1;
-    /**
-     * Label para mostrar el numero de la ventana
-     */
     private javax.swing.JLabel jLabel2;
-    /**
-     * Panel principal
-     */
     private javax.swing.JPanel jPanel1;
-    /**
-     * ScrollPanel para la tabla de procesos
-     */
     private javax.swing.JScrollPane jScrollPane1;
-    /**
-     * Tabla para mostrar los procesos
-     */
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 
@@ -161,6 +147,7 @@ public class VentanaCPU extends javax.swing.JFrame {
                     modelo.setValueAt(procesos[i].getHoraDeEjecucion(),i,4);
                 modelo.setValueAt(String.valueOf(procesos[i].getTiempo()), i, 5);
                 modelo.setValueAt(String.valueOf(procesos[i].getTamano()),i,6);
+                modelo.setValueAt(procesos[i].getUsuario(),i,7);
             }
         }
     }

@@ -5,6 +5,8 @@
 package ventanas;
 
 import Procesos.Proceso;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -16,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  * VentanaListaProcesos
  */
 public class VentanaListaProcesos extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form ListaProcesos
      */
@@ -39,6 +41,8 @@ public class VentanaListaProcesos extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(0, 0, 0, 0));
+        setLocation(new java.awt.Point(400, 200));
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 51));
 
@@ -89,7 +93,6 @@ public class VentanaListaProcesos extends javax.swing.JFrame {
         jTable1.setSelectionBackground(new java.awt.Color(0, 51, 51));
         jTable1.setSelectionForeground(new java.awt.Color(255, 255, 255));
         jTable1.setShowGrid(false);
-        jTable1.setShowHorizontalLines(false);
         jScrollPane2.setViewportView(jTable1);
 
         jLabel1.setFont(new java.awt.Font("Stencil", 0, 12)); // NOI18N
@@ -171,21 +174,9 @@ public class VentanaListaProcesos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    /**
-     * Label que muestra el titulo de la ventana
-     */
     private javax.swing.JLabel jLabel1;
-    /**
-     * Panel principal de la ventana
-     */
     private javax.swing.JPanel jPanel1;
-    /**
-     * ScrollPane que contiene la tabla
-     */
     private javax.swing.JScrollPane jScrollPane2;
-    /**
-     * Tabla que muestra los procesos
-     */
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 
@@ -208,7 +199,7 @@ public class VentanaListaProcesos extends javax.swing.JFrame {
                     modelo.setValueAt(procesos.get(i).getHoraDefinalizacion(), i, 5);
                 modelo.setValueAt(String.valueOf(procesos.get(i).getTamano()),i,6);
                 modelo.setValueAt(String.valueOf(procesos.get(i).getDuracion()), i, 7);
-                //usuario
+                modelo.setValueAt(procesos.get(i).getUsuario(), i, 8);
                 modelo.setValueAt(procesos.get(i).getEstado(), i, 9);
                 modelo.setValueAt(String.valueOf(procesos.get(i).getCPU()),i,10);
             }
