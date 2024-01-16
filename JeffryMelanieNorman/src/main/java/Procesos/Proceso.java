@@ -80,13 +80,22 @@ public abstract class Proceso {
         this.nombre = nombre;
     }
     
+    /**
+     * Metodo que retorna el CPU del proceso
+     * @return CPU - numero de la CPU del proceso
+     */
     public int getCPU(){
         return CPU;
     }
 
+    /**
+     * Metodo que modifica el CPU del proceso
+     * @param n - numero de la CPU del proceso
+     */
     public void setCPU(int n){
         this.CPU=n;
     }
+
     /**
      * Metodo que retorna la fecha de ejecucion del proceso
      * @return String fechaDeEjecucion - Fecha de ejecucion del proceso
