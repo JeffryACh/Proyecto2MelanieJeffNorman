@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Componentes;
 
 import Procesos.Estado;
@@ -23,6 +19,8 @@ public class RAM {
     private CPU[] cpus; 
     private Thread[] threads;
     private ArrayList<Proceso> procesos;
+    private GestorMemoriaRAM gestorMemoriaRAM;
+    private Thread threadGestorMemoria;
 
     // Constructor
     /**
@@ -33,6 +31,9 @@ public class RAM {
         VentanaRAM ventana=new VentanaRAM();
         generarCPUs(n);
         asignarCPUs();
+        this.gestorMemoriaRAM = new GestorMemoriaRAM(this.size);
+        this.threadGestorMemoria = new Thread(gestorMemoriaRAM);
+        this.threadGestorMemoria.start();
         
     }
 
@@ -51,7 +52,18 @@ public class RAM {
             threads[i] = threadcpu;
         }
     }
-
+    // Método para finalizar procesos y liberar memoria
+    public void finalizarProceso(Proceso proceso) {
+        this.gestorMemoriaRAM.finalizarProceso(proceso);
+    }
+    
+    
+    // Método modificado para agregar procesos al gestor de memoria
+    public void agregarProcesoARAM(Proceso proceso){
+    this.gestorMemoriaRAM.agregarProceso(proceso);
+    }
+    
+    
     /**
      * Metodo que asigna los procesos a los CPUs de manera aleatoria
      */
@@ -67,7 +79,6 @@ public class RAM {
             }
         }
     }
-   
     /**
      * Metodo que ejecuta los procesos
      */
@@ -77,5 +88,9 @@ public class RAM {
                 thread.start();
             }
         }
+        // Aquí se puede poner la Lógica para la ejecución de procesos
     }
+    
+    
 }
+

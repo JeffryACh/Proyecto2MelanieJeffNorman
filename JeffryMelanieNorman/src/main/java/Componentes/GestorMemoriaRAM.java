@@ -1,4 +1,3 @@
-
 package Componentes;
 
 /**
@@ -67,7 +66,5 @@ public class GestorMemoriaRAM implements Runnable {
             }
         }
     }
-    
-    
     
 }
