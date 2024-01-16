@@ -12,7 +12,13 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import Procesos.*;
-
+/**
+ * Esta clase lee un archivo .prs
+ * 
+ * @author Norman
+ * 
+ * LerrPRSAdaptado
+ */
 public class LeerPRSAdaptado {
     // Atributos
     private ArrayList<Documento> documentos;
@@ -23,6 +29,10 @@ public class LeerPRSAdaptado {
     private String rutaDelPRS;
 
     // Constructor
+    /**
+     * Este es el constructor de la clase LeerPRSAdaptado
+     * @param rutaDelPRS - path de la carpeta donde estan los .prs
+     */
     public LeerPRSAdaptado(String rutaDelPRS) {
         this.rutaDelPRS = rutaDelPRS;
         this.usuario = sacarUsuarioDeRuta(rutaDelPRS);
@@ -39,45 +49,86 @@ public class LeerPRSAdaptado {
     }
 
     // Métodos de acceso
+    /**
+     * Get de los procesos tipo documentos
+     * @return documentos - la lista de procesos de tipo documento
+     */
     public ArrayList<Documento> getDocumentos() {
         return documentos;
     }
 
+    /**
+     * Get de los procesos tipo ejecutables
+     * @return ejecutables - la lista de procesos de tipo ejecutable
+     */
     public ArrayList<Ejecutable> getEjecutables() {
         return ejecutables;
     }
 
+    /**
+     * Get de los procesos de tipo multimedia
+     * @return multimedia - la lista de procesos de tipo multimedia
+     */
     public ArrayList<Multimedia> getMultimedia() {
         return multimedia;
     }
 
+    /**
+     * Get cantidad de procesos totales
+     * @return cantidadProcesos - int de los procesos totales
+     */
     public int getCantidadProcesos() {
         return cantidadProcesos;
     }
 
+    /**
+     * Get del usuario del archivo .prs
+     * @return usuario - nombre de usuario
+     */
     public String getUsuario() {
         return usuario;
     }
     
 
+    /**
+     * Get de la ruta de la carpeta donde estan los .prs
+     * @return rutaDelPRS - aqui estan los .prs
+     */
     public String getRutaDelPRS() {
         return rutaDelPRS;
     }
 
     // Métodos setters, si necesitas la funcionalidad de actualizar desde la GUI
+    /**
+     * Set Ejecutables, este metodo modifica los procesos de tipo ejecutables
+     * @param ejecutables - lista de ejecutables
+     */
     public void setEjecutables(ArrayList<Ejecutable> ejecutables) {
         this.ejecutables = ejecutables;
     }
 
+    /**
+     * Set Multimedia, este metodo modifica los procesos de tipo multimedia
+     * @param multimedia - lista de multimedias
+     */
     public void setMultimedia(ArrayList<Multimedia> multimedia) {
         this.multimedia = multimedia;
     }
 
+    /**
+     * Set de la ruta de la carpeta de los .prs
+     * @param rutaDelPRS - nuevo path de los prs
+     */
     public void setRutaDelPRS(String rutaDelPRS) {
         this.rutaDelPRS = rutaDelPRS;
     }
     
-    
+    /**
+     * Lee el archivo PRS y extrae los procesos de tipo Documento.
+     * @param rutaDelArchivo - La ruta del archivo PRS a leer.
+     * @return documentos - Una lista de objetos Documento extraídos del archivo.
+     * @throws IOException - Si ocurre un error al leer el archivo.
+     */
     public ArrayList<Documento> leerPRSDocumentos(String rutaDelArchivo) throws IOException {
         ArrayList<Documento> documentos = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(rutaDelArchivo))) {
@@ -93,6 +144,11 @@ public class LeerPRSAdaptado {
         return documentos;
     }
 
+    /**
+     * Procesa una línea del archivo PRS y crea un objeto Documento si la línea corresponde a un proceso documento.
+     * @param linea - La línea del archivo PRS a procesar.
+     * @return doc - Un objeto Documento o null si la línea no corresponde a un proceso documento.
+     */
     private Documento procesarLineaDocumento(String linea) {
         String[] partes = linea.split(", ");
         if (!partes[3].equals("documento")) {
@@ -139,9 +195,8 @@ public class LeerPRSAdaptado {
 
     /**
      * Procesa una línea del archivo PRS y crea un objeto Ejecutable si la línea corresponde a un proceso ejecutable.
-     *
-     * @param linea La línea del archivo PRS a procesar.
-     * @return Un objeto Ejecutable o null si la línea no corresponde a un proceso ejecutable.
+     * @param linea - La línea del archivo PRS a procesar.
+     * @return ejec - Un objeto Ejecutable o null si la línea no corresponde a un proceso ejecutable.
      */
     private Ejecutable procesarLineaEjecutable(String linea) {
         String[] partes = linea.split(", ");
@@ -167,8 +222,8 @@ public class LeerPRSAdaptado {
     /**
      * Obtiene el nombre de un archivo sin su extensión.
      *
-     * @param nombreArchivo El nombre del archivo con extensión.
-     * @return El nombre del archivo sin la extensión.
+     * @param nombreArchivo - El nombre del archivo con extensión.
+     * @return El nombre del archivo sin extensión.
      */
     private String obtenerNombreSinExtension(String nombreArchivo) {
         int puntoIndex = nombreArchivo.lastIndexOf('.');
@@ -177,29 +232,57 @@ public class LeerPRSAdaptado {
     
     
 
-    private ArrayList<Multimedia> leerPRSMultimedia() {
+
+    /**
+     * Lee el archivo PRS y extrae los procesos de tipo Multimedia.
+     * @param rutaDelPRS - La ruta del archivo PRS a leer.
+     * @return multimedia - Una lista de objetos Multimedia extraídos del archivo.
+     * @throws IOException
+     */
+    private ArrayList<Multimedia> leerPRSMultimedia(String rutaDelPRS) throws IOException{
         ArrayList<Multimedia> multimedia = new ArrayList<Multimedia>();
-        try (BufferedReader br = new BufferedReader(new FileReader(rutaDelPRS))) {
+        try(BufferedReader br = new BufferedReader(new FileReader(rutaDelPRS))){
             String linea;
 
-            while ((linea = br.readLine()) != null) {
+            while((linea = br.readLine()) != null){
                 String[] partes = linea.split(", ");
 
-                if (partes[3].equals("multimedia")) {
+                if(partes[3].equals("multimedia")){
                     Random random = new Random();
                     int id = random.nextInt(1000);
                     Multimedia multi;
-                    // Resto del código para crear y añadir un objeto Multimedia a la lista...
+                    DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                    LocalDate fechaActual = LocalDate.now();
+                    String fecha = fechaActual.format(formato);
+                    DateTimeFormatter formatoHora = DateTimeFormatter.ofPattern("HH:mm:ss");
+                    LocalTime horaActual = LocalTime.now();
+                    String hora = horaActual.format(formatoHora);
+                    String nombre = partes[0];
+                    for (int i = 0; i < nombre.length(); i++) {
+                        if (nombre.charAt(i) == '.') {
+                            nombre = nombre.substring(0, i);
+                        }
+                    }
+                    int tamano = Integer.parseInt(partes[1]);
+                    int duracion = Integer.parseInt(partes[2]);
+                    multi = new Multimedia(id, nombre, partes[4], partes[3], tamano, duracion);
+                    multi.setHoraDeEjecucion(hora);
+                    multi.setFechaDeEjecucion(fecha);
+                    multimedia.add(multi);
+                    this.cantidadProcesos++;
                 }
             }
-        } catch (IOException e) {
+        }catch(IOException e){
             e.printStackTrace();
         }
         return multimedia;
     }
 
-    // Métodos existenDocumentos y existenEjecutables...
-
+    /**
+     * Verifica si existen procesos de tipo Documento en el archivo PRS.
+     * @return boolean - true si existen procesos de tipo Documento, false si no.
+     * @throws IOException - Si ocurre un error al leer el archivo.
+     */
     public boolean existenMultimedia() throws IOException {
         try (BufferedReader br = new BufferedReader(new FileReader(rutaDelPRS))) {
             String linea;
@@ -213,25 +296,34 @@ public class LeerPRSAdaptado {
         return false;
     }
 
-    // Método adaptado para leer el archivo .prs
+    /**
+     * Verifica si existen procesos de tipo Ejecutable en el archivo PRS.
+     */
     public void leerPRS() {
-        // Verificar y leer Documentos
-        if (existenDocumentos()) {
-            this.documentos = leerPRSDocumentos(this.rutaDelPRS);
-        }
+        try {
+            // Verificar y leer Documentos
+            if (existenDocumentos()) {
+                this.documentos = leerPRSDocumentos(this.rutaDelPRS);
+            }
 
-        // Verificar y leer Ejecutables
-        if (existenEjecutables()) {
-            this.ejecutables = leerPRSEjecutable(this.rutaDelPRS);
-        }
+            // Verificar y leer Ejecutables
+            if (existenEjecutables()) {
+                this.ejecutables = leerPRSEjecutable(this.rutaDelPRS);
+            }
 
-        // Verificar y leer Multimedia
-        if (existenMultimedia()) {
-            this.multimedia = leerPRSMultimedia(this.rutaDelPRS);
+            // Verificar y leer Multimedia
+            if (existenMultimedia()) {
+                this.multimedia = leerPRSMultimedia(this.rutaDelPRS);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
     
-    // Métodos adaptados para obtener la información de los procesos de manera estructurada
+    /**
+     * Obtiene la información de los objetos Documento.
+     * @return info - Una lista de Strings con la información de los objetos Documento.
+     */
     public ArrayList<String> obtenerInformacionDocumentos() {
         ArrayList<String> info = new ArrayList<>();
         for (Documento doc : documentos) {
@@ -249,6 +341,10 @@ public class LeerPRSAdaptado {
         return info;
     }
 
+    /**
+     * Obtiene la información de los objetos Ejecutable.
+     * @return info - Una lista de Strings con la información de los objetos Ejecutable.
+     */
     public ArrayList<String> obtenerInformacionEjecutables() {
         ArrayList<String> info = new ArrayList<>();
         for (Ejecutable ejec : ejecutables) {
@@ -268,7 +364,10 @@ public class LeerPRSAdaptado {
     }
 
     
-    // Método para obtener la información de los objetos Multimedia
+    /**
+     * Obtiene la información de los objetos Multimedia.
+     * @return infoMultimedia - Una lista de Strings con la información de los objetos Multimedia.
+     */
     public ArrayList<String> obtenerInformacionMultimedia() {
         ArrayList<String> infoMultimedia = new ArrayList<>();
         for (Multimedia multi : multimedia) {
@@ -286,16 +385,68 @@ public class LeerPRSAdaptado {
         return infoMultimedia;
     }
     
+    /**
+     * Esta funcion valida la existencia de procesos de tipo ejecutables
+     * @return boolean - true si existen / false si no
+     */
     private boolean existenEjecutables() {
-        throw new UnsupportedOperationException("Unimplemented method 'existenEjecutables'");
+        try (BufferedReader br = new BufferedReader(new FileReader(rutaDelPRS))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] partes = linea.split(", ");
+                if (partes[3].equals("ejecutable")) {
+                    return true;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
+    /**
+     * Esta funcion valida la existencia de procesos de tipo documento
+     * @return boolean - true si existen / false si no
+     */
     private boolean existenDocumentos() {
-        throw new UnsupportedOperationException("Unimplemented method 'existenDocumentos'");
+        try (BufferedReader br = new BufferedReader(new FileReader(rutaDelPRS))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] partes = linea.split(", ");
+                if (partes[3].equals("documento")) {
+                    return true;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
     
+    /**
+     * Esta funcion valida la existencia de procesos de tipo multimedia
+     * @return boolean - true si existen / false si no
+     */
+    private boolean existenMultimedias(){
+        try(BufferedReader br = new BufferedReader(new FileReader(rutaDelPRS))){
+            String linea;
+            while((linea = br.readLine()) != null){
+                String[] partes = linea.split(", ");
+                if(partes[3].equals("multimedia")){
+                    return true;
+                }
+            }
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+        return false;
+    }
     
     // Método para mostrar la información de todos los procesos
+    /**
+     * Esta funcion obtiene toda la info del prs en una lista de str
+     * @return infoTotal - toda la info en lista de str
+     */
     public ArrayList<String> obtenerInformacionDeTodosLosProcesos() {
         ArrayList<String> infoTotal = new ArrayList<>();
         infoTotal.add("Cantidad de procesos: " + cantidadProcesos + "\n--------------------------------------------------\n");
@@ -313,7 +464,7 @@ public class LeerPRSAdaptado {
             infoTotal.add("--------------------------------------------------\n");
         }
 
-        if (existenMultimedia()) {
+        if (existenMultimedias()) {
             infoTotal.add("Multimedia:\n");
             infoTotal.addAll(obtenerInformacionMultimedia());
             infoTotal.add("--------------------------------------------------\n");
