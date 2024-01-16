@@ -1,8 +1,11 @@
 package Componentes;
 
 /**
+ * Clase que simula la memoria RAM del sistema. Se encarga de asignar procesos a
  *
- * @author nesa1
+ * @author Norman
+ * 
+ * GestorMemoriaRAM.java
  */
 import java.util.LinkedList;
 import java.util.Queue;
@@ -20,6 +23,10 @@ public class GestorMemoriaRAM implements Runnable {
     private ArrayList<Proceso> processesInRAM; // Procesos actualmente en RAM
     private final Object lock = new Object(); // Bloqueo para sincronización
 
+    /**
+     * Constructor de la clase
+     * @param maxRAMSize - Tamaño máximo de la memoria RAM
+     */
     public GestorMemoriaRAM(int maxRAMSize) {
         this.maxRAMSize = maxRAMSize;
         this.availableRAMSize = maxRAMSize;
@@ -28,6 +35,9 @@ public class GestorMemoriaRAM implements Runnable {
     }
 
     @Override
+    /**
+     * Método que se ejecuta en un hilo de ejecución. Se encarga de asignar
+     */
     public void run() {
         while (true) {
             synchronized (lock) {
@@ -48,7 +58,10 @@ public class GestorMemoriaRAM implements Runnable {
         }
     }
 
-    // Método para agregar procesos a la cola de espera
+    /**
+     * Método para agregar un proceso a la cola de espera
+     * @param proceso - Proceso a agregar
+     */
     public void agregarProceso(Proceso proceso) {
         synchronized (lock) {
             waitingQueue.add(proceso);
@@ -56,7 +69,10 @@ public class GestorMemoriaRAM implements Runnable {
         }
     }
 
-    // Método para simular la finalización de un proceso y liberar su espacio
+    /**
+     * Método para finalizar un proceso. Se debe llamar a este método cuando un
+     * @param proceso - Proceso a finalizar
+     */
     public void finalizarProceso(Proceso proceso) {
         synchronized (lock) {
             if (processesInRAM.remove(proceso)) {

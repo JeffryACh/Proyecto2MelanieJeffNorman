@@ -122,12 +122,32 @@ public class VentanaCPU extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    /**
+     * Label para mostrar el numero de la ventana
+     */
     private javax.swing.JLabel jLabel1;
+    /**
+     * Label para mostrar el numero de la ventana
+     */
     private javax.swing.JLabel jLabel2;
+    /**
+     * Panel principal
+     */
     private javax.swing.JPanel jPanel1;
+    /**
+     * ScrollPanel para la tabla de procesos
+     */
     private javax.swing.JScrollPane jScrollPane1;
+    /**
+     * Tabla para mostrar los procesos
+     */
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * Método para cargar los datos de los procesos en la tabla
+     * @param procesos - Arreglo de procesos
+     */
     public void cargarDatos(Proceso[] procesos){
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
         for(int i=0; i<procesos.length; i++){

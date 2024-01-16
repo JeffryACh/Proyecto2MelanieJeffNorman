@@ -265,15 +265,45 @@ public class VentanaInicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    /**
+     * Boton para asignar un proceso a un CPU
+     */
     private javax.swing.JButton jButton1;
+    /**
+     * Boton para ejecutar los procesos
+     */
     private javax.swing.JButton jButton2;
+    /**
+     * Boton para cancelar la asignacion de un proceso a un CPU
+     */
     private javax.swing.JButton jButton3;
+    /**
+     * Boton para subir archivos
+     */
     private javax.swing.JButton jButton4;
+    /**
+     * ComboBox para seleccionar la cantidad de CPUs
+     */
     private javax.swing.JComboBox<String> jComboBox1;
+    /**
+     * Etiqueta para mostrar el numero de la ventana
+     */
     private javax.swing.JLabel jLabel1;
+    /**
+     * Etiqueta para mostrar el numero de la ventana
+     */
     private javax.swing.JLabel jLabel2;
+    /**
+     * Etiqueta para mostrar el numero de la ventana
+     */
     private javax.swing.JLabel jLabel3;
+    /**
+     * Etiqueta para mostrar el numero de la ventana
+     */
     private javax.swing.JLabel jLabel4;
+    /**
+     * Panel principal
+     */
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

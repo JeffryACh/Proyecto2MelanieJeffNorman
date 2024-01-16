@@ -12,7 +12,7 @@ import java.util.Random;
 import Procesos.*;
 
 /**
- * Clase que se encarga de leer los archivos .prs
+ * Clase en la que nos basamos para LeerPRSAdaptado.java
  * 
  * @author JeffryACh
  * 
