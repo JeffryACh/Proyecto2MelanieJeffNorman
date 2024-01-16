@@ -1,12 +1,5 @@
 package Componentes;
 
-/**
- * Clase que simula la memoria RAM del sistema. Se encarga de asignar procesos a
- *
- * @author Norman
- * 
- * GestorMemoriaRAM.java
- */
 import java.util.LinkedList;
 import java.util.Queue;
 import Procesos.Estado;
@@ -16,6 +9,13 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
+/**
+ * Clase que simula la memoria RAM del sistema. Se encarga de asignar procesos a
+ *
+ * @author Norman
+ * 
+ * GestorMemoriaRAM.java
+ */
 public class GestorMemoriaRAM implements Runnable {
     private final int maxRAMSize;
     private int availableRAMSize;
