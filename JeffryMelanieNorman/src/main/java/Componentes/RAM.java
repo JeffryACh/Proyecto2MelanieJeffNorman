@@ -63,6 +63,7 @@ public class RAM {
                 int n = random.nextInt(cont); 
                 cpus[n].agregarProceso(proceso); 
                 proceso.cambiarEstado(Estado.ASIGNADO);
+                proceso.setCPU(n+1);
             }
         }
     }
@@ -72,8 +73,8 @@ public class RAM {
      */
     public void ejecutar(){
         if(threads != null){
-            for(int i = 0; i < threads.length; i++){
-                threads[i].start();
+            for (Thread thread : threads) {
+                thread.start();
             }
         }
     }

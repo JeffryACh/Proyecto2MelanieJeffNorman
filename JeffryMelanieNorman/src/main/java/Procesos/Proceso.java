@@ -26,6 +26,7 @@ public abstract class Proceso {
     private int tamano;
     private int contador=0;
     private boolean terminado=false;
+    private int CPU;
 
     // Constructor
     /**
@@ -78,7 +79,14 @@ public abstract class Proceso {
     public void setNombre(String nombre){
         this.nombre = nombre;
     }
+    
+    public int getCPU(){
+        return CPU;
+    }
 
+    public void setCPU(int n){
+        this.CPU=n;
+    }
     /**
      * Metodo que retorna la fecha de ejecucion del proceso
      * @return String fechaDeEjecucion - Fecha de ejecucion del proceso

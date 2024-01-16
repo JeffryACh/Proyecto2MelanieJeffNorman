@@ -4,6 +4,10 @@
  */
 package ventanas;
 
+import Procesos.Proceso;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  * Ventana que muestra la lista de procesos
  *
@@ -31,16 +35,16 @@ public class VentanaListaProcesos extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 51));
 
-        jTable2.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.disabledSelectedBackground"));
-        jTable2.setFont(new java.awt.Font("Sitka Text", 0, 12)); // NOI18N
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.disabledSelectedBackground"));
+        jTable1.setFont(new java.awt.Font("Sitka Text", 0, 12)); // NOI18N
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null, null},
@@ -58,7 +62,7 @@ public class VentanaListaProcesos extends javax.swing.JFrame {
                 "ID", "Nombre", "Tipo de programa", "Fecha", "Hora de ejecucion", "Hora de finalizacion", "Tamaño", "Duracion", "Usuario", "Estado", "CPU"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(jTable1);
 
         jLabel1.setFont(new java.awt.Font("Stencil", 0, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -139,21 +143,30 @@ public class VentanaListaProcesos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    /**
-     * Label que muestra el titulo de la ventana
-     */
     private javax.swing.JLabel jLabel1;
-    /**
-     * Panel principal de la ventana
-     */
     private javax.swing.JPanel jPanel1;
-    /**
-     * Tabla que muestra la lista de procesos
-     */
     private javax.swing.JScrollPane jScrollPane2;
-    /**
-     * Tabla que muestra los procesos en ejecucion
-     */
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+    public void cargarDatos(ArrayList<Proceso> procesos){
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        for(int i=0; i<procesos.size(); i++){
+            if(procesos.get(i)!=null){
+                modelo.setValueAt(String.valueOf(procesos.get(i).getId()),i,0);
+                modelo.setValueAt(procesos.get(i).getNombre(),i,1);
+                modelo.setValueAt(procesos.get(i).getTipo(),i,2);
+                if(procesos.get(i).getFechaDeEjecucion()!=null)
+                    modelo.setValueAt(procesos.get(i).getFechaDeEjecucion(),i,3);
+                if(procesos.get(i).getHoraDeEjecucion()!=null)
+                    modelo.setValueAt(procesos.get(i).getHoraDeEjecucion(),i,4);
+                if(procesos.get(i).getHoraDefinalizacion()!=null)
+                    modelo.setValueAt(procesos.get(i).getHoraDefinalizacion(), i, 5);
+                modelo.setValueAt(String.valueOf(procesos.get(i).getTamano()),i,6);
+                modelo.setValueAt(String.valueOf(procesos.get(i).getDuracion()), i, 7);
+                //usuario
+                modelo.setValueAt(procesos.get(i).getEstado(), i, 9);
+                modelo.setValueAt(String.valueOf(procesos.get(i).getCPU()),i,10);
+            }
+        }
+    }
 }

@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import ManejoPRS.ManejoPRS;
 import Procesos.Ejecutable;
 import Procesos.Multimedia;
+import ventanas.VentanaListaProcesos;
 
 /**
  * Esta clase es la encargada de mostrar los procesos en el CPU
@@ -25,6 +26,8 @@ import Procesos.Multimedia;
 public class ListaProcesos {
     // Atributos
     private ManejoPRS manejo;
+    private VentanaListaProcesos ventana;
+    private ArrayList<Proceso> procesos;
 
     // Constructor
     /**
@@ -32,6 +35,10 @@ public class ListaProcesos {
      */
     public ListaProcesos(){
         manejo = new ManejoPRS();
+        ventana=new VentanaListaProcesos();
+        ventana.setVisible(true);
+        ventana.cargarDatos(procesos);
+        
     }
 
     // Metodos
