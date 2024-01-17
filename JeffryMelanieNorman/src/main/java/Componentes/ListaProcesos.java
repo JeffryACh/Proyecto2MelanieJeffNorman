@@ -60,16 +60,30 @@ public class ListaProcesos {
         this.manejo = manejo;
     }
     
+    /**
+     * Metodo que retorna la ventana
+     * @return ventana - Ventana del CPU
+     */
     public JFrame getVentana(){
         return ventana;
     }
+
+    /**
+     * Metodo que añaade un proceso a la lista de procesos
+     * @return procesos - ArrayList de procesos
+     */
     public ArrayList<Proceso> getProcesos(){
         return procesos;
     }
     
+    /**
+     * Metodo que se encarga de asignar un proceso
+     * @param procesos - ArrayList de procesos
+     */
     public void setProcesos(ArrayList<Proceso> procesos){
         this.procesos=procesos;
     }
+
     /**
      * Metodo que se encarga de retornar los procesos de tipo Documento
      * @return procesosDocumento - ArrayList de procesos de tipo Documento

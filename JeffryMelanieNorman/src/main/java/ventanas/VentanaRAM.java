@@ -116,6 +116,11 @@ public class VentanaRAM extends javax.swing.JFrame {
      */
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+    
+    /**
+     * Metodo que se encarga de cargar los datos en la tabla de la RAM
+     * @param procesos - ArrayList de procesos
+     */
     public void cargarDatos(ArrayList<Proceso> procesos){
         jPanel1.removeAll();
         jPanel1.revalidate();

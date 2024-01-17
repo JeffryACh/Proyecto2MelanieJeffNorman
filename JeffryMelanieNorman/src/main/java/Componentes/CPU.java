@@ -40,6 +40,10 @@ public class CPU implements Runnable{
     }
 
     // Metodos
+    /**
+     * Metodo que retorna la ventana
+     * @return ventana - Ventana del CPU
+     */
     public JFrame getVentana(){
         return ventana;
     }

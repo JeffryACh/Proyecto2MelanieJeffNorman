@@ -28,7 +28,7 @@ public class RAM implements Runnable{
     /**
      * Constructor de la clase RAM
      * @param n - int del numero de nucleos a usar
-     * @param list
+     * @param list - Lista de procesos
      */
     public RAM(int n, ListaProcesos list){
         procesos=new ArrayList<>();
@@ -123,7 +123,7 @@ public class RAM implements Runnable{
     }
     /**
      * Metodo que retorna el siguiente proceso en espera
-     * @return 
+     * @return proceso - Proceso en espera
      */
     public Proceso siguienteEnEspera(){  
         if(lista.getProcesos()!=null && !lista.getProcesos().isEmpty()){

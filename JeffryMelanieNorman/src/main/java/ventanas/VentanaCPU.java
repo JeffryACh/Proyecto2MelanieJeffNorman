@@ -123,10 +123,25 @@ public class VentanaCPU extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    /**
+     * Label que muestra el nombre de la ventana
+     */
     private javax.swing.JLabel jLabel1;
+    /**
+     * Label que muestra el numero de la ventana
+     */
     private javax.swing.JLabel jLabel2;
+    /**
+     * Panel que contiene los componentes de la ventana
+     */
     private javax.swing.JPanel jPanel1;
+    /**
+     * ScrollPane que contiene la tabla
+     */
     private javax.swing.JScrollPane jScrollPane1;
+    /**
+     * Tabla que muestra los procesos
+     */
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 

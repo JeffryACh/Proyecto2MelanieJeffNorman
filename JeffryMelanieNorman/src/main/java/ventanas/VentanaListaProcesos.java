@@ -174,9 +174,21 @@ public class VentanaListaProcesos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    /**
+     * Panel principal de la ventana
+     */
     private javax.swing.JLabel jLabel1;
+    /**
+     * Panel principal que contiene los componentes de la ventana
+     */
     private javax.swing.JPanel jPanel1;
+    /**
+     * ScrollPanel para la tabla de la RAM
+     */
     private javax.swing.JScrollPane jScrollPane2;
+    /**
+     * Tabla que muestra los procesos
+     */
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 

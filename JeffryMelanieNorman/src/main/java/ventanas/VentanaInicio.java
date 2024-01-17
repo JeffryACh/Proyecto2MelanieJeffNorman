@@ -17,8 +17,17 @@ import javax.swing.JOptionPane;
  * VentanaInicio
  */
 public class VentanaInicio extends javax.swing.JFrame {
+    /**
+     * RAM para asignar los procesos a los CPUs
+     */
     RAM ram;
+    /**
+     * Thread para ejecutar los procesos
+     */
     Thread threadram;
+    /**
+     * Lista de procesos
+     */
     ListaProcesos lista;
     /**
      * Creates new form Inicio
@@ -271,15 +280,45 @@ public class VentanaInicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    /**
+     * Boton para asignar un proceso a un CPU
+     */
     private javax.swing.JButton jButton1;
+    /**
+     * Boton para ejecutar los procesos
+     */
     private javax.swing.JButton jButton2;
+    /**
+     * Boton para cancelar la asignacion de un proceso a un CPU
+     */
     private javax.swing.JButton jButton3;
+    /**
+     * Boton para subir archivos
+     */
     private javax.swing.JButton jButton4;
+    /**
+     * ComboBox para seleccionar la cantidad de CPUs
+     */
     private javax.swing.JComboBox<String> jComboBox1;
+    /**
+     * Label para mostrar el numero de CPU
+     */
     private javax.swing.JLabel jLabel1;
+    /**
+     * Label para mostrar el numero de CPU
+     */
     private javax.swing.JLabel jLabel2;
+    /**
+     * Label para mostrar el numero de CPU
+     */
     private javax.swing.JLabel jLabel3;
+    /**
+     * Label para mostrar el numero de CPU
+     */
     private javax.swing.JLabel jLabel4;
+    /**
+     * Panel principal de la ventana
+     */
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

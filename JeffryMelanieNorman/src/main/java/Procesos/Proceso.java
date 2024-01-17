@@ -57,13 +57,22 @@ public abstract class Proceso {
         return this.nombre;
     }
     
+    /**
+     * Metodo que retorna el usuario del proceso
+     * @return usuario - Usuario del proceso
+     */
     public String getUsuario(){
         return usuario;
     }
     
+    /**
+     * Metodo que modifica el usuario del proceso
+     * @param usuario - Usuario del proceso
+     */
     public void setUsuario(String usuario){
         this.usuario=usuario;
     }
+    
     /**
      * Metodo que cambia el estado del proceso
      * @param estado - Estado del proceso
