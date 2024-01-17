@@ -152,6 +152,10 @@ public class RAM implements Runnable{
         }
     }
     
+    /**
+     * Metodo que asigna un proceso a un CPU de manera aleatoria
+     * @param proceso - Proceso a asignar
+     */
     private void asignarCPU(Proceso proceso){
         Random random = new Random();
         int n = random.nextInt(cpus.length); 
@@ -171,6 +175,9 @@ public class RAM implements Runnable{
         // Aquí se puede poner la Lógica para la ejecución de procesos
     }
     
+    /**
+     * Metodo que cierra la ventana
+     */
     public void cerrarVentana(){
         ventana.setVisible(false);
         for(CPU cpu:cpus){

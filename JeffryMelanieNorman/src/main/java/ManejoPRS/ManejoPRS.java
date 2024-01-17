@@ -7,6 +7,8 @@ package ManejoPRS;
 import java.io.File;
 import java.util.ArrayList;
 
+import Procesos.Proceso;
+
 /**
  * Clase que se encarga de manejar los archivos .prs
  *
@@ -19,7 +21,7 @@ public class ManejoPRS {
     private final String RUTA_DIRECTORIO = "./src/main/java/PRS";
     private ArrayList<String> nombresArchivosPRS;
     private ArrayList<String> rutasArchivosPRS;
-    private ArrayList<LeerPRS> lector;
+    private ArrayList<LeerPRSAdaptado> lector;
 
     // Constructor
     /**
@@ -71,7 +73,7 @@ public class ManejoPRS {
      * Metodo que se encarga de retornar el lector de los archivos .prs
      * @return LeerPRS lector - Lector de los archivos .prs
      */
-    public ArrayList<LeerPRS> getLector() {
+    public ArrayList<LeerPRSAdaptado> getLector() {
         return lector;
     }
 
@@ -79,7 +81,7 @@ public class ManejoPRS {
      * Metodo que se encarga de establecer el lector de los archivos .prs
      * @param lector - Lector de los archivos .prs
      */
-    public void setLector(ArrayList<LeerPRS> lector) {
+    public void setLector(ArrayList<LeerPRSAdaptado> lector) {
         this.lector = lector;
     }
 
@@ -153,14 +155,28 @@ public class ManejoPRS {
      * Metodo que se encarga de leer los archivos .prs
      * @return LeerPRS lector - Lector de los archivos .prs
      */
-    private ArrayList<LeerPRS> leerArchivosPRS() {
+    private ArrayList<LeerPRSAdaptado> leerArchivosPRS() {
         if (existenArchivosPRS()) {
             for (String rutaArchivo : rutasArchivosPRS) {
-                LeerPRS lector = new LeerPRS(rutaArchivo);
+                LeerPRSAdaptado lector = new LeerPRSAdaptado(rutaArchivo);
                 lector.leerPRS();
                 this.lector.add(lector);
             }
         }
         return lector;
+    }
+
+    /**
+     * Metodo que se encarga de retornar el lector de un archivo .prs
+     * @param nombreArchivo - Nombre del archivo .prs
+     * @return procesosLista - ArrayList de procesos del archivo .prs
+     */
+    public ArrayList<Proceso> getProcesos(String nombreArchivo) {
+        for (LeerPRSAdaptado lector : lector) {
+            if (lector.getUsuario().equals(nombreArchivo)) {
+                return lector.obtenerProcesos();
+            }
+        }
+        return null;
     }
 }

@@ -472,4 +472,22 @@ public class LeerPRSAdaptado {
 
         return infoTotal;
     }
+
+    /**
+     * Esta funcion retorna todos los procesos del archivo .prs
+     * @return procesosList - ArrayList<Procesos> de procesos
+     */ 
+    public ArrayList<Proceso> obtenerProcesos() {
+        ArrayList<Proceso> procesosList = new ArrayList<>();
+        if (existenDocumentos()) {
+            procesosList.addAll(documentos);
+        }
+        if (existenEjecutables()) {
+            procesosList.addAll(ejecutables);
+        }
+        if (existenMultimedias()) {
+            procesosList.addAll(multimedia);
+        }
+        return procesosList;
+    }
 }

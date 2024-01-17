@@ -4,7 +4,7 @@
  */
 package Componentes;
 
-import ManejoPRS.LeerPRS;
+import ManejoPRS.LeerPRSAdaptado;
 import Procesos.Documento;
 import Procesos.Estado;
 import Procesos.Proceso;
@@ -76,7 +76,7 @@ public class ListaProcesos {
      */
     private ArrayList<Documento> sacarDocumentos(){
         ArrayList<Documento> procesosDocumento = new ArrayList<>();
-        this.manejo.getLector().forEach((LeerPRS lector) -> {
+        this.manejo.getLector().forEach((LeerPRSAdaptado lector) -> {
             if (!lector.getDocumentos().isEmpty()) {
                 lector.getDocumentos().forEach((documento) -> {
                     System.out.println(documento.getNombre());
@@ -96,7 +96,7 @@ public class ListaProcesos {
      */
     private ArrayList<Proceso> sacarMultimedia(){
         ArrayList<Proceso> procesosMultimedia = new ArrayList<>();
-        this.manejo.getLector().forEach((LeerPRS lector) -> {
+        this.manejo.getLector().forEach((LeerPRSAdaptado lector) -> {
             if (!lector.getMultimedia().isEmpty()) {
                 lector.getMultimedia().forEach((multimedia) -> {
                     System.out.println(multimedia.getNombre());
@@ -116,7 +116,7 @@ public class ListaProcesos {
      */
     private ArrayList<Proceso> sacarEjecutables(){
         ArrayList<Proceso> procesosEjecutable = new ArrayList<>();
-        this.manejo.getLector().forEach((LeerPRS lector) -> {
+        this.manejo.getLector().forEach((LeerPRSAdaptado lector) -> {
             if (!lector.getEjecutables().isEmpty()) {
                 lector.getEjecutables().forEach((ejecutable) -> {
                     System.out.println(ejecutable.getNombre());
@@ -148,7 +148,7 @@ public class ListaProcesos {
      */
     private ArrayList<Documento> sacarDocumentosEnEspera(){
         ArrayList<Documento> procesosEnEspera = new ArrayList<>();
-        this.manejo.getLector().forEach((LeerPRS lector) -> {
+        this.manejo.getLector().forEach((LeerPRSAdaptado lector) -> {
             if (!lector.getDocumentos().isEmpty()) {
                 lector.getDocumentos().forEach((Documento documento) -> {
                     if (documento.getEstado() == Estado.ESPERA) {
@@ -170,7 +170,7 @@ public class ListaProcesos {
      */
     private ArrayList<Documento> sacarDocumentosFinalizados(){
         ArrayList<Documento> procesosFinalizados = new ArrayList<>();
-        this.manejo.getLector().forEach((LeerPRS lector) -> {
+        this.manejo.getLector().forEach((LeerPRSAdaptado lector) -> {
             if (!lector.getDocumentos().isEmpty()) {
                 lector.getDocumentos().forEach((Documento documento) -> {
                     if (documento.getEstado() == Estado.FINALIZADO) {
@@ -192,7 +192,7 @@ public class ListaProcesos {
      */
     private ArrayList<Documento> sacarDocumentosAsignados(){
         ArrayList<Documento> procesosAsignados = new ArrayList<>();
-        this.manejo.getLector().forEach((LeerPRS lector) -> {
+        this.manejo.getLector().forEach((LeerPRSAdaptado lector) -> {
             if (!lector.getDocumentos().isEmpty()) {
                 lector.getDocumentos().forEach((Documento documento) -> {
                     if (documento.getEstado() == Estado.ASIGNADO) {
@@ -214,7 +214,7 @@ public class ListaProcesos {
      */
     private ArrayList<Proceso> sacarMultimediaEnEspera(){
         ArrayList<Proceso> procesosEnEspera = new ArrayList<>();
-        this.manejo.getLector().forEach((LeerPRS lector) -> {
+        this.manejo.getLector().forEach((LeerPRSAdaptado lector) -> {
             if (!lector.getMultimedia().isEmpty()) {
                 lector.getMultimedia().forEach((Multimedia multimedia) -> {
                     if (multimedia.getEstado() == Estado.ESPERA) {
@@ -236,7 +236,7 @@ public class ListaProcesos {
      */
     private ArrayList<Proceso> sacarMultimediaFinalizados(){
         ArrayList<Proceso> procesosFinalizados = new ArrayList<>();
-        this.manejo.getLector().forEach((LeerPRS lector) -> {
+        this.manejo.getLector().forEach((LeerPRSAdaptado lector) -> {
             if (!lector.getMultimedia().isEmpty()) {
                 lector.getMultimedia().forEach((Multimedia multimedia) -> {
                     if (multimedia.getEstado() == Estado.FINALIZADO) {
@@ -258,7 +258,7 @@ public class ListaProcesos {
      */
     private ArrayList<Proceso> sacarMultimediaAsignados(){
         ArrayList<Proceso> procesosAsignados = new ArrayList<>();
-        this.manejo.getLector().forEach((LeerPRS lector) -> {
+        this.manejo.getLector().forEach((LeerPRSAdaptado lector) -> {
             if (!lector.getMultimedia().isEmpty()) {
                 lector.getMultimedia().forEach((Multimedia multimedia) -> {
                     if (multimedia.getEstado() == Estado.ASIGNADO) {
@@ -280,7 +280,7 @@ public class ListaProcesos {
      */
     private ArrayList<Proceso> sacarEjecutablesEnEspera(){
         ArrayList<Proceso> procesosEnEspera = new ArrayList<>();
-        this.manejo.getLector().forEach((LeerPRS lector) -> {
+        this.manejo.getLector().forEach((LeerPRSAdaptado lector) -> {
             if (!lector.getEjecutables().isEmpty()) {
                 lector.getEjecutables().forEach((Ejecutable ejecutable) -> {
                     if (ejecutable.getEstado() == Estado.ESPERA) {
@@ -302,7 +302,7 @@ public class ListaProcesos {
      */
     private ArrayList<Proceso> sacarEjecutablesFinalizados(){
         ArrayList<Proceso> procesosFinalizados = new ArrayList<>();
-        this.manejo.getLector().forEach((LeerPRS lector) -> {
+        this.manejo.getLector().forEach((LeerPRSAdaptado lector) -> {
             if (!lector.getEjecutables().isEmpty()) {
                 lector.getEjecutables().forEach((Ejecutable ejecutable) -> {
                     if (ejecutable.getEstado() == Estado.FINALIZADO) {
@@ -324,7 +324,7 @@ public class ListaProcesos {
      */
     private ArrayList<Proceso> sacarEjecutablesAsignados(){
         ArrayList<Proceso> procesosAsignados = new ArrayList<>();
-        this.manejo.getLector().forEach((LeerPRS lector) -> {
+        this.manejo.getLector().forEach((LeerPRSAdaptado lector) -> {
             if (!lector.getEjecutables().isEmpty()) {
                 lector.getEjecutables().forEach((Ejecutable ejecutable) -> {
                     if (ejecutable.getEstado() == Estado.ASIGNADO) {
@@ -423,7 +423,7 @@ public class ListaProcesos {
      * Metodo que se encarga de imprimir los procesos con el estado ASIGNADO de tipo Documento
      */
     private void imprimirDocumentosAsignados(){
-        this.manejo.getLector().forEach((LeerPRS lector) -> {
+        this.manejo.getLector().forEach((LeerPRSAdaptado lector) -> {
             System.out.println("Documentos asignados");
             System.out.println("Del Usario: " + lector.getUsuario());
             if (!lector.getDocumentos().isEmpty()) {
@@ -447,7 +447,7 @@ public class ListaProcesos {
      * Metodo que se encarga de imprimir los procesos con el estado ASIGNADO de tipo Multimedia
      */
     private void imprimirMultimediaAsignados(){
-        this.manejo.getLector().forEach((LeerPRS lector) -> {
+        this.manejo.getLector().forEach((LeerPRSAdaptado lector) -> {
             System.out.println("Multimedia asignados");
             System.out.println("Del Usario: " + lector.getUsuario());
             if (!lector.getMultimedia().isEmpty()) {
@@ -471,7 +471,7 @@ public class ListaProcesos {
      * Metodo que se encarga de imprimir los procesos con el estado ASIGNADO de tipo Ejecutable
      */
     private void imprimirEjecutablesAsignados(){
-        this.manejo.getLector().forEach((LeerPRS lector) -> {
+        this.manejo.getLector().forEach((LeerPRSAdaptado lector) -> {
             System.out.println("Ejecutables asignados");
             System.out.println("Del Usario: " + lector.getUsuario());
             if (!lector.getEjecutables().isEmpty()) {
@@ -513,7 +513,7 @@ public class ListaProcesos {
      * Metodo que se encarga de imprimir los procesos con el estado FINALIZADO de tipo Documento
      */
     private void imprimirDocumentosFinalizados(){
-        this.manejo.getLector().forEach((LeerPRS lector) -> {
+        this.manejo.getLector().forEach((LeerPRSAdaptado lector) -> {
             System.out.println("Documentos finalizados");
             System.out.println("Del Usario: " + lector.getUsuario());
             if (!lector.getDocumentos().isEmpty()) {
@@ -537,7 +537,7 @@ public class ListaProcesos {
      * Metodo que se encarga de imprimir los procesos con el estado FINALIZADO de tipo Multimedia
      */
     private void imprimirMultimediaFinalizados(){
-        this.manejo.getLector().forEach((LeerPRS lector) -> {
+        this.manejo.getLector().forEach((LeerPRSAdaptado lector) -> {
             System.out.println("Multimedia finalizados");
             System.out.println("Del Usario: " + lector.getUsuario());
             if (!lector.getMultimedia().isEmpty()) {
@@ -561,7 +561,7 @@ public class ListaProcesos {
      * Metodo que se encarga de imprimir los procesos con el estado FINALIZADO de tipo Ejecutable
      */
     private void imprimirEjecutablesFinalizados(){
-        this.manejo.getLector().forEach((LeerPRS lector) -> {
+        this.manejo.getLector().forEach((LeerPRSAdaptado lector) -> {
             System.out.println("Ejecutables finalizados");
             System.out.println("Del Usario: " + lector.getUsuario());
             if (!lector.getEjecutables().isEmpty()) {
@@ -603,7 +603,7 @@ public class ListaProcesos {
      * Metodo que se encarga de imprimir los procesos con el estado ESPERA de tipo Documento
      */
     private void imprimirDocumentosEnEspera(){
-        this.manejo.getLector().forEach((LeerPRS lector) -> {
+        this.manejo.getLector().forEach((LeerPRSAdaptado lector) -> {
             System.out.println("Documentos en espera");
             System.out.println("Del Usario: " + lector.getUsuario());
             if (!lector.getDocumentos().isEmpty()) {
@@ -627,7 +627,7 @@ public class ListaProcesos {
      * Metodo que se encarga de imprimir los procesos con el estado ESPERA de tipo Multimedia
      */
     private void imprimirMultimediaEnEspera(){
-        this.manejo.getLector().forEach((LeerPRS lector) -> {
+        this.manejo.getLector().forEach((LeerPRSAdaptado lector) -> {
             System.out.println("Multimedia en espera");
             System.out.println("Del Usario: " + lector.getUsuario());
             if (!lector.getMultimedia().isEmpty()) {
@@ -651,7 +651,7 @@ public class ListaProcesos {
      * Metodo que se encarga de imprimir los procesos con el estado ESPERA de tipo Ejecutable
      */
     private void imprimirEjecutablesEnEspera(){
-        this.manejo.getLector().forEach((LeerPRS lector) -> {
+        this.manejo.getLector().forEach((LeerPRSAdaptado lector) -> {
             System.out.println("Ejecutables en espera");
             System.out.println("Del Usario: " + lector.getUsuario());
             if (!lector.getEjecutables().isEmpty()) {
