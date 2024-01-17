@@ -55,6 +55,7 @@ public class RAM implements Runnable{
                     }
                     // Intenta actualizar los procesos de la RAM
                     actualizarProcesos();
+                    Thread.sleep(1000);
                     
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -99,12 +100,18 @@ public class RAM implements Runnable{
      * Metodo que asigna los procesos a la RAM
      */
     public void asignarProcesos(){
-        Proceso proceso = siguienteEnEspera();            
-        while (!lista.getProcesos().isEmpty() && size >= usado+proceso.getTamano()) {
-            procesos.add(proceso);
+        
+        while (!lista.getProcesos().isEmpty()) {
+            Proceso proceso = siguienteEnEspera();
+            if (proceso == null || usado + proceso.getTamano() > size) {
+                break; 
+            }
+
+            agregarProceso(proceso);
             usado += proceso.getTamano();
             asignarCPU(proceso);
         }
+
         ventana.cargarDatos(procesos);
     }
     /**
@@ -116,10 +123,12 @@ public class RAM implements Runnable{
                 if(proceso.getEstado().equals(Estado.FINALIZADO)){
                     procesos.remove(proceso);
                     usado-=proceso.getTamano();
+                    proceso=siguienteEnEspera();
+                    asignarCPU(proceso);
                 }
             }
         }
-        asignarProcesos();
+        //asignarProcesos();
     }
     /**
      * Metodo que retorna el siguiente proceso en espera

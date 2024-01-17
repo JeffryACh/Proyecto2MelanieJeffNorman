@@ -136,7 +136,7 @@ public class ManejoPRS {
      * Metodo que se encarga de buscar los archivos .prs en rutaDirectorio para retornar sus rutas
      * @return rutasArchivosPRS - Rutas de los archivos .prs
      */
-    private ArrayList<String> buscarRutasArchivosPRS() {
+    private void buscarRutasArchivosPRS() {
         if (existenArchivosPRS()) {
             File directorio = new File(RUTA_DIRECTORIO);
             File[] archivos = directorio.listFiles();
@@ -148,14 +148,14 @@ public class ManejoPRS {
             }
         }
         
-        return rutasArchivosPRS;
+        //return rutasArchivosPRS;
     }
 
     /**
      * Metodo que se encarga de leer los archivos .prs
      * @return LeerPRS lector - Lector de los archivos .prs
      */
-    private ArrayList<LeerPRSAdaptado> leerArchivosPRS() {
+    private void leerArchivosPRS() {
         if (existenArchivosPRS()) {
             for (String rutaArchivo : rutasArchivosPRS) {
                 LeerPRSAdaptado lectorp = new LeerPRSAdaptado(rutaArchivo);
@@ -163,7 +163,7 @@ public class ManejoPRS {
                 this.lector.add(lectorp);
             }
         }
-        return lector;
+        //return lector;
     }
 
     /**

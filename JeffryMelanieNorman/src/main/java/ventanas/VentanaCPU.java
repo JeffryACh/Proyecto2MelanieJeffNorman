@@ -160,7 +160,7 @@ public class VentanaCPU extends javax.swing.JFrame {
                     modelo.setValueAt(procesos[i].getFechaDeEjecucion(),i,3);
                 if(procesos[i].getHoraDeEjecucion()!=null)
                     modelo.setValueAt(procesos[i].getHoraDeEjecucion(),i,4);
-                modelo.setValueAt(String.valueOf(procesos[i].getTiempo()), i, 5);
+                modelo.setValueAt(String.valueOf(procesos[i].getCont()), i, 5);
                 modelo.setValueAt(String.valueOf(procesos[i].getTamano()),i,6);
                 modelo.setValueAt(procesos[i].getUsuario(),i,7);
             }

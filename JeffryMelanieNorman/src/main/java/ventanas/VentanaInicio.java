@@ -31,6 +31,8 @@ public class VentanaInicio extends javax.swing.JFrame {
      * Lista de procesos
      */
     ListaProcesos lista;
+    
+    private final String RUTA_DIRECTORIO = "./src/main/java/PRS";
     /**
      * Creates new form Inicio
      */
@@ -188,8 +190,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         jButton4.setVisible(true);
         int n=(int) jComboBox1.getSelectedIndex()+1;
         ram=new RAM(n,lista);
-        threadram=new Thread(ram);
-        threadram.start();
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -214,7 +215,7 @@ public class VentanaInicio extends javax.swing.JFrame {
             // Recorrer cada archivo en el array files
             for (File file : files) {
                 // Agregar el nombre del archivo al ArrayList
-                fileNames.add(file.getName());
+                fileNames.add(RUTA_DIRECTORIO + "/" +file.getName());
             }
             lista.setPrss(fileNames);
             lista.cargarProcesos();
@@ -233,7 +234,10 @@ public class VentanaInicio extends javax.swing.JFrame {
      */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         if(ram!=null){
+            threadram=new Thread(ram);
+            threadram.start();
             ram.ejecutar();
+            
             this.dispose();
         }else{
             JOptionPane.showMessageDialog(null, "Error al ejecutar procesos.", "ERROR", JOptionPane.ERROR_MESSAGE);

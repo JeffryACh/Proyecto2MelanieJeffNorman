@@ -5,6 +5,7 @@
 package ventanas;
 
 import Procesos.Proceso;
+import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JLabel;
 
@@ -38,6 +39,8 @@ public class VentanaRAM extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 51));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -103,17 +106,8 @@ public class VentanaRAM extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    /**
-     * Panel principal de la ventana
-     */
     private javax.swing.JLabel jLabel1;
-    /**
-     * ScrollPanel para la tabla de la RAM
-     */
     private javax.swing.JPanel jPanel1;
-    /**
-     * ScrollPanel para la tabla de la RAM
-     */
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
     
@@ -130,14 +124,19 @@ public class VentanaRAM extends javax.swing.JFrame {
         int cont=0;
         if(procesos!=null && !procesos.isEmpty()){
             for(Proceso proceso:procesos){
-                jPanel1.add(new JLabel(String.valueOf(cont)+proceso.getNombre()));
+                JLabel label = new JLabel(String.valueOf(cont)+" "+proceso.getNombre());
+                label.setForeground(Color.WHITE);
+                jPanel1.add(label);
                 cont++;
                 for(int i=0; i<proceso.getTamano()-1; i++){
-                    jPanel1.add(new JLabel(String.valueOf(cont)));
+                    JLabel labelx=new JLabel(String.valueOf(cont));
+                    label.setForeground(Color.WHITE);
+                    jPanel1.add(labelx);
                     cont++;
                 }
 
             }
+            
         }
     }
 }

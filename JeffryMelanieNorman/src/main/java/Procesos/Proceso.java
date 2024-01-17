@@ -26,7 +26,7 @@ public abstract class Proceso {
     private int duracion;
     private int tamano;
     private int contador=0;
-    private boolean terminado=false;
+    private boolean terminado;
     private int CPU;
 
     // Constructor
@@ -45,6 +45,7 @@ public abstract class Proceso {
         this.tipo = tipo;
         this.tamano = tamano;
         this.duracion = duracion;
+        this.terminado=false;
     }
 
     // Metodos
@@ -72,7 +73,9 @@ public abstract class Proceso {
     public void setUsuario(String usuario){
         this.usuario=usuario;
     }
-    
+    public int getCont(){
+        return contador;
+    }
     /**
      * Metodo que cambia el estado del proceso
      * @param estado - Estado del proceso
@@ -199,7 +202,7 @@ public abstract class Proceso {
     public void aumentarSegundo(){
         this.contador++;
         if(contador==tiempo){
-            terminado=true;
+            this.terminado=true;
         }
     }
     

@@ -22,8 +22,8 @@ import ventanas.VentanaCPU;
  */
 public class CPU implements Runnable{
     // Atributos
-    private ArrayList<Proceso> procesos;
-    private Proceso[] ejecutando;
+    private ArrayList<Proceso> procesos=new ArrayList<>();
+    private Proceso[] ejecutando=new Proceso[5];
     private int indiceActual = 0;
     private VentanaCPU ventana;
     
@@ -33,8 +33,8 @@ public class CPU implements Runnable{
      * @param i - int del numero de CPU
      */
     public CPU(int i){
-        ejecutando=new Proceso[5];
-        procesos=new ArrayList<>();
+        //ejecutando=new Proceso[5];
+        //procesos=new ArrayList<>();
         ventana=new VentanaCPU(i);
         ventana.setVisible(true);
     }
@@ -71,6 +71,7 @@ public class CPU implements Runnable{
                         if(ejecutando[j]==null && !procesos.isEmpty()){
                             ejecutando[j]=asignarProceso();
                             ventana.cargarDatos(ejecutando);
+                            break;
                         }
                     }
                     if (indiceActual >= ejecutando.length) {
@@ -79,9 +80,9 @@ public class CPU implements Runnable{
 
                     Proceso actual = ejecutando[indiceActual];
                     Thread.sleep(1000); 
-                    if(actual!=null){
+                    //if(actual!=null){
                         actual.aumentarSegundo();
-                    
+                        ventana.cargarDatos(ejecutando);
 
                         if (actual.getTerminado()) {
                             actual.cambiarEstado(Estado.FINALIZADO);
@@ -96,7 +97,9 @@ public class CPU implements Runnable{
                                 i++;
                             }
                             if(!procesos.isEmpty() && ejecutando[i]==null){
-                                ejecutando[i]=asignarProceso();
+                                Proceso tmp=asignarProceso();
+                                if(tmp!=null)
+                                    ejecutando[i]=tmp;
                             }
                             ventana.cargarDatos(ejecutando);
                         } else {
@@ -108,7 +111,7 @@ public class CPU implements Runnable{
                             }
                             indiceActual = (indiceActual + 1) % cont;
                         }
-                    }
+                    
                 }
             }
         } catch (InterruptedException e) {
@@ -125,14 +128,18 @@ public class CPU implements Runnable{
     public Proceso asignarProceso(){
         Proceso actual= procesos.get(0);
         procesos.remove(0);
-        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        LocalDate fecha=LocalDate.now();
-        DateTimeFormatter formato2 = DateTimeFormatter.ofPattern("HH:mm:ss");
-        LocalTime hora=LocalTime.now();
-        String fechaEjecucion=fecha.format(formato);
-        String horaEjecucion=hora.format(formato2);
-        actual.setFechaDeEjecucion(fechaEjecucion);
-        actual.setHoraDeEjecucion(horaEjecucion);
+            
+        if(actual!=null){
+            DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+            LocalDate fecha=LocalDate.now();
+            DateTimeFormatter formato2 = DateTimeFormatter.ofPattern("HH:mm:ss");
+            LocalTime hora=LocalTime.now();
+            String fechaEjecucion=fecha.format(formato);
+            String horaEjecucion=hora.format(formato2);
+            actual.setFechaDeEjecucion(fechaEjecucion);
+            actual.setHoraDeEjecucion(horaEjecucion);
+            
+        }
         return actual;
     }
 }
