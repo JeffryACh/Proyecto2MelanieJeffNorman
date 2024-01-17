@@ -63,6 +63,7 @@ public class ListaProcesos {
 
     /**
      * Metodo que se encarga de retornar el usuario del archivo .prs
+     * @param prs - Archivo .prs
      * @return usuario - Usuario del archivo .prs
      */
     public String getUsuario(String prs){
@@ -79,6 +80,9 @@ public class ListaProcesos {
         
     }
 
+    /**
+     * Metodo que se encarga de cargar los Procesos
+    */
     public void cargarProcesos(){
         for(String prs:prss){
             ArrayList<Proceso> procesosprs;//=new ArrayList<>();
