@@ -20,8 +20,6 @@ public class RAM implements Runnable{
     private CPU[] cpus; 
     private Thread[] threads;
     private ArrayList<Proceso> procesos;
-    private GestorMemoriaRAM gestorMemoriaRAM;
-    private Thread threadGestorMemoria;
     private ListaProcesos lista;
     VentanaRAM ventana;
         
