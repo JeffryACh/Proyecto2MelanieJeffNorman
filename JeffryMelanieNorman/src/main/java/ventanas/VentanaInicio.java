@@ -6,6 +6,8 @@ package ventanas;
 
 import Componentes.ListaProcesos;
 import Componentes.RAM;
+import java.io.File;
+import java.util.ArrayList;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -185,7 +187,6 @@ public class VentanaInicio extends javax.swing.JFrame {
         jButton3.setVisible(true);
         jButton4.setVisible(true);
         int n=(int) jComboBox1.getSelectedIndex()+1;
-        lista=new ListaProcesos();
         ram=new RAM(n,lista);
         threadram=new Thread(ram);
         threadram.start();
@@ -207,7 +208,17 @@ public class VentanaInicio extends javax.swing.JFrame {
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             jButton1.setVisible(true);
             java.io.File[] files = fileChooser.getSelectedFiles();
-
+            ArrayList<String> fileNames = new ArrayList<>();
+            lista=new ListaProcesos();
+        
+            // Recorrer cada archivo en el array files
+            for (File file : files) {
+                // Agregar el nombre del archivo al ArrayList
+                fileNames.add(file.getName());
+            }
+            lista.setPrss(fileNames);
+            lista.cargarProcesos();
+            System.out.println(lista.getProcesos().get(0).getNombre());
             for(java.io.File file: files){
                 System.out.println("Archivo seleccionado: " + file.getAbsolutePath());
             }

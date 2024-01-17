@@ -29,6 +29,7 @@ public class ListaProcesos {
     private ManejoPRS manejo;
     private VentanaListaProcesos ventana;
     private ArrayList<Proceso> procesos;
+    private ArrayList<String> prss;
 
     // Constructor
     /**
@@ -51,7 +52,19 @@ public class ListaProcesos {
     public ManejoPRS getManejo() {
         return manejo;
     }
-
+    
+    public void setPrss(ArrayList<String> files){
+        this.prss=files;
+    }
+    public void cargarProcesos(){
+        for(String prs:prss){
+            ArrayList<Proceso> procesosprs;//=new ArrayList<>();
+            procesosprs=manejo.getProcesos(prs);
+            for(Proceso proceso:procesosprs){
+                procesos.add(proceso);
+            }
+        }
+    }
     /**
      * Metodo que se encarga de establecer los procesos que se encuentran en el CPU
      * @param manejo - Manejo de los archivos .prs

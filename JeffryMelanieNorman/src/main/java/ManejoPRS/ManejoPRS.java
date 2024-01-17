@@ -158,9 +158,9 @@ public class ManejoPRS {
     private ArrayList<LeerPRSAdaptado> leerArchivosPRS() {
         if (existenArchivosPRS()) {
             for (String rutaArchivo : rutasArchivosPRS) {
-                LeerPRSAdaptado lector = new LeerPRSAdaptado(rutaArchivo);
-                lector.leerPRS();
-                this.lector.add(lector);
+                LeerPRSAdaptado lectorp = new LeerPRSAdaptado(rutaArchivo);
+                lectorp.leerPRS();
+                this.lector.add(lectorp);
             }
         }
         return lector;
@@ -172,9 +172,9 @@ public class ManejoPRS {
      * @return procesosLista - ArrayList de procesos del archivo .prs
      */
     public ArrayList<Proceso> getProcesos(String nombreArchivo) {
-        for (LeerPRSAdaptado lector : lector) {
-            if (lector.getUsuario().equals(nombreArchivo)) {
-                return lector.obtenerProcesos();
+        for (LeerPRSAdaptado lectorp : lector) {
+            if (lectorp.getRutaDelPRS().equals(nombreArchivo)) {
+                return lectorp.obtenerProcesos();
             }
         }
         return null;
