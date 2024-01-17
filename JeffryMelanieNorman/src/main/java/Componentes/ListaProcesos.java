@@ -67,7 +67,9 @@ public class ListaProcesos {
      * @return usuario - Usuario del archivo .prs
      */
     public String getUsuario(String prs){
+        System.out.println(prs);
         String usuario="";
+        prs = prs.substring(20, prs.length()-3);
         for(int i=0;i<prs.length();i++){
             if(prs.charAt(i)!='.'){
                 usuario+=prs.charAt(i);
@@ -88,7 +90,7 @@ public class ListaProcesos {
             ArrayList<Proceso> procesosprs;//=new ArrayList<>();
             procesosprs=manejo.getProcesos(getUsuario(prs));
             for(Proceso proceso:procesosprs){
-                procesos.add(proceso);
+                this.procesos.add(proceso);
             }
         }
     }

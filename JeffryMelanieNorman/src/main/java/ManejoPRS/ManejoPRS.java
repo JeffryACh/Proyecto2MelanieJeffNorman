@@ -172,6 +172,7 @@ public class ManejoPRS {
      * @return procesosLista - ArrayList de procesos del archivo .prs
      */
     public ArrayList<Proceso> getProcesos(String nombreArchivo) {
+        System.out.println("Nombre archivo: " + nombreArchivo);
         for (LeerPRSAdaptado lectorp : lector) {
             if (lectorp.getUsuario().equals(nombreArchivo)) {
                 return lectorp.obtenerProcesos();
