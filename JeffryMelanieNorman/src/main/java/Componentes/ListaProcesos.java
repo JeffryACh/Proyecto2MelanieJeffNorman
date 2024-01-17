@@ -53,13 +53,36 @@ public class ListaProcesos {
         return manejo;
     }
     
+    /**
+     * Metodo que se encarga de retornar los archivos .prs
+     * @param files - ArrayList de archivos .prs
+     */
     public void setPrss(ArrayList<String> files){
         this.prss=files;
     }
+
+    /**
+     * Metodo que se encarga de retornar el usuario del archivo .prs
+     * @return usuario - Usuario del archivo .prs
+     */
+    public String getUsuario(String prs){
+        String usuario="";
+        for(int i=0;i<prs.length();i++){
+            if(prs.charAt(i)!='.'){
+                usuario+=prs.charAt(i);
+            }
+            else{
+                break;
+            }
+        }
+        return usuario;
+        
+    }
+
     public void cargarProcesos(){
         for(String prs:prss){
             ArrayList<Proceso> procesosprs;//=new ArrayList<>();
-            procesosprs=manejo.getProcesos(prs);
+            procesosprs=manejo.getProcesos(getUsuario(prs));
             for(Proceso proceso:procesosprs){
                 procesos.add(proceso);
             }
