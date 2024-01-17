@@ -173,7 +173,7 @@ public class ManejoPRS {
      */
     public ArrayList<Proceso> getProcesos(String nombreArchivo) {
         for (LeerPRSAdaptado lectorp : lector) {
-            if (lectorp.getRutaDelPRS().equals(nombreArchivo)) {
+            if (lectorp.getUsuario().equals(nombreArchivo)) {
                 return lectorp.obtenerProcesos();
             }
         }
