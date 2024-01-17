@@ -97,8 +97,8 @@ public class CPU implements Runnable{
                             ventana.cargarDatos(ejecutando);
                         } else {
                             int cont=0;
-                            for(int i=0; i<ejecutando.length; i++){
-                                if(ejecutando[i]!=null){
+                            for (Proceso ejecutando1 : ejecutando) {
+                                if (ejecutando1 != null) {
                                     cont++;
                                 }
                             }
