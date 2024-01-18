@@ -79,12 +79,10 @@ public class CPU implements Runnable{
                     }
 
                     Proceso actual = ejecutando[indiceActual];
-                    Thread.sleep(1000); 
-                    //if(actual!=null){
-                        actual.aumentarSegundo();
-                        ventana.cargarDatos(ejecutando);
-
-                        if (actual.getTerminado()) {
+                    Thread.sleep(1000);
+                    actual.aumentarSegundo();
+                    ventana.cargarDatos(ejecutando);
+                    if (actual.getTerminado()) {
                             actual.cambiarEstado(Estado.FINALIZADO);
                             DateTimeFormatter formatoHora = DateTimeFormatter.ofPattern("HH:mm:ss");
                             LocalTime hora=LocalTime.now();
@@ -111,8 +109,8 @@ public class CPU implements Runnable{
                             }
                             indiceActual = (indiceActual + 1) % cont;
                         }
-                    
                 }
+                
             }
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();

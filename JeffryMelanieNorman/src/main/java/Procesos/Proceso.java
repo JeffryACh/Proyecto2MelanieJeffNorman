@@ -203,15 +203,19 @@ public abstract class Proceso {
     }
     
     /**
-     * Metodo que retorna el tiempo de ejecucion del proceso
+     * Metodo que aumenta el contador del proceso y verifica si el proceso ha terminado
      */
     public void aumentarSegundo(){
         this.contador++;
-        if(contador==tiempo){
-            this.terminado=true;
+        if(contador==duracion){
+            setTerminado();
         }
     }
     
+    public void setTerminado(){
+        this.terminado=true;
+    }
+
     /**
      * Metodo que retorna el estado del proceso
      * @return boolean terminado - Estado del proceso
