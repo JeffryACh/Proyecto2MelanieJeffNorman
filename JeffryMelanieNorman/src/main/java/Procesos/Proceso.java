@@ -212,6 +212,9 @@ public abstract class Proceso {
         }
     }
     
+    /**
+     * Metodo que modifica el estado del proceso a terminado
+     */
     public void setTerminado(){
         this.terminado=true;
     }
