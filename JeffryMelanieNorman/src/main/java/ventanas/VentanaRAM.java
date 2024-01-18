@@ -106,8 +106,17 @@ public class VentanaRAM extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    /**
+     * Label que muestra el titulo de la ventana
+     */
     private javax.swing.JLabel jLabel1;
+    /**
+     * Panel que muestra los procesos en la RAM
+     */
     private javax.swing.JPanel jPanel1;
+    /**
+     * ScrollPane que contiene el panel de los procesos en la RAM
+     */
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
     

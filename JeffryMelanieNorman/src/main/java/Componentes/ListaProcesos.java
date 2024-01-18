@@ -96,9 +96,13 @@ public class ListaProcesos {
         ventana.cargarDatos(procesos);
     }
     
+    /**
+     * Metodo que se encarga de asignar los procesos a los CPU
+     */
     public void cargarDatos(){
         ventana.cargarDatos(procesos);
     }
+    
     /**
      * Metodo que se encarga de establecer los procesos que se encuentran en el CPU
      * @param manejo - Manejo de los archivos .prs

@@ -32,7 +32,11 @@ public class VentanaInicio extends javax.swing.JFrame {
      */
     ListaProcesos lista;
     
+    /**
+     * Ruta del directorio
+     */
     private final String RUTA_DIRECTORIO = "./src/main/java/PRS";
+    
     /**
      * Creates new form Inicio
      */

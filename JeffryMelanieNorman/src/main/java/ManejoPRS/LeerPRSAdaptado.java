@@ -145,6 +145,51 @@ public class LeerPRSAdaptado {
     }
 
     /**
+     * Valida si existe un proceso con el ID especificado.
+     * @param id - El ID a validar.
+     * @return boolean - true si existe un proceso con el ID especificado, false si no.
+     */
+    private boolean validarExisteID(int id){
+        if (existenDocumentos()) {
+            for (Documento doc : documentos) {
+                if (doc.getId() == id) {
+                    return true;
+                }
+            }
+        }
+        if (existenEjecutables()) {
+            for (Ejecutable ejec : ejecutables) {
+                if (ejec.getId() == id) {
+                    return true;
+                }
+            }
+        }
+        if (existenMultimedias()) {
+            for (Multimedia multi : multimedia) {
+                if (multi.getId() == id) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Genera un ID aleatorio entre 256 y 1024 (unico) y lo restringe si ya existe.
+     * @return int - El ID generado.
+     */
+    private int restringirID(){
+        Random random = new Random();
+        int id = random.nextInt(769) + 256; // Generate a random ID between 256 and 1024 (exclusive)
+        if (validarExisteID(id)) {
+            id += 1; // Set the next ID to 256 if the generated ID already exists
+        } else if (id > 1024) {
+            id = 256; // Set the next ID to 1024 if the generated ID is greater than 1024
+        }
+        return id;
+    }
+
+    /**
      * Procesa una línea del archivo PRS y crea un objeto Documento si la línea corresponde a un proceso documento.
      * @param linea - La línea del archivo PRS a procesar.
      * @return doc - Un objeto Documento o null si la línea no corresponde a un proceso documento.
@@ -156,7 +201,7 @@ public class LeerPRSAdaptado {
         }
         
 
-        int id = new Random().nextInt(1000);
+        int id = restringirID();
         String nombre = obtenerNombreSinExtension(partes[0]);
         int tamano = Integer.parseInt(partes[1]);
         int duracion = Integer.parseInt(partes[2]);
@@ -204,7 +249,7 @@ public class LeerPRSAdaptado {
             return null;
         }
 
-        int id = new Random().nextInt(1000);
+        int id = restringirID();
         String nombre = obtenerNombreSinExtension(partes[0]);
         int tamano = Integer.parseInt(partes[1]);
         int duracion = Integer.parseInt(partes[2]);
@@ -248,8 +293,7 @@ public class LeerPRSAdaptado {
                 String[] partes = linea.split(", ");
 
                 if(partes[3].equals("multimedia")){
-                    Random random = new Random();
-                    int id = random.nextInt(1000);
+                    int id = restringirID();
                     Multimedia multi;
                     DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd-MM-yyyy");
                     LocalDate fechaActual = LocalDate.now();
@@ -489,5 +533,21 @@ public class LeerPRSAdaptado {
             procesosList.addAll(multimedia);
         }
         return procesosList;
+    }
+
+    /**
+     * Esta funcion retorna el usuario del archivo .prs
+     * @param proceso - Proceso del cual se quiere saber el usuario
+     * @return usuario - String del usuario
+     */
+    public String retornarUsuario(Proceso proceso){
+        if (proceso instanceof Documento) {
+            return ((Documento) proceso).getUsuario();
+        } else if (proceso instanceof Ejecutable) {
+            return ((Ejecutable) proceso).getUsuario();
+        } else if (proceso instanceof Multimedia) {
+            return ((Multimedia) proceso).getUsuario();
+        }
+        return null;
     }
 }

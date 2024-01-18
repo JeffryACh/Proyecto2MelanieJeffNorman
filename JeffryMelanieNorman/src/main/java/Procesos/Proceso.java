@@ -73,9 +73,15 @@ public abstract class Proceso {
     public void setUsuario(String usuario){
         this.usuario=usuario;
     }
+
+    /**
+     * Metodo que retorna el contador del proceso
+     * @return contador - Contador del proceso
+     */
     public int getCont(){
         return contador;
     }
+    
     /**
      * Metodo que cambia el estado del proceso
      * @param estado - Estado del proceso
