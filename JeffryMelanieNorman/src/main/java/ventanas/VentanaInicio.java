@@ -190,6 +190,8 @@ public class VentanaInicio extends javax.swing.JFrame {
         jButton4.setVisible(true);
         int n=(int) jComboBox1.getSelectedIndex()+1;
         ram=new RAM(n,lista);
+        lista.cargarProcesos();
+        
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -219,6 +221,7 @@ public class VentanaInicio extends javax.swing.JFrame {
             }
             lista.setPrss(fileNames);
             lista.cargarProcesos();
+            
             System.out.println(lista.getProcesos().get(0).getNombre());
             for(java.io.File file: files){
                 System.out.println("Archivo seleccionado: " + file.getAbsolutePath());

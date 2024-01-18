@@ -93,6 +93,11 @@ public class ListaProcesos {
                 this.procesos.add(proceso);
             }
         }
+        ventana.cargarDatos(procesos);
+    }
+    
+    public void cargarDatos(){
+        ventana.cargarDatos(procesos);
     }
     /**
      * Metodo que se encarga de establecer los procesos que se encuentran en el CPU
@@ -191,11 +196,11 @@ public class ListaProcesos {
      * @return procesos - ArrayList de procesos
      */
     public ArrayList<Proceso> sacarProcesos(){
-        ArrayList<Proceso> procesos = new ArrayList<>();
-        procesos.addAll(sacarDocumentos());
-        procesos.addAll(sacarMultimedia());
-        procesos.addAll(sacarEjecutables());
-        return procesos;
+        ArrayList<Proceso> procesoss = new ArrayList<>();
+        procesoss.addAll(sacarDocumentos());
+        procesoss.addAll(sacarMultimedia());
+        procesoss.addAll(sacarEjecutables());
+        return procesoss;
     }
 
     /**

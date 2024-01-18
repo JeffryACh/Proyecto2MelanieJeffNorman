@@ -198,6 +198,7 @@ public class VentanaListaProcesos extends javax.swing.JFrame {
      */
     public void cargarDatos(ArrayList<Proceso> procesos){
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        
         for(int i=0; i<procesos.size(); i++){
             if(procesos.get(i)!=null){
                 modelo.setValueAt(String.valueOf(procesos.get(i).getId()),i,0);
