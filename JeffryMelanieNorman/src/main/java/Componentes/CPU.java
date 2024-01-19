@@ -81,6 +81,7 @@ public class CPU implements Runnable{
                     Proceso actual = ejecutando[indiceActual];
                     Thread.sleep(1000);
                     actual.aumentarSegundo();
+                    System.out.println("Estado: "+actual.getEstado());
                     ventana.cargarDatos(ejecutando);
                     if (actual.getTerminado()) {
                             actual.cambiarEstado(Estado.FINALIZADO);
