@@ -86,10 +86,11 @@ public class ListaProcesos {
      * Metodo que se encarga de cargar los Procesos
     */
     public void cargarProcesos(){
+        procesos=new ArrayList<>();
         for(String prs:prss){
             ArrayList<Proceso> procesosprs;//=new ArrayList<>();
             procesosprs=manejo.getProcesos(getUsuario(prs));
-            for(Proceso proceso:procesosprs){
+            for(Proceso proceso:manejo.getProcesos(getUsuario(prs))){
                 this.procesos.add(proceso);
             }
         }

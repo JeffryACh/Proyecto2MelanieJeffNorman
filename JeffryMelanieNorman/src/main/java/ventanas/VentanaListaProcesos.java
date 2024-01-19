@@ -218,6 +218,24 @@ public class VentanaListaProcesos extends javax.swing.JFrame {
             }
         }
     }
+    public void actualizarDatos(ArrayList<Proceso> procesos){
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        
+        for(int i=0; i<modelo.getRowCount(); i++){
+            if(procesos.get(i-1)!=null){
+                
+                if(procesos.get(i-1).getFechaDeEjecucion()!=null)
+                    modelo.setValueAt(procesos.get(i-1).getFechaDeEjecucion(),i-1,3);
+                if(procesos.get(i-1).getHoraDeEjecucion()!=null)
+                    modelo.setValueAt(procesos.get(i-1).getHoraDeEjecucion(),i-1,4);
+                if(procesos.get(i-1).getHoraDefinalizacion()!=null)
+                    modelo.setValueAt(procesos.get(i-1).getHoraDefinalizacion(), i-1, 5);
+                
+                modelo.setValueAt(procesos.get(i).getEstado(), i, 9);
+                modelo.setValueAt(String.valueOf(procesos.get(i).getCPU()),i,10);
+            }
+        }
+    }
     
     
 }

@@ -60,18 +60,20 @@ public class CPU implements Runnable{
      * Metodo que ejecuta los procesos
      */
     @Override
+    
+    
     public void run() {
         try {
             while (true) {
                 synchronized (this) {
-                    while (ejecutando.length==0 && procesos.isEmpty()) {
+                    while (ejecutando[0]==null && procesos.isEmpty()) {
                         wait(); 
                     }
                     for(int j=0; j<ejecutando.length; j++){
                         if(ejecutando[j]==null && !procesos.isEmpty()){
                             ejecutando[j]=asignarProceso();
                             ventana.cargarDatos(ejecutando);
-                            break;
+                            //break;
                         }
                     }
                     if (indiceActual >= ejecutando.length) {
@@ -79,7 +81,8 @@ public class CPU implements Runnable{
                     }
 
                     Proceso actual = ejecutando[indiceActual];
-                    Thread.sleep(1000);
+                    if(actual!=null){
+                        Thread.sleep(1000);
                     actual.aumentarSegundo();
                     ventana.cargarDatos(ejecutando);
                     if (actual.getTerminado()) {
@@ -89,26 +92,30 @@ public class CPU implements Runnable{
                             String horaDefinalizacion=hora.format(formatoHora);
                             actual.setHoraDefinalizacion(horaDefinalizacion);
                             int i=indiceActual;
-                            while(i<ejecutando.length-1 && ejecutando[i+1]!=null){
+                            while(i<ejecutando.length-1 ){//&& ejecutando[i+1]!=null){
                                 ejecutando[i]=ejecutando[i+1];
                                 ejecutando[i+1]=null;
                                 i++;
                             }
-                            if(!procesos.isEmpty() && ejecutando[i]==null){
+                           
+                            if(!procesos.isEmpty() ){
                                 Proceso tmp=asignarProceso();
-                                if(tmp!=null)
+                                //if(tmp!=null)
                                     ejecutando[i]=tmp;
+                            }else{
+                                ejecutando[i]=null;
                             }
+                            
                             ventana.cargarDatos(ejecutando);
-                        } else {
-                            int cont=0;
+                        } }//else {
+                            /*int cont=0;
                             for (Proceso ejecutando1 : ejecutando) {
                                 if (ejecutando1 != null) {
                                     cont++;
                                 }
-                            }
-                            indiceActual = (indiceActual + 1) % cont;
-                        }
+                            }*/
+                            indiceActual = (indiceActual + 1) % ejecutando.length;
+                        //}
                 }
                 
             }

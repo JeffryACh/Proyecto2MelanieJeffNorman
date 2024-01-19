@@ -31,7 +31,7 @@ public class VentanaInicio extends javax.swing.JFrame {
      * Lista de procesos
      */
     ListaProcesos lista;
-    
+    ArrayList<String> fileNames = new ArrayList<>();
     /**
      * Ruta del directorio
      */
@@ -215,7 +215,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             jButton1.setVisible(true);
             java.io.File[] files = fileChooser.getSelectedFiles();
-            ArrayList<String> fileNames = new ArrayList<>();
+            
             lista=new ListaProcesos();
         
             // Recorrer cada archivo en el array files

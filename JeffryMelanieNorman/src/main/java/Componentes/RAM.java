@@ -3,6 +3,7 @@ package Componentes;
 import Procesos.Estado;
 import Procesos.Proceso;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Random;
 import ventanas.VentanaRAM;
 
@@ -113,11 +114,39 @@ public class RAM implements Runnable{
         }
 
         ventana.cargarDatos(procesos);
+        lista.cargarDatos();
     }
     /**
      * Metodo que actualiza los procesos de la RAM
      */
-    public void actualizarProcesos(){
+    public synchronized void actualizarProcesos() {
+        if (procesos != null) {
+            ArrayList<Proceso> procesosNuevos = new ArrayList<>();
+            Iterator<Proceso> iterator = procesos.iterator();
+            while (iterator.hasNext()) {
+                Proceso proceso = iterator.next();
+                if (proceso != null && proceso.getEstado().equals(Estado.FINALIZADO)) {
+                    iterator.remove(); // Elimina el proceso de manera segura
+                    usado -= proceso.getTamano();
+                    Proceso nuevoProceso = siguienteEnEspera();
+                    if (nuevoProceso != null) {
+                        procesosNuevos.add(nuevoProceso); // Acumula procesos nuevos
+                    }
+                }
+            }
+            // Añadir los nuevos procesos después de la iteración
+            for (Proceso nuevoProceso : procesosNuevos) {
+                agregarProceso(nuevoProceso);
+                usado += nuevoProceso.getTamano();
+                asignarCPU(nuevoProceso);
+            }
+            ventana.cargarDatos(procesos);
+        }
+        lista.cargarDatos();
+    }
+
+
+    /*public void actualizarProcesos(){
         if(procesos!=null && !procesos.isEmpty()){
             for(Proceso proceso: procesos){
                 if(proceso.getEstado().equals(Estado.FINALIZADO)){
@@ -125,10 +154,11 @@ public class RAM implements Runnable{
                     usado-=proceso.getTamano();
                     proceso=siguienteEnEspera();
                     asignarCPU(proceso);
+                    ventana.cargarDatos(procesos);
                 }
             }
         }
-        //asignarProcesos();
+        
     }
     /**
      * Metodo que retorna el siguiente proceso en espera
@@ -166,11 +196,13 @@ public class RAM implements Runnable{
      * @param proceso - Proceso a asignar
      */
     private void asignarCPU(Proceso proceso){
-        Random random = new Random();
-        int n = random.nextInt(cpus.length); 
-        cpus[n].agregarProceso(proceso); 
-        proceso.cambiarEstado(Estado.ASIGNADO);
-        proceso.setCPU(n+1);
+        if(proceso!=null){
+            Random random = new Random();
+            int n = random.nextInt(cpus.length); 
+            cpus[n].agregarProceso(proceso); 
+            proceso.cambiarEstado(Estado.ASIGNADO);
+            proceso.setCPU(n+1);
+        }
     }
     /**
      * Metodo que ejecuta los procesos
@@ -181,7 +213,7 @@ public class RAM implements Runnable{
                 thread.start();
             }
         }
-        // Aquí se puede poner la Lógica para la ejecución de procesos
+        lista.cargarDatos();
     }
     
     /**
