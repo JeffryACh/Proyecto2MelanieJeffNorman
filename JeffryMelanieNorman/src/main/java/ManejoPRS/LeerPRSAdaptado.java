@@ -212,6 +212,7 @@ public class LeerPRSAdaptado {
         Documento doc = new Documento(id, nombre, partes[4], tipo, tamano, duracion);
         doc.setHoraDeEjecucion(hora);
         doc.setFechaDeEjecucion(fechaString);
+        doc.setUsuario(this.usuario);
 
         return doc;
     }
@@ -260,6 +261,7 @@ public class LeerPRSAdaptado {
         Ejecutable ejec = new Ejecutable(id, nombre, partes[5], partes[4], tipo, tamano, duracion);
         ejec.setHoraDeEjecucion(horaString);
         ejec.setFechaDeEjecucion(fechaString);
+        ejec.setUsuario(this.usuario);
 
         return ejec;
     }
@@ -312,6 +314,7 @@ public class LeerPRSAdaptado {
                     multi = new Multimedia(id, nombre, partes[4], partes[3], tamano, duracion);
                     multi.setHoraDeEjecucion(hora);
                     multi.setFechaDeEjecucion(fecha);
+                    multi.setUsuario(this.usuario);
                     multimedia.add(multi);
                     this.cantidadProcesos++;
                 }
