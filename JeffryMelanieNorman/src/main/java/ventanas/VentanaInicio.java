@@ -31,6 +31,9 @@ public class VentanaInicio extends javax.swing.JFrame {
      * Lista de procesos
      */
     ListaProcesos lista;
+    /**
+     * ArrayList de los nombres de los archivos
+     */
     ArrayList<String> fileNames = new ArrayList<>();
     /**
      * Ruta del directorio

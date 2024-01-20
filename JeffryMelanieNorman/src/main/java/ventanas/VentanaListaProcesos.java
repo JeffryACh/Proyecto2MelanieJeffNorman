@@ -218,6 +218,10 @@ public class VentanaListaProcesos extends javax.swing.JFrame {
             }
         }
     }
+    /**
+     * Metodo que se encarga de actualizar los datos de los procesos en la tabla
+     * @param procesos - Arreglo de procesos
+     */
     public void actualizarDatos(ArrayList<Proceso> procesos){
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
         
@@ -236,6 +240,4 @@ public class VentanaListaProcesos extends javax.swing.JFrame {
             }
         }
     }
-    
-    
 }

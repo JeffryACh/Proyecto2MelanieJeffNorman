@@ -60,8 +60,6 @@ public class CPU implements Runnable{
      * Metodo que ejecuta los procesos
      */
     @Override
-    
-    
     public void run() {
         try {
             while (true) {
